@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -18,15 +17,13 @@
             <AnchorPane prefHeight="468.0" prefWidth="361.0" BorderPane.alignment="CENTER">
                <children>
                   <TextField fx:id="txtNombre" layoutX="62.0" layoutY="68.0" promptText="Nombre" style="-fx-background-color: transparent; -fx-border-color: #bff5c3; -fx-border-width: 0px 0px 2px 0px;" />
-                  <Hyperlink layoutX="80.0" layoutY="414.0" prefHeight="23.0" prefWidth="158.0" text="¿Ya tienes una cuenta?" textFill="#343934" />
+                  <Hyperlink fx:id="TengoCuenta" layoutX="80.0" layoutY="414.0" onAction="#YatienesCuentaAction" prefHeight="23.0" prefWidth="158.0" text="¿Ya tienes una cuenta?" textFill="#343934" />
                   <Button fx:id="btnRegistrarse" layoutX="193.0" layoutY="378.0" mnemonicParsing="false" onAction="#RegistrarAction" style="-fx-background-color: #bff5c3;" text="Registrarse" textFill="#272c27" />
                   <Text layoutX="80.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro" textAlignment="JUSTIFY" wrappingWidth="133.13671875">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <PasswordField fx:id="Contraseña" layoutX="62.0" layoutY="282.0" promptText="Contraseña" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #bff5c3;" />
-                  <PasswordField fx:id="ConfirmarContraseña" layoutX="62.0" layoutY="320.0" promptText="Confirmar contraseña" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #bff5c3;" />
                   <TextField fx:id="txtTelefono" layoutX="62.0" layoutY="104.0" promptText="Telefono" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #bff5c3;" />
                   <TextField fx:id="txtDireccion" layoutX="62.0" layoutY="179.0" promptText="Dirección" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #bff5c3;" />
                   <TextField fx:id="txtCedula" layoutX="62.0" layoutY="139.0" promptText="Cedula o nit" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #bff5c3;" />
@@ -42,6 +39,8 @@
                      </font>
                   </Text>
                   <Button fx:id="NUevo" layoutX="80.0" layoutY="378.0" mnemonicParsing="false" onAction="#NUevoAction" style="-fx-background-color: #bff5c3;" text="Nuevo" />
+                  <TextField fx:id="txtContrasena" layoutX="62.0" layoutY="288.0" promptText="Contraseña" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #bff5c3;" />
+                  <TextField fx:id="txtConfirmarContrasena" layoutX="62.0" layoutY="334.0" promptText="ConfirmarContraseña" style="-fx-background-color: transparent; -fx-border-color: #bff5c3; -fx-border-width: 0px 0px 2px 0px;" />
                </children>
             </AnchorPane>
          </right>

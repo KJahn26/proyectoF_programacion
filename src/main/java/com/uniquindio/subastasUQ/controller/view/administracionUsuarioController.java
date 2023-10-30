@@ -9,17 +9,21 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.util.Optional;
+
 public class administracionUsuarioController
 
 {
         UsuarioController usuarioControllerService;
         ObservableList<UsuarioDto> listaUsuarios= FXCollections.observableArrayList();
-        UsuarioDto usuariosSeleccionados;
+        UsuarioDto usuariosSeleccionado;
         @FXML
         private Button BUscar;
 
         @FXML
-        private Button Actualizar;
+        private Button ActualizarTabla;
+        @FXML
+        private Button ActualizarUsuario;
 
         @FXML
         private Button Eliminar;
@@ -41,6 +45,8 @@ public class administracionUsuarioController
 
         @FXML
         private TextField txtE_mail;
+        @FXML
+        private TextField txtContraseña;
 
         @FXML
         private TableView<UsuarioDto> tableUsuarios;
@@ -74,7 +80,7 @@ public class administracionUsuarioController
 
         private void intiView() {
                 initDataBinding();
-                obtenerEmpleados();
+                obtenerUsuario();
                 tableUsuarios.getItems().clear();
                 tableUsuarios.setItems(listaUsuarios);
                 listenerSelection();
@@ -89,59 +95,68 @@ public class administracionUsuarioController
                 tableTelefono.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().telefono()));
         }
 
-        private void obtenerEmpleados() {
-                listaUsuarios.addAll(usuarioControllerService.obtenerEmpleados());
+        private void obtenerUsuario() {
+
+                listaUsuarios.addAll(usuarioControllerService.obtenerUsuario());
         }
 
         private void listenerSelection() {
                 tableUsuarios.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-                        usuariosSeleccionados = newSelection;
-                        mostrarElementosDeLaTabla(usuariosSeleccionados);
+                        usuariosSeleccionado= newSelection;
+
                 });
         }
 
         @FXML
-        void ActualizarAction(ActionEvent event) {
+        void ActualizarTablaAction(ActionEvent event) {
+                initDataBinding();
+                tableUsuarios.getItems().clear();
+                tableUsuarios.setItems(listaUsuarios);
+                obtenerUsuario();
+                //listenerSelection();
+        }
+        @FXML
+        void actualizarUsuarioAction(ActionEvent event) {
+                actualizarUsuario();
 
         }
 
         @FXML
         void AgregarAction(ActionEvent event) {
+
                 crearUsuario();
         }
 
-        @FXML
-        void BuscarAction(ActionEvent event) {
 
-        }
 
         @FXML
         void EliminarAction(ActionEvent event) {
-
+                eliminarUsuario();
         }
 
         private void crearUsuario(){
-                UsuarioDto usuarioDto= new UsuarioDto(txtNombre.getText(),txtTelefono.getText(),txtE_mail.getText(),txtCedula.getText(),txtDireccion.getText(),"aja");
+                UsuarioDto usuarioDto= new UsuarioDto(txtNombre.getText(),txtTelefono.getText(),txtE_mail.getText(),txtCedula.getText(),txtDireccion.getText(),txtContraseña.getText(),"");
 
                 if(datosValidos(usuarioDto)){
                         if(usuarioControllerService.agregarUsuario(usuarioDto)){
                                 listaUsuarios.add(usuarioDto);
-                                mostrarMensaje("Notificación empleado", "Empleado creado", "El empleado se ha creado con éxito", Alert.AlertType.INFORMATION);
-                                limpiarCamposEmpleado();
+                                mostrarMensaje("Notificación usuario", "usuario creado", "El usuario se ha creado con éxito", Alert.AlertType.INFORMATION);
+                                limpiarCamposUsuario();
                         }else{
-                                mostrarMensaje("Notificación empleado", "Empleado no creado", "El empleado no se ha creado con éxito", Alert.AlertType.ERROR);
+                                mostrarMensaje("Notificación usuario", "usuario creado", "El usuario no se ha creado con éxito", Alert.AlertType.ERROR);
                         }
                 }else{
-                        mostrarMensaje("Notificación empleado", "Empleado no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+                        mostrarMensaje("Notificación usuario", "usuario no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
                 }
         }
 
-        private void limpiarCamposEmpleado() {
+        private void limpiarCamposUsuario() {
                 txtNombre.setText("");
                 txtDireccion.setText("");
                 txtE_mail.setText("");
                 txtCedula.setText("");
                 txtTelefono.setText("");
+                txtContraseña.setText("");
         }
 
 
@@ -151,6 +166,14 @@ public class administracionUsuarioController
                         mensaje += "El nombre es invalido \n" ;
                 if(usuarioDto.cedula() == null || usuarioDto.cedula().equals(""))
                         mensaje += "El documento es invalido \n" ;
+                if (usuarioDto.direccion()==null || usuarioDto.direccion().equals(""))
+                        mensaje+="La dirección no es valida \n";
+                if (usuarioDto.telefono()==null || usuarioDto.telefono().equals(""))
+                        mensaje+="El telefono no es valido \n";
+                if (usuarioDto.email()==null || usuarioDto.email().equals(""))
+                        mensaje+="Correo no es valido \n";
+                if (usuarioDto.contrasena()==null || usuarioDto.contrasena().equals(""))
+                        mensaje+="Contraseña es invalida \n";
                 if(mensaje.equals("")){
                         return true;
                 }else{
@@ -159,17 +182,40 @@ public class administracionUsuarioController
                 }
         }
 
-    //Sirve para seleccionar el usuario  de la tabla
-    //Este metodo nos ayuda a mostrar todo lo que tenga ese usuario en la tabal
-    private void mostrarElementosDeLaTabla (UsuarioDto usuarioSeleccionado)
+
+
+    private void eliminarUsuario ()
     {
-            if(usuarioSeleccionado != null){
-                    txtNombre.setText(usuarioSeleccionado.nombre());
-                    txtCedula.setText(usuarioSeleccionado.cedula());
-                    txtTelefono.setText(usuarioSeleccionado.telefono());
-                    txtE_mail.setText(usuarioSeleccionado.email());
-                    txtDireccion.setText(usuarioSeleccionado.direccion());
+            boolean usuarioEliminado=false;
+            if (usuariosSeleccionado!= null)
+            {
+                    if (mostrarMensajeConfirmacion("¿Estas seguro de elmininar al Usuario?"))
+
+                    {
+                            usuarioEliminado=usuarioControllerService.eliminarEmpleado(usuariosSeleccionado.cedula());
+                            if (usuarioEliminado!=false)
+                            {
+                                    listaUsuarios.remove(usuariosSeleccionado);
+                                    usuariosSeleccionado=null;
+                                    tableUsuarios.getSelectionModel().clearSelection();
+
+                                    mostrarMensaje("Notificación usuario", "usuario eliminado", "El usuario se ha eliminado con éxito", Alert.AlertType.INFORMATION);
+
+
+                            }
+                            else
+                            {
+                                    mostrarMensaje("Notificación usuario", "usuario no eliminado", "El usuario no se puede eliminar", Alert.AlertType.ERROR);
+                            }
+
+                    }
+                    else
+                    {
+                            mostrarMensaje("Notificación usuario", "usuario no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+                    }
+
             }
+
     }
 
     private void mostrarMensaje(String msj, String header, String contenido, Alert.AlertType alertType){
@@ -180,14 +226,66 @@ public class administracionUsuarioController
             aler.showAndWait();
     }
 
+        private boolean mostrarMensajeConfirmacion(String mensaje) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText(null);
+                alert.setTitle("Confirmación");
+                alert.setContentText(mensaje);
+                Optional<ButtonType> action = alert.showAndWait();
+                if (action.get() == ButtonType.OK) {
+                        return true;
+                } else {
+                        return false;
+                }
 
 
+        }
 
+        private void actualizarUsuario ()
+        {
+                boolean usuarioActualizado =false;
+                        //1.Capturar los datos
+                String cedulaActual =usuariosSeleccionado.cedula();
+                UsuarioDto usuarioDto = construirUsuarioDTo();
+                        //2.verificar el usuario seleccionado
+                if (usuariosSeleccionado!=null)
+                {
+                        //Validar la información
+                        if (datosValidos(usuariosSeleccionado))
+                        {
+                                usuarioActualizado=usuarioControllerService.actualizarEmpleado(cedulaActual,usuarioDto);
+                                if (usuarioActualizado)
+                                {
+                                        listaUsuarios.remove(usuariosSeleccionado);
+                                        listaUsuarios.add(usuarioDto);
+                                        tableUsuarios.refresh();
+                                        mostrarMensaje("Notificación usuario", "usuario actualizado", "El usuario se ha actualizado con éxito", Alert.AlertType.INFORMATION);
+                                        limpiarCamposUsuario();
+                                }
+                                else
+                                {
+                                        mostrarMensaje("Notificación usurio", "usuario no actualizado", "El usurio no se ha actualizado con éxito", Alert.AlertType.INFORMATION);
+                                }
 
+                        }
+                        else
+                        {
+                                mostrarMensaje("Notificación usuario", "usuario no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+                        }
 
+                }
+        }
 
-
-
-
+        private UsuarioDto construirUsuarioDTo() {
+                return new UsuarioDto(
+                        txtNombre.getText(),
+                        txtTelefono.getText(),
+                        txtE_mail.getText(),
+                        txtCedula.getText(),
+                        txtDireccion.getText(),
+                        txtContraseña.getText(),
+                        ""
+                );
+        }
 
 }
