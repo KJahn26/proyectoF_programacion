@@ -1,10 +1,15 @@
 package com.uniquindio.subastasUQ.model;
 
 
+import java.io.Serializable;
 
-public class Anuncio
+public class Anuncio extends SubastaUq implements Serializable
 {
-   public double valorInicial=0;
+   private static final long serialVersionUID = 1L;
+   public Anuncio ()
+   {
+
+   }
 
 
 }

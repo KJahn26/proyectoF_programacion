@@ -1,15 +1,35 @@
 package com.uniquindio.subastasUQ.model;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario extends SubastaUq implements Serializable
+{
+    private static final long serialVersionUID = 1L;
     private String nombre;
 
-    private String apellido;
+    private String confirmacioncontrasena;
+
+    public String getConfirmacioncontrasena() {
+        return confirmacioncontrasena;
+    }
+
+    public void setConfirmacioncontrasena(String confirmacioncontrasena) {
+        this.confirmacioncontrasena = confirmacioncontrasena;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
 
     private  String email;
 
     private String cedula;
 
-    private String contraseña;
+    private String contrasena;
 
     private String telefono;
 
@@ -25,13 +45,7 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
-    }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
 
     public String getEmail() {
         return email;
@@ -49,13 +63,7 @@ public class Usuario {
         this.cedula = cedula;
     }
 
-    public String getContraseña() {
-        return contraseña;
-    }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
-    }
 
     public String getTelefono() {
         return telefono;

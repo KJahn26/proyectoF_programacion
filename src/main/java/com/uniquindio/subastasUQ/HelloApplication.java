@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class    HelloApplication extends Application {
     private Stage primaryStage;
     private BorderPane rootLayout;
     @Override
@@ -18,7 +18,7 @@ public class HelloApplication extends Application {
         this.primaryStage.setTitle("Subastas UQ");
         mostrarVentanaPrincipal();
     }
-    //nievd
+
 
     public void mostrarVentanaPrincipal ()
     {
@@ -39,4 +39,5 @@ public class HelloApplication extends Application {
     public static void main(String[] args) {
         launch();
     }
+
 }

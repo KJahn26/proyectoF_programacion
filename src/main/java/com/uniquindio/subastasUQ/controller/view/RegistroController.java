@@ -1,31 +1,34 @@
 package com.uniquindio.subastasUQ.controller.view;
 
+import com.uniquindio.subastasUQ.controlle.UsuarioController;
 import com.uniquindio.subastasUQ.mapping.dto.UsuarioDto;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class RegistroController {
+    UsuarioController usuarioControllerService;
     ObservableList<UsuarioDto> listaUsuarios = FXCollections.observableArrayList();
     UsuarioDto usuarioSeleccionado;
     @FXML
+    private TextField txtContrasena;
+
+    @FXML
+    private TextField txtConfirmarContrasena;
+    @FXML
+    private Hyperlink TengoCuenta;
+    @FXML
     private TextField txtNombre;
+
 
     @FXML
     private Button btnRegistrarse;
     @FXML
     private Button NUevo;
 
-    @FXML
-    private PasswordField Contraseña;
 
-    @FXML
-    private PasswordField ConfirmarContraseña;
 
     @FXML
     private TextField txtTelefono;
@@ -38,49 +41,53 @@ public class RegistroController {
 
     @FXML
     private TextField txtEmail;
-
+   @FXML
+    void initialize ()
+   {
+       usuarioControllerService =new UsuarioController();
+   }
 
     public void RegistrarAction (ActionEvent event)
     {
         crearUsuario();
     }
-    public void crearUsuario () {
 
-    }
 
-    public void agregarUsuario ()
-    {
-        //1.Capturamos los datos
-        UsuarioDto usuariosDto =construirEmpleadoDto ();
-        //2.Validar la información
-        if (datosValidos((usuariosDto)))
-        {
+    private void crearUsuario(){
+        UsuarioDto usuarioDto= new UsuarioDto(txtNombre.getText(),txtTelefono.getText(),txtEmail.getText(),txtCedula.getText(),txtDireccion.getText(),txtContrasena.getText(),txtConfirmarContrasena.getText());
 
+        if(datosValidos(usuarioDto)){
+            if(usuarioControllerService.agregarUsuario(usuarioDto)){
+                listaUsuarios.add(usuarioDto);
+                mostrarMensaje("Notificación usuario", "usuario creado", "El usuario se ha creado con éxito", Alert.AlertType.INFORMATION);
+                limpiarCamposUsuario();
+            }else{
+                mostrarMensaje("Notificación usuario", "usuario creado", "El usuario no se ha creado con éxito", Alert.AlertType.ERROR);
+            }
+        }else{
+            mostrarMensaje("Notificación usuario", "usuario no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
+    }
+    private void limpiarCamposUsuario() {
+        txtNombre.setText("");
+        txtDireccion.setText("");
+        txtEmail.setText("");
+        txtCedula.setText("");
+        txtTelefono.setText("");
 
     }
 
-    private UsuarioDto construirEmpleadoDto ()
-    {
-        return new UsuarioDto (
-                txtNombre.getText(),
-                txtTelefono.getText(),
-                txtEmail.getText(),
-                txtCedula.getText(),
-                txtDireccion.getText(),
-                Contraseña.getText()
-        );
 
-    }
+
+
     private boolean datosValidos (UsuarioDto usuariosDto)
     {
         String mensaje = "";
         if(usuariosDto.nombre() == null || usuariosDto.nombre().equals(""))
             mensaje += "El nombre es invalido \n" ;
-
         if(usuariosDto.cedula() == null || usuariosDto.cedula().equals(""))
             mensaje += "El documento es invalido \n" ;
-        if(usuariosDto.contraseña()== null || usuariosDto.contraseña().equals(""))
+        if(usuariosDto.contrasena()== null || usuariosDto.contrasena().equals(""))
             mensaje += "La contraseña  es invalida \n" ;
         if (usuariosDto.telefono()==null || usuariosDto.telefono().equals(""))
             mensaje+="EL telefono invalido";
@@ -111,6 +118,11 @@ public class RegistroController {
             txtDireccion.setText("Dirección");
             txtEmail.setText("E-mail");
 
+    }
+    @FXML
+    void YatienesCuentaAction(ActionEvent event) {
+
+        System.out.println("Ya tengo una cuenta");
     }
 
 }

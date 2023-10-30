@@ -6,7 +6,8 @@ public record UsuarioDto(
           String email,
          String cedula,
          String direccion,
-         String contraseña
+         String contrasena,
+        String confirmacioncontrasena
 ) {
 
 }

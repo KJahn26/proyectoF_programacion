@@ -1,10 +1,16 @@
 package com.uniquindio.subastasUQ.model;
 
-public class Producto
+import java.io.Serializable;
+
+public class Producto extends SubastaUq implements Serializable
 {
-    private String tipoProducto ="";
+    private static final long serialVersionUID = 1L;
+
     private String nombreProducto ="";
-    private String descrpcionProducto="";
+    private String tipoProducto ="";
+    private String descProducto ="";
+
+    private String anunciante="";
 
     public Producto ()
     {}
@@ -17,12 +23,12 @@ public class Producto
         this.tipoProducto = tipoProducto;
     }
 
-    public String getDescrpcionProducto() {
-        return descrpcionProducto;
+    public String getDescProducto() {
+        return descProducto;
     }
 
-    public void setDescrpcionProducto(String descrpcionProducto) {
-        this.descrpcionProducto = descrpcionProducto;
+    public void setDescProducto(String descProducto) {
+        this.descProducto = descProducto;
     }
 
     public String getNombreProducto() {
@@ -31,6 +37,14 @@ public class Producto
 
     public void setNombreProducto(String nombreProducto) {
         this.nombreProducto = nombreProducto;
+    }
+
+    public String getAnunciante() {
+        return anunciante;
+    }
+
+    public void setAnunciante(String anunciante) {
+        this.anunciante = anunciante;
     }
 
 }

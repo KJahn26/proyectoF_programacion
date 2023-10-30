@@ -1,0 +1,29 @@
+#AnchorProductos
+{
+    -fx-border-color: BLACK;
+}
+#AnchorPuja
+{
+    -fx-border-color: BLACK;
+}
+#AnchorProductos:hover
+{
+    -fx-cursor: HAND;
+}
+#AnchorPuja:hover
+{
+    -fx-cursor: pointer;
+}
+
+.button
+{
+    -fx-background-color: transparent;
+}
+.button:hover
+{
+    -fx-cursor: HAND;
+}
+#AnchorPrincipal
+{
+    -fx-background-color: WHRITE;
+}

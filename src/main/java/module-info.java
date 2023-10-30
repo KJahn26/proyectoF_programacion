@@ -2,6 +2,8 @@ module com.uniquindio.proyectofinal2023 {
     requires javafx.controls;
     requires javafx.fxml;
     requires org.mapstruct;
+    requires java.logging;
+    requires java.desktop;
 
 
     //opens com.uniquindio.UQ to javafx.fxml;
