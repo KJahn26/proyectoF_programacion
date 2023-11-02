@@ -13,13 +13,14 @@
          <children>
             <TableView fx:id="tableProductos" layoutX="-2.0" prefHeight="200.0" prefWidth="547.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
-                  <TableColumn prefWidth="75.0" text="C2" />
-                  <TableColumn prefWidth="75.0" text="C2" />
-                  <TableColumn prefWidth="75.0" text="C2" />
-                  <TableColumn prefWidth="75.0" text="C2" />
-                  <TableColumn prefWidth="91.0" text="C2" />
+                <TableColumn prefWidth="20.0" text="#" />
+                <TableColumn prefWidth="56.0" text="Nombre" />
+                  <TableColumn prefWidth="84.0" text="T.Producto" />
+                  <TableColumn prefWidth="71.0" text="Descripción" />
+                  <TableColumn prefWidth="92.0" text="N.Anunciante" />
+                  <TableColumn prefWidth="63.0" text="F.Inicio" />
+                  <TableColumn prefWidth="75.0" text="F.Final" />
+                  <TableColumn text="V.producto" />
               </columns>
             </TableView>
          </children>
@@ -28,13 +29,14 @@
          <children>
             <TableView fx:id="tableProductos" layoutX="2.0" layoutY="2.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
               <columns>
-                <TableColumn fx:id="tableCOolumnPuja" prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
-                  <TableColumn prefWidth="75.0" text="C2" />
-                  <TableColumn prefWidth="75.0" text="C2" />
-                  <TableColumn prefWidth="75.0" text="C2" />
-                  <TableColumn prefWidth="75.0" text="C2" />
-                  <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="tableCOolumnPuja" prefWidth="16.0" text="#" />
+                <TableColumn prefWidth="56.0" text="Nombre" />
+                  <TableColumn prefWidth="76.0" text="T.Producto" />
+                  <TableColumn prefWidth="84.0" text="Descripción" />
+                  <TableColumn prefWidth="98.0" text="N. Anunciante" />
+                  <TableColumn prefWidth="63.0" text="F.inicio" />
+                  <TableColumn prefWidth="53.0" text="F.Final" />
+                  <TableColumn prefWidth="78.0" text="V.Producto" />
               </columns>
             </TableView>
          </children>
