@@ -71,6 +71,7 @@ public class ModelFactoryController implements iModelFactoryController {
         subastaUq = subastaUqUtils.inicializarDatos();
     }
 
+
     @Override
     public void cargarDatosArchivos() {
         subastaUq = new SubastaUq();
