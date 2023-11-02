@@ -1,40 +1,78 @@
 package com.uniquindio.subastasUQ.controller.view;
+import com.uniquindio.subastasUQ.controlle.AnuncioController;
+import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
+import com.uniquindio.subastasUQ.mapping.dto.UsuarioDto;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-
 public class ProductosController {
+    AnuncioController anuncioControllerService;
+    ProductoDto productoSeleccionado;
+    ObservableList<ProductoDto> listaProductos= FXCollections.observableArrayList();
     @FXML
-    private TableView<?> tableUsuarios;
+    private TableView<ProductoDto> tableUsuarios;
 
     @FXML
-    private TableColumn<?, ?> tableNombre;
+    private TableColumn<ProductoDto,String> columnNumeral;
 
     @FXML
-    private TableColumn<?, ?> tableTelefono;
+    private TableColumn<ProductoDto, String> columnNombre;
 
     @FXML
-    private TableColumn<?, ?> tableCedula;
+    private TableColumn<ProductoDto, String> columnTipoProducto;
 
     @FXML
-    private TableColumn<?, ?> tableDireccion;
+    private TableColumn<ProductoDto, String> columnDescripcion;
 
     @FXML
-    private TableColumn<?, ?> tableEmail;
+    private TableColumn<ProductoDto, String> columnNombreAnunciante;
 
     @FXML
-    private TableColumn<?, ?> tableEmail1;
+    private TableColumn<ProductoDto, String> columnFechaInicio;
 
     @FXML
-    private TableColumn<?, ?> tableEmail11;
+    private TableColumn<ProductoDto, String> columnFechaFinal;
 
     @FXML
-    private TableColumn<?, ?> tableEmail111;
+    private TableColumn<ProductoDto, String> columnValorInicial;
 
     @FXML
     private Button btnPujar;
+    @FXML
+    void initialize ()
+    {
+        anuncioControllerService = new AnuncioController();
+        initDataBinding();
+        obtnerDatos();
+        tableUsuarios.getItems().clear();
+        tableUsuarios.setItems(listaProductos);
+
+    }
+
+    private void listenerSelection() {
+        tableUsuarios.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            productoSeleccionado = newSelection;
+        });
+    }
+    public void obtnerDatos ()
+    {
+        listaProductos.addAll(anuncioControllerService.obtenerProducto());
+    }
+    private void initDataBinding() {
+        columnNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
+        columnDescripcion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().descProducto()));
+        columnNombreAnunciante.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().anunciante()));
+
+        //tcNombreProducto.setCellValueFactory(new PropertyValueFactory("nombreProducto"));
+        //tcTipoProducto.setCellValueFactory(new PropertyValueFactory("tipoProducto"));
+        //tcDescripcionProducto.setCellValueFactory(new PropertyValueFactory("descripcionProducto"));
+
+    }
 
     @FXML
     void actionPujar(ActionEvent event) {

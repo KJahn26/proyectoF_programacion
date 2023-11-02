@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="490.0" prefWidth="766.0" style="-fx-background-color: #f2f4f5; -fx-border-width: 0px 0px 2px 0px;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uniquindio.subastasUQ.controller.view.PujasController">
+<AnchorPane prefHeight="490.0" prefWidth="766.0" style="-fx-background-color: #f2f4f5; -fx-border-width: 0px 0px 2px 0px;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uniquindio.subastasUQ.controller.view.ProductosController">
     <children>
         <Label layoutX="276.0" layoutY="14.0" style="-fx-border-width: 0px 0px 2px 0px;" text="Productos" textFill="#222020">
             <font>
@@ -16,14 +16,14 @@
         </Label>
         <TableView fx:id="tableUsuarios" layoutX="1.0" layoutY="70.0" prefHeight="359.0" prefWidth="755.0">
             <columns>
-                <TableColumn fx:id="tableNombre" prefWidth="39.0" text="#" />
-                <TableColumn fx:id="tableTelefono" prefWidth="88.0" text="Nombre" />
-                <TableColumn fx:id="tableCedula" prefWidth="87.0" text="Tipo producto" />
-                <TableColumn fx:id="tableDireccion" prefWidth="104.0" text="Descripción" />
-                <TableColumn fx:id="tableEmail" prefWidth="134.0" text="Nombre anunciante" />
-            <TableColumn fx:id="tableEmail1" prefWidth="104.0" text="Fecha inicio" />
-            <TableColumn fx:id="tableEmail11" prefWidth="83.0" text="Fecha final" />
-            <TableColumn fx:id="tableEmail111" prefWidth="112.0" text="Valor inicial" />
+                <TableColumn fx:id="columnNumeral" prefWidth="39.0" text="#" />
+                <TableColumn fx:id="columnNombre" prefWidth="88.0" text="Nombre" />
+                <TableColumn fx:id="columnTipoProducto" prefWidth="87.0" text="Tipo producto" />
+                <TableColumn fx:id="columnDescripcion" prefWidth="104.0" text="Descripción" />
+                <TableColumn fx:id="columnNombreAnunciante" prefWidth="134.0" text="Nombre anunciante" />
+            <TableColumn fx:id="columnFechaInicio" prefWidth="104.0" text="Fecha inicio" />
+            <TableColumn fx:id="columnFechaFinal" prefWidth="83.0" text="Fecha final" />
+            <TableColumn fx:id="columnValorInicial" prefWidth="112.0" text="Valor inicial" />
             </columns>
         </TableView>
       <Button fx:id="btnPujar" layoutX="706.0" layoutY="439.0" mnemonicParsing="false" onAction="#actionPujar" text="Pujar" />
