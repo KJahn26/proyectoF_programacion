@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -48,7 +49,7 @@ public class ProductosController {
     {
         anuncioControllerService = new AnuncioController();
         initDataBinding();
-        obtnerDatos();
+        obtenerDatos();
         tableUsuarios.getItems().clear();
         tableUsuarios.setItems(listaProductos);
 
@@ -59,7 +60,7 @@ public class ProductosController {
             productoSeleccionado = newSelection;
         });
     }
-    public void obtnerDatos ()
+    public void obtenerDatos ()
     {
         listaProductos.addAll(anuncioControllerService.obtenerProducto());
     }
@@ -76,6 +77,16 @@ public class ProductosController {
 
     @FXML
     void actionPujar(ActionEvent event) {
+        mostrarMensaje("Notificación usuario", "usuario no a iniciado sesión o no esta registrado", "por favor ingrese sesión o registrese para poder hacer pujas", Alert.AlertType.ERROR);
 
     }
+    private void mostrarMensaje(String msj, String header, String contenido, Alert.AlertType alertType){
+        Alert aler= new Alert(alertType);
+        aler.setTitle(msj);
+        aler.setHeaderText(header);
+        aler.setContentText(contenido);
+        aler.showAndWait();
+    }
+
+
 }
