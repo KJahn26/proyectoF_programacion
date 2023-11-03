@@ -144,3 +144,29 @@ nov 03, 2023 7:14:04 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardar
 INFO: inicio de sesion , Inicio del programa , FECHA: 2023 - 11 - 03 hora  7:14:4 AM
 nov 03, 2023 7:14:16 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
 INFO: Inicio de sesion como anunciante de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 03 hora  7:14:16 AM
+nov 03, 2023 7:44:03 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion , Inicio del programa , FECHA: 2023 - 11 - 03 hora  7:44:3 AM
+nov 03, 2023 7:44:39 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Inicio de sesion como anunciante de jahnc.martinezv@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 03 hora  7:44:39 AM
+nov 03, 2023 7:51:18 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion , Inicio del programa , FECHA: 2023 - 11 - 03 hora  7:51:18 AM
+nov 03, 2023 7:51:28 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Inicio de sesion como anunciante de jahnc.martinezv@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 03 hora  7:51:28 AM
+nov 03, 2023 7:51:41 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Inicio de sesion como anunciante de jahnc.martinezv@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 03 hora  7:51:41 AM
+nov 03, 2023 7:52:21 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion , Inicio del programa , FECHA: 2023 - 11 - 03 hora  7:52:21 AM
+nov 03, 2023 7:52:30 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Inicio de sesion como anunciante de jahnc.martinezv@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 03 hora  7:52:30 AM
+nov 03, 2023 7:58:31 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion , Inicio del programa , FECHA: 2023 - 11 - 03 hora  7:58:31 AM
+nov 03, 2023 7:58:46 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Inicio de sesion como anunciante de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 03 hora  7:58:46 AM
+nov 03, 2023 8:00:12 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion , Inicio del programa , FECHA: 2023 - 11 - 03 hora  8:0:12 AM
+nov 03, 2023 8:00:35 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Inicio de sesion como anunciante de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 03 hora  8:0:35 AM
+nov 03, 2023 8:03:59 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion , Inicio del programa , FECHA: 2023 - 11 - 03 hora  8:3:59 AM
+nov 03, 2023 8:04:10 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Inicio de sesion como anunciante de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 03 hora  8:4:10 AM

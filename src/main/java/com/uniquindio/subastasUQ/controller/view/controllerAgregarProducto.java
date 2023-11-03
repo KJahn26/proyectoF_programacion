@@ -8,8 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.converter.NumberStringConverter;
 
 public class controllerAgregarProducto {
     @FXML
@@ -34,23 +36,32 @@ public class controllerAgregarProducto {
     void initialize()
     {
         inicializarComboBox();
+        NumberStringConverter converter = new NumberStringConverter();
+        TextFormatter<Number> textFormatter = new TextFormatter<>(converter, 0, change -> {
+            if (!change.getControlNewText().matches("\\d*")) {
+                return null;
+            }
+            return change;
+        });
+
+        txtValorInicialProducto.setTextFormatter(textFormatter);
     }
 
     @FXML
-    void RegresarAction(ActionEvent event) {
+     private void RegresarAction(ActionEvent event) {
     mostrarVentana(event,"hello-view.fxml","Subas uq");
 
     }
 
     @FXML
-    void actionPublicar(ActionEvent event) {
+    private void actionPublicar(ActionEvent event) {
 
        String centinela =((String) comboBoxTiṕoProducto.getValue());
        System.out.println(centinela);
     }
 
     @FXML
-    void actionVaciarEspacios(ActionEvent event) {
+    private void actionVaciarEspacios(ActionEvent event) {
         vaciarEspacios();
 
     }
@@ -86,8 +97,11 @@ public class controllerAgregarProducto {
     private void inicializarComboBox ()
     {
         comboBoxTiṕoProducto.getItems().addAll(
-          "Hola",
-          "jajja"
+          "Tecnologia",
+                    "Hogar",
+                    "Deportes",
+                    "Vehiculos",
+                    "Bien raiz"
         );
 
     }
