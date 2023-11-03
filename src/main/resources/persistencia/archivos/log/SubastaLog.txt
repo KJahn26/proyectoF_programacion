@@ -108,3 +108,9 @@ oct 11, 2023 11:14:47 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guarda
 INFO: inicio de sesion , Inicio del programa , FECHA: 2023 - 10 - 11 hora  23:14:47 PM
 oct 11, 2023 11:17:59 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
 INFO: inicio de sesion , Inicio del programa , FECHA: 2023 - 10 - 11 hora  23:17:59 PM
+oct 30, 2023 12:15:17 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion , Inicio del programa , FECHA: 2023 - 10 - 30 hora  0:15:17 AM
+oct 30, 2023 12:15:39 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion , Inicio del programa , FECHA: 2023 - 10 - 30 hora  0:15:39 AM
+oct 30, 2023 12:15:46 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: se elimino a un usuario , Usuario eliminado , FECHA: 2023 - 10 - 30 hora  0:15:46 AM

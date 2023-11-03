@@ -47,7 +47,7 @@ public class ModelFactoryController implements iModelFactoryController {
         //cargarDatosArchivos();
         //guardarResourceXML();
         //salvaGuardarDatosPrueba();
-        //registrarAccionesSistema("Inicio del programa", 1, "inicio de sesion");
+        registrarAccionesSistema("Inicio del programa", 1, "inicio de sesion");
 
 
         if (subastaUq == null) {
