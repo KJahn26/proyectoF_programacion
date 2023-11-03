@@ -13,7 +13,7 @@ public class Persistencia {
     public static final String RUTA_USUARIOSXML="persistencia/archivos/model.xml";
     public static final String RUTA_ARCHIVO_MODELO_SUBASTA_BINARIO ="2023Proyecto/src/main/resources/persistencia/archivos/dato.dat";
 
-    public static final String RUTA_SUBASTA_LOG="persistencia/archivos/log/SubastaLog.txt";
+    public static final String RUTA_SUBASTA_LOG="C:\\Users\\Carlos Corrales\\OneDrive\\Documentos\\proyectoF_programacion\\src\\main\\resources\\persistencia\\archivos\\log\\SubastaLog.txt";
 
     public static final String RUTA_TRANSACCIONESTxt = "persistencia/archivos/Archivos/objeto_Transaccion.txt";
 
