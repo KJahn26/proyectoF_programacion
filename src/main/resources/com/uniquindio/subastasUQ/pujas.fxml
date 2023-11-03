@@ -30,7 +30,7 @@
             <TableView fx:id="tablePujas" layoutX="2.0" layoutY="2.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
               <columns>
                 <TableColumn fx:id="columnNumeralPuja" prefWidth="16.0" text="#" />
-                <TableColumn prefWidth="56.0" text="Nombre" />
+                <TableColumn fx:id="nombre" prefWidth="56.0" text="Nombre" />
                   <TableColumn fx:id="columnTipoProductoPuja" prefWidth="76.0" text="T.Producto" />
                   <TableColumn fx:id="columnDescripcionPuja" prefWidth="84.0" text="Descripción" />
                   <TableColumn fx:id="columnNombreAnuncinatePuja" prefWidth="98.0" text="N. Anunciante" />

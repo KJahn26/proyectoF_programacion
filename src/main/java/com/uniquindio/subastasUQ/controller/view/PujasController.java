@@ -77,6 +77,8 @@ public class PujasController {
 
     @FXML
     private Button btnPujas;
+    @FXML
+    private TableColumn<ProductoDto, String> nombre;
 
     @FXML
     private Button btnEliminarPuja;
@@ -147,7 +149,7 @@ public class PujasController {
     }
     private void initDataBindingPujas ()
     {
-        columnNombreAnuncinatePuja.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
+        nombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
         columnDescripcionPuja.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().descProducto()));
         columnNombreAnuncinatePuja.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().anunciante()));
     }
