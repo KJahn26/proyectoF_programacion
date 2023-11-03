@@ -33,7 +33,6 @@ public class InicioController {
     UsuarioController usuarioControllerService;
     ObservableList<UsuarioDto> listaUsuarios= FXCollections.observableArrayList();
     UsuarioDto usuariosSeleccionados;
-
     @FXML
     private Hyperlink olvidoContraseña;
 @FXML
@@ -166,7 +165,7 @@ private CheckBox CheckComprador;
                    }
                    else if (centinela.equals("comprador"))
                    {
-                       mostrarVentana(event,"Comprador.fxml","Comprador");
+                       mostrarVentana(event,"pujas.fxml","Comprador");
                        Persistencia.guardaRegistroLog("Inicio de Sesion",1,"inicio de sesion como comprador de "+ayuda );
                    }
                    else if(centinela.equals("no"))
