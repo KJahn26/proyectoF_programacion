@@ -108,22 +108,20 @@ public class PujasController {
         if (seleccionar!=null)
         {
             listaProductosPuja.addAll(seleccionar);
-            
             tablePujas.setItems(listaProductosPuja);
         }
         else
         {
-            System.out.println("NO ah seleccioando nada");
+            mostrarMensaje("Notificación de producto", "Producto no seleccionado", "Por favor vuelva a seleccioanr el producto", Alert.AlertType.ERROR);
+
         }
-
-
-
 
     }
 
     @FXML
     void actionEliminarPuja(ActionEvent event) {
 
+        listaProductosPuja.remove(seleccionar);
     }
 
     public void obtenerProductos ()
@@ -152,6 +150,13 @@ public class PujasController {
         columnNombreAnuncinatePuja.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
         columnDescripcionPuja.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().descProducto()));
         columnNombreAnuncinatePuja.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().anunciante()));
+    }
+    private void mostrarMensaje(String msj, String header, String contenido, Alert.AlertType alertType){
+        Alert aler= new Alert(alertType);
+        aler.setTitle(msj);
+        aler.setHeaderText(header);
+        aler.setContentText(contenido);
+        aler.showAndWait();
     }
 }
 
