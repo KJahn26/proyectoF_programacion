@@ -7,43 +7,43 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="AnchorPrincipal" prefHeight="492.0" prefWidth="732.0" stylesheets="@../../../Decoration/pujas.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uniquindio.subastasUQ.controller.view.PujasController">
+<AnchorPane fx:id="AnchorPrincipal" prefHeight="588.0" prefWidth="954.0" stylesheets="@../../../Decoration/pujas.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uniquindio.subastasUQ.controller.view.PujasController">
    <children>
-      <AnchorPane fx:id="AnchorProductos" layoutX="14.0" layoutY="6.0" prefHeight="200.0" prefWidth="544.0" stylesheets="@../../../Decoration/pujas.css">
+      <AnchorPane fx:id="AnchorProductos" layoutX="14.0" layoutY="58.0" prefHeight="217.0" prefWidth="702.0" stylesheets="@../../../Decoration/pujas.css">
          <children>
             <TableView fx:id="tableProductos" layoutX="-2.0" prefHeight="200.0" prefWidth="547.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columns>
-                <TableColumn fx:id="columnNumeralAnuncio" prefWidth="20.0" text="#" />
-                <TableColumn fx:id="columnNombreAnuncio" prefWidth="56.0" text="Nombre" />
-                  <TableColumn fx:id="columnTipoProductoAnuncio" prefWidth="84.0" text="T.Producto" />
-                  <TableColumn fx:id="columnDescripcionAnuncio" prefWidth="71.0" text="Descripción" />
-                  <TableColumn fx:id="columnNameAnuncianteAnuncio" prefWidth="92.0" text="N.Anunciante" />
-                  <TableColumn fx:id="columnFechaFinalAnuncio" prefWidth="63.0" text="F.Inicio" />
-                  <TableColumn fx:id="columnFechaFinalAnuncio" prefWidth="75.0" text="F.Final" />
-                  <TableColumn fx:id="columnValorProductoAnuncio" text="V.producto" />
+                <TableColumn fx:id="columnNumeralAnuncio" prefWidth="23.0" text="#" />
+                <TableColumn fx:id="columnNombreAnuncio" text="Nombre" />
+                  <TableColumn fx:id="columnTipoProductoAnuncio" prefWidth="118.0" text="T.Producto" />
+                  <TableColumn fx:id="columnDescripcionAnuncio" prefWidth="85.0" text="Descripción" />
+                  <TableColumn fx:id="columnNameAnuncianteAnuncio" prefWidth="103.0" text="N.Anunciante" />
+                  <TableColumn fx:id="columnFechaFinalAnuncio" prefWidth="70.0" text="F.Inicio" />
+                  <TableColumn fx:id="columnFechaFinalAnuncio" prefWidth="92.0" text="F.Final" />
+                  <TableColumn fx:id="columnValorProductoAnuncio" prefWidth="128.0" text="V.producto" />
               </columns>
             </TableView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="AnchorPuja" layoutX="20.0" layoutY="255.0" prefHeight="200.0" prefWidth="532.0" stylesheets="@../../../Decoration/pujas.css">
+      <AnchorPane fx:id="AnchorPuja" layoutX="20.0" layoutY="328.0" prefHeight="246.0" prefWidth="702.0" stylesheets="@../../../Decoration/pujas.css">
          <children>
             <TableView fx:id="tablePujas" layoutX="2.0" layoutY="2.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
               <columns>
-                <TableColumn fx:id="columnNumeralPuja" prefWidth="16.0" text="#" />
-                <TableColumn fx:id="nombre" prefWidth="56.0" text="Nombre" />
-                  <TableColumn fx:id="columnTipoProductoPuja" prefWidth="76.0" text="T.Producto" />
-                  <TableColumn fx:id="columnDescripcionPuja" prefWidth="84.0" text="Descripción" />
-                  <TableColumn fx:id="columnNombreAnuncinatePuja" prefWidth="98.0" text="N. Anunciante" />
-                  <TableColumn fx:id="columnFechaInicioPuja" prefWidth="63.0" text="F.inicio" />
-                  <TableColumn fx:id="columnFechaFInalPuja" prefWidth="53.0" text="F.Final" />
-                  <TableColumn fx:id="columValorProductoPuja" prefWidth="78.0" text="V.Producto" />
+                <TableColumn fx:id="columnNumeralPuja" prefWidth="23.0" text="#" />
+                <TableColumn fx:id="nombre" prefWidth="60.0" text="Nombre" />
+                  <TableColumn fx:id="columnTipoProductoPuja" prefWidth="93.0" text="T.Producto" />
+                  <TableColumn fx:id="columnDescripcionPuja" prefWidth="139.0" text="Descripción" />
+                  <TableColumn fx:id="columnNombreAnuncinatePuja" prefWidth="85.0" text="N. Anunciante" />
+                  <TableColumn fx:id="columnFechaInicioPuja" prefWidth="88.0" text="F.inicio" />
+                  <TableColumn fx:id="columnFechaFInalPuja" prefWidth="73.0" text="F.Final" />
+                  <TableColumn fx:id="columValorProductoPuja" prefWidth="134.0" text="V.Producto" />
               </columns>
             </TableView>
          </children>
       </AnchorPane>
-      <Button fx:id="btnPujas" layoutX="614.0" layoutY="81.0" mnemonicParsing="false" onAction="#ActionPujar" stylesheets="@../../../Decoration/pujas.css" text="Pujar" />
-      <Button fx:id="btnEliminarPuja" layoutX="581.0" layoutY="430.0" mnemonicParsing="false" onAction="#actionEliminarPuja" stylesheets="@../../../Decoration/pujas.css" text="Eliminar puja" />
-      <Text layoutX="624.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <TextField fx:id="txtxValorPuja" layoutX="574.0" layoutY="42.0" prefHeight="25.0" prefWidth="122.0" />
+      <Button fx:id="btnPujas" layoutX="841.0" layoutY="94.0" mnemonicParsing="false" onAction="#ActionPujar" stylesheets="@../../../Decoration/pujas.css" text="Pujar" />
+      <Button fx:id="btnEliminarPuja" layoutX="842.0" layoutY="542.0" mnemonicParsing="false" onAction="#actionEliminarPuja" stylesheets="@../../../Decoration/pujas.css" text="Eliminar puja" />
+      <Text layoutX="851.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <TextField fx:id="txtxValorPuja" layoutX="801.0" layoutY="45.0" prefHeight="25.0" prefWidth="122.0" />
    </children>
 </AnchorPane>
