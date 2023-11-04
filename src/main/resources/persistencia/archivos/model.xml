@@ -111,31 +111,6 @@
      </void>
     </object>
    </void>
-   <void method="add">
-    <object class="com.uniquindio.subastasUQ.model.Producto">
-     <void property="anunciante">
-      <string>Carlos Fabian Corrales Zapata</string>
-     </void>
-     <void property="descProducto">
-      <string>Es grande y tiene 4 habitaciones</string>
-     </void>
-     <void property="fechaPublicacion">
-      <string>2023 - 11 - 04 hora  11:51:32 AM</string>
-     </void>
-     <void property="fechaTerminarPublicacion">
-      <string>2023-11-28</string>
-     </void>
-     <void property="nombreProducto">
-      <string>Avion</string>
-     </void>
-     <void property="tipoProducto">
-      <string>Vehiculos</string>
-     </void>
-     <void property="valorInicial">
-      <string>100000</string>
-     </void>
-    </object>
-   </void>
   </void>
  </object>
 </java>

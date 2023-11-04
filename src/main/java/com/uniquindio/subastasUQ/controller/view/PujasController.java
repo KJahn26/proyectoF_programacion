@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.converter.NumberStringConverter;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 public class PujasController {
@@ -92,6 +93,7 @@ public class PujasController {
         initDataBindingProductos();
         obtenerProductos();
         listenerSelection();
+        eliminarProducto();
         tableProductos.getItems().clear();
         tableProductos.setItems(listaProductos);
 
@@ -204,6 +206,24 @@ public class PujasController {
         }
 
 
+    }
+
+    public void eliminarProducto ()
+    {
+        LocalDate fecha = LocalDate.now();
+        String centinela="";
+        centinela=fecha.toString();
+        System.out.println(centinela);
+        for (ProductoDto s: listaProductos)
+        {
+            if (s.fechaTerminarPublicacion().equals(centinela))
+            {
+                anuncioController.eliminarProducto(s.nombreProducto());
+                tableProductos.getSelectionModel().clearSelection();
+                mostrarMensaje("Notificación de producto", "Producto eliminado", "Se elimino el producto " , Alert.AlertType.ERROR);
+
+            }
+        }
     }
 
 }

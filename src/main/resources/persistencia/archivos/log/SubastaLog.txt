@@ -270,3 +270,51 @@ nov 04, 2023 11:52:19 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guarda
 INFO: inicio de sesion como comprador de jeank.mendezc@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  11:52:19 AM
 nov 04, 2023 11:55:31 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
 INFO: inicio de sesion como comprador de jeank.mendezc@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  11:55:31 AM
+nov 04, 2023 12:28:31 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jeank.mendezc@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:28:31 PM
+nov 04, 2023 12:29:16 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jeank.mendezc@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:29:16 PM
+nov 04, 2023 12:30:05 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jeank.mendezc@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:30:5 PM
+nov 04, 2023 12:30:49 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Inicio de sesion como anunciante de jeank.mendezc@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:30:49 PM
+nov 04, 2023 12:31:21 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jeank.mendezc@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:31:21 PM
+nov 04, 2023 12:31:48 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jeank.mendezc@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:31:48 PM
+nov 04, 2023 12:34:16 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jahnc.martinezv@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:34:16 PM
+nov 04, 2023 12:34:39 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jahnc.martinezv@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:34:39 PM
+nov 04, 2023 12:37:24 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jahnc.martinezv@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:37:24 PM
+nov 04, 2023 12:38:04 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jahnc.martinezv@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:38:4 PM
+nov 04, 2023 12:44:20 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: se elimino a un producto debido a su compra , Producto elimnado , FECHA: 2023 - 11 - 04 hora  12:44:20 PM
+nov 04, 2023 12:44:22 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jahnc.martinezv@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:44:22 PM
+nov 04, 2023 12:44:41 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: se elimino a un producto debido a su compra , Producto elimnado , FECHA: 2023 - 11 - 04 hora  12:44:41 PM
+nov 04, 2023 12:44:43 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jahnc.martinezv@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:44:43 PM
+nov 04, 2023 12:45:22 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: se elimino a un producto debido a su compra , Producto elimnado , FECHA: 2023 - 11 - 04 hora  12:45:22 PM
+nov 04, 2023 12:45:23 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jahnc.martinezv@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:45:23 PM
+nov 04, 2023 12:46:00 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: se elimino a un producto debido a su compra , Producto elimnado , FECHA: 2023 - 11 - 04 hora  12:46:0 PM
+nov 04, 2023 12:46:01 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jahnc.martinezv@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:46:1 PM
+nov 04, 2023 12:46:15 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: se elimino a un producto debido a su compra , Producto elimnado , FECHA: 2023 - 11 - 04 hora  12:46:15 PM
+nov 04, 2023 12:46:16 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jahnc.martinezv@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:46:16 PM
+nov 04, 2023 12:47:11 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: se elimino a un producto debido a su compra , Producto elimnado , FECHA: 2023 - 11 - 04 hora  12:47:11 PM
+nov 04, 2023 12:47:13 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jahnc.martinezv@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:47:13 PM
+nov 04, 2023 12:50:49 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion , Inicio del programa , FECHA: 2023 - 11 - 04 hora  12:50:49 PM
+nov 04, 2023 12:50:56 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jahnc.martinezv@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:50:56 PM
