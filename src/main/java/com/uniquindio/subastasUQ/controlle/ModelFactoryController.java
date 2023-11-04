@@ -43,8 +43,8 @@ public class ModelFactoryController implements iModelFactoryController {
 
     public ModelFactoryController() {
         System.out.println("invocación clase singleton");
-        cargarDatosBase();
-        //cargarResourceXML();
+
+        cargarResourceXML();
         //cargarDatosArchivos();
         //guardarResourceXML();
         //salvaGuardarDatosPrueba();
@@ -200,8 +200,16 @@ public class ModelFactoryController implements iModelFactoryController {
         Producto producto = mapper.productoDtoToProducto(productoDto);
         if (!subastaUq.verificarProductoExiste(producto))
         {
-            getSubasta().getListaproductos().add(producto);
-            centinela=true;
+
+            try {
+                getSubasta().getListaproductos().add(producto);
+                subastaUq.agregarProducto(producto);
+                Persistencia.guardarRecursoBancoXML(subastaUq);
+                centinela=true;
+            } catch (UsuarioException e) {
+                throw new RuntimeException(e);
+            }
+
 
         }
       return centinela;

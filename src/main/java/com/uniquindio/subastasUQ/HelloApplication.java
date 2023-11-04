@@ -25,7 +25,7 @@ public class    HelloApplication extends Application {
         try
         {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(HelloApplication.class.getResource("agregarProducto.fxml"));
+            loader.setLocation(HelloApplication.class.getResource("hello-view.fxml"));
             AnchorPane rootLayout  = (AnchorPane) loader.load();
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);

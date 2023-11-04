@@ -154,4 +154,8 @@ public class SubastaUq implements Serializable,ISubastaUQService {
         }
         return centinela;
     }
+    public void agregarProducto(Producto nuevoProducto) throws UsuarioException{
+        getListaproductos().add(nuevoProducto);
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.uniquindio.subastasUQ.controller.view;
 import com.uniquindio.subastasUQ.HelloApplication;
+import com.uniquindio.subastasUQ.controlle.AnuncioController;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
 import com.uniquindio.subastasUQ.mapping.dto.UsuarioDto;
 import javafx.collections.FXCollections;
@@ -21,6 +22,7 @@ import java.time.LocalDate;
 
 public class controllerAgregarProducto {
     ObservableList<ProductoDto> listaProductos = FXCollections.observableArrayList();
+    AnuncioController controllerAnuncio;
     @FXML
     private AnchorPane anchorAbajo;
 
@@ -95,6 +97,7 @@ public class controllerAgregarProducto {
 
     @FXML
     void initialize() {
+        controllerAnuncio =  new AnuncioController();
         inicializarComboBOx();
         TextFormatter<String> textFormatter = new TextFormatter<>(change -> {
             if (change.getControlNewText().matches("^\\d*$")) {
@@ -114,7 +117,7 @@ public class controllerAgregarProducto {
 
     @FXML
     void ActionPublicarProducto(ActionEvent event) {
-
+        crearproductoDto();
 
     }
 
@@ -150,7 +153,13 @@ public class controllerAgregarProducto {
 
         );
 
-        if(datosValidos(productoDto))System.out.println("");
+        if(datosValidos(productoDto))
+        {
+            if (controllerAnuncio.guardarProducto(productoDto));
+            {
+            listaProductos.add(productoDto);
+            }
+        }
 
 
 
@@ -180,9 +189,9 @@ public class controllerAgregarProducto {
         if (productoDto.fechaPublicacion()==null || productoDto.fechaPublicacion().equals(""))
             mensaje+="fecha de publicacion no valida \n";
         if (productoDto.fechaTerminarPublicacion()==null || productoDto.fechaTerminarPublicacion().equals(""))
-            if (productoDto.valorInicial()==null || productoDto.valorInicial().equals(""))
-                mensaje+="EL valor inicial no es el indicado";
-            mensaje+="Contraseña es invalida \n";
+           mensaje+="La fecha final es invalida";
+        if (productoDto.valorInicial()==null || productoDto.valorInicial().equals(""))
+            mensaje+="EL valor inicial no es el indicado";
         if(mensaje.equals("")){
             return true;
         }else{
