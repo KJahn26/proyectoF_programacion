@@ -165,7 +165,7 @@ private CheckBox CheckComprador;
                    }
                    else if (centinela.equals("comprador"))
                    {
-                       mostrarVentana(event,"pujas.fxml","Comprador");
+                       mostrarVentana(event,"manejoPujas.fxml","Comprador");
                        Persistencia.guardaRegistroLog("Inicio de Sesion",1,"inicio de sesion como comprador de "+ayuda );
                    }
                    else if(centinela.equals("no"))
