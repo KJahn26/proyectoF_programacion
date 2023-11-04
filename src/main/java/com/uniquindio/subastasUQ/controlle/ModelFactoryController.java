@@ -111,7 +111,6 @@ public class ModelFactoryController implements iModelFactoryController {
             if (!subastaUq.verificarUsuarioExistente(usuarioDto.cedula())) {
                 Usuario usuario = mapper.usuarioDtoToUsuario(usuarioDto);
                 getSubasta().agregarUsuario(usuario);
-                salvaGuardarDatosPrueba();
                 registrarAccionesSistema("nuevo Usuario", 1, "se agrego a un usuario");
             }
             return true;
@@ -200,11 +199,9 @@ public class ModelFactoryController implements iModelFactoryController {
         Producto producto = mapper.productoDtoToProducto(productoDto);
         if (!subastaUq.verificarProductoExiste(producto))
         {
-
             try {
-                getSubasta().getListaproductos().add(producto);
                 subastaUq.agregarProducto(producto);
-                Persistencia.guardarRecursoBancoXML(subastaUq);
+                guardarResourceXML();
                 centinela=true;
             } catch (UsuarioException e) {
                 throw new RuntimeException(e);

@@ -153,9 +153,9 @@ private CheckBox CheckComprador;
         String ayuda=txtIngresoEmail.getText();
          System.out.println(txtIngresoEmail.getText()+ " " +usuarioControllerService.fecha());
          usuarioControllerService.extraerfecha(cogerDatosInicio());
-           if (validarDatos()!=false)
+           if (validarDatos())
            {
-               if (validarAcceso()!=false)
+               if (validarAcceso())
                {
                    centinela=CompradorMauseClick(event);
                    if (centinela.equals("anunciante"))

@@ -15,7 +15,7 @@ public class    HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         this.primaryStage = stage;
-        this.primaryStage.setTitle("Subastas UQ");
+        this.primaryStage.setTitle("Subastas Universidad del Quindio");
         mostrarVentanaPrincipal();
     }
 

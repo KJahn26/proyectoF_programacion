@@ -1,6 +1,7 @@
 package com.uniquindio.subastasUQ.controller.view;
 import com.uniquindio.subastasUQ.HelloApplication;
 import com.uniquindio.subastasUQ.controlle.AnuncioController;
+import com.uniquindio.subastasUQ.controlle.UsuarioController;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
 import com.uniquindio.subastasUQ.mapping.dto.UsuarioDto;
 import javafx.collections.FXCollections;
@@ -12,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -24,6 +26,7 @@ import java.util.Optional;
 public class controllerAgregarProducto {
     ObservableList<ProductoDto> listaProductos = FXCollections.observableArrayList();
     AnuncioController controllerAnuncio;
+    UsuarioController usuarioControllerService;
     @FXML
     private AnchorPane anchorAbajo;
 
@@ -95,11 +98,14 @@ public class controllerAgregarProducto {
 
     @FXML
     private Button btnPublicarProducto;
+    @FXML
+    private Button btnRegresar;
 
     @FXML
     void initialize() {
         controllerAnuncio =  new AnuncioController();
         inicializarComboBOx();
+        txtFechaPublicación.setText(fechaPublicación());
         TextFormatter<String> textFormatter = new TextFormatter<>(change -> {
             if (change.getControlNewText().matches("^\\d*$")) {
                 return change;
@@ -171,14 +177,7 @@ public class controllerAgregarProducto {
     {
         String centinela="";
         LocalDate fecha1 = dickerFechaTerminaPublicacion.getValue();
-        if (fecha1==null)
-        {
-            mostrarMensaje("Notificación fecha","Fecha invalida","Debe ingresar bien la fecha", Alert.AlertType.WARNING);
-            centinela=fecha1.toString();
-
-        }
-
-
+        centinela=fecha1.toString();
        return centinela;
     }
 
@@ -227,5 +226,37 @@ public class controllerAgregarProducto {
         } else {
             return false;
         }
+    }
+    @FXML
+    void ActionRegresar(ActionEvent event) {
+        mostrarVentana(event,"hello-view.fxml","Subas universidad del quindio");
+
+    }
+    private void mostrarVentana (ActionEvent event, String ruta, String centinela)
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(ruta));
+            //loader.setLocation(HelloApplication.class.getResource(ruta));
+            AnchorPane rootLayout  = (AnchorPane) loader.load();
+            Scene scene = new Scene(rootLayout);
+            Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.setTitle(centinela);
+            appStage.toFront();
+            appStage.show();
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+
+        }
+    }
+
+    public String fechaPublicación ()
+    {
+
+        usuarioControllerService = new UsuarioController();
+        return usuarioControllerService.fecha();
     }
 }
