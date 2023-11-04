@@ -148,6 +148,10 @@ public class PujasController {
         columnNombreAnuncio.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
         columnDescripcionAnuncio.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().descProducto()));
         columnNameAnuncianteAnuncio.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().anunciante()));
+        columnValorProductoAnuncio.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().valorInicial()));
+        columnTipoProductoAnuncio.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().tipoProducto()));
+        columnFechaFinalAnuncio.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().fechaTerminarPublicacion()));
+
 
 
 
@@ -157,6 +161,11 @@ public class PujasController {
         nombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
         columnDescripcionPuja.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().descProducto()));
         columnNombreAnuncinatePuja.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().anunciante()));
+        columValorProductoPuja.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().valorInicial()));
+        columnTipoProductoPuja.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().tipoProducto()));
+        columnFechaFInalPuja.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().fechaTerminarPublicacion()));
+        columnFechaInicioPuja.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().fechaPublicacion()));
+
     }
     private void mostrarMensaje(String msj, String header, String contenido, Alert.AlertType alertType){
         Alert aler= new Alert(alertType);

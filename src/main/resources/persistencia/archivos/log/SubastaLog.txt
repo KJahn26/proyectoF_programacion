@@ -262,3 +262,11 @@ nov 04, 2023 11:42:40 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guarda
 INFO: Inicio de sesion como anunciante de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  11:42:40 AM
 nov 04, 2023 11:44:43 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
 INFO: Inicio de sesion como anunciante de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  11:44:43 AM
+nov 04, 2023 11:50:33 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jeank.mendezc@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  11:50:33 AM
+nov 04, 2023 11:51:32 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Inicio de sesion como anunciante de jeank.mendezc@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  11:51:32 AM
+nov 04, 2023 11:52:19 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jeank.mendezc@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  11:52:19 AM
+nov 04, 2023 11:55:31 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jeank.mendezc@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  11:55:31 AM
