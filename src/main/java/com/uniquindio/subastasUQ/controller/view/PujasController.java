@@ -220,6 +220,7 @@ public class PujasController {
             {
                 anuncioController.eliminarProducto(s.nombreProducto());
                 tableProductos.getSelectionModel().clearSelection();
+
                 mostrarMensaje("Notificación de producto", "Producto eliminado", "Se elimino el producto " , Alert.AlertType.ERROR);
 
             }
