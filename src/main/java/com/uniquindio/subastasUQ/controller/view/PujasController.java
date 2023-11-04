@@ -11,6 +11,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.converter.NumberStringConverter;
 
+import java.util.Optional;
+
 public class PujasController {
 
      AnuncioController anuncioController;
@@ -89,9 +91,11 @@ public class PujasController {
         anuncioController = new AnuncioController();
         initDataBindingProductos();
         obtenerProductos();
+        listenerSelection();
         tableProductos.getItems().clear();
         tableProductos.setItems(listaProductos);
-        // Configura el TextFormatter para permitir solo números
+
+
         NumberStringConverter converter = new NumberStringConverter();
         TextFormatter<Number> textFormatter = new TextFormatter<>(converter, 0, change -> {
             if (!change.getControlNewText().matches("\\d*")) {
@@ -123,13 +127,15 @@ public class PujasController {
     @FXML
     void actionEliminarPuja(ActionEvent event) {
 
-        listaProductosPuja.remove(seleccionar);
+        eliminarPuja();
     }
 
     public void obtenerProductos ()
     {
         listaProductos.addAll(anuncioController.obtenerProducto());
     }
+
+
     private void listenerSelection() {
         tableProductos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             seleccionar= newSelection;
@@ -137,14 +143,13 @@ public class PujasController {
         });
     }
 
+
     private void initDataBindingProductos() {
         columnNombreAnuncio.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
         columnDescripcionAnuncio.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().descProducto()));
         columnNameAnuncianteAnuncio.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().anunciante()));
 
-        //tcNombreProducto.setCellValueFactory(new PropertyValueFactory("nombreProducto"));
-        //tcTipoProducto.setCellValueFactory(new PropertyValueFactory("tipoProducto"));
-        //tcDescripcionProducto.setCellValueFactory(new PropertyValueFactory("descripcionProducto"));
+
 
     }
     private void initDataBindingPujas ()
@@ -160,5 +165,37 @@ public class PujasController {
         aler.setContentText(contenido);
         aler.showAndWait();
     }
+
+    public void eliminarPuja ()
+    {
+        if (seleccionar!=null)
+        {
+            if (mostrarMensajeConfirmacion("¿Estas seguro de elmininar la puja"))
+            {
+                listaProductosPuja.remove(seleccionar);
+                seleccionar=null;
+                tablePujas.getSelectionModel().clearSelection();
+            }
+        }
+    }
+
+
+
+
+    private boolean mostrarMensajeConfirmacion(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText(null);
+        alert.setTitle("Confirmación");
+        alert.setContentText(mensaje);
+        Optional<ButtonType> action = alert.showAndWait();
+        if (action.get() == ButtonType.OK) {
+            return true;
+        } else {
+            return false;
+        }
+
+
+    }
+
 }
 

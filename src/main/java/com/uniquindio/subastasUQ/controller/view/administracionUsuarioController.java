@@ -88,7 +88,6 @@ public class administracionUsuarioController
 
         private void initDataBinding() {
                 tableNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombre()));
-                //tableId.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().));
                 tableCedula.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().cedula()));
                 tableDireccion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().direccion()));
                 tableEmail.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().email()));
@@ -193,7 +192,7 @@ public class administracionUsuarioController
 
                     {
                             usuarioEliminado=usuarioControllerService.eliminarEmpleado(usuariosSeleccionado.cedula());
-                            if (usuarioEliminado!=false)
+                            if (usuarioEliminado)
                             {
                                     listaUsuarios.remove(usuariosSeleccionado);
                                     usuariosSeleccionado=null;
