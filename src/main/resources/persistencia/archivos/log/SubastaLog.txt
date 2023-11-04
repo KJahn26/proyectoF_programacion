@@ -318,3 +318,37 @@ nov 04, 2023 12:50:49 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guarda
 INFO: inicio de sesion , Inicio del programa , FECHA: 2023 - 11 - 04 hora  12:50:49 PM
 nov 04, 2023 12:50:56 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
 INFO: inicio de sesion como comprador de jahnc.martinezv@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:50:56 PM
+nov 04, 2023 12:55:32 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jahnc.martinezv@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:55:32 PM
+nov 04, 2023 12:56:08 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jahnc.martinezv@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:56:8 PM
+nov 04, 2023 12:57:19 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: se elimino a un producto debido a su compra , Producto elimnado , FECHA: 2023 - 11 - 04 hora  12:57:19 PM
+nov 04, 2023 12:57:20 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de jahnc.martinezv@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:57:20 PM
+nov 04, 2023 12:58:23 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: se elimino a un producto debido a su compra , Producto elimnado , FECHA: 2023 - 11 - 04 hora  12:58:23 PM
+nov 04, 2023 12:58:25 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:58:25 PM
+nov 04, 2023 12:58:39 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion , Inicio del programa , FECHA: 2023 - 11 - 04 hora  12:58:39 PM
+nov 04, 2023 12:58:48 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: se elimino a un producto debido a su compra , Producto elimnado , FECHA: 2023 - 11 - 04 hora  12:58:48 PM
+nov 04, 2023 12:58:49 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  12:58:49 PM
+nov 04, 2023 1:00:59 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion , Inicio del programa , FECHA: 2023 - 11 - 04 hora  13:0:59 PM
+nov 04, 2023 1:01:08 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: se elimino a un producto debido a su compra , Producto elimnado , FECHA: 2023 - 11 - 04 hora  13:1:8 PM
+nov 04, 2023 1:01:09 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  13:1:9 PM
+nov 04, 2023 1:01:24 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion , Inicio del programa , FECHA: 2023 - 11 - 04 hora  13:1:24 PM
+nov 04, 2023 1:01:30 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: se elimino a un producto debido a su compra , Producto elimnado , FECHA: 2023 - 11 - 04 hora  13:1:30 PM
+nov 04, 2023 1:01:32 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  13:1:32 PM
+nov 04, 2023 1:03:15 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: se elimino a un producto debido a su compra , Producto elimnado , FECHA: 2023 - 11 - 04 hora  13:3:15 PM
+nov 04, 2023 1:03:16 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  13:3:16 PM

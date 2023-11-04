@@ -67,6 +67,7 @@ public class subastaUqUtils {
         producto.setTipoProducto("juguete");
         producto.setDescProducto("juguete del canal del raton");
         producto.setAnunciante("laura");
+        producto.setFechaTerminarPublicacion("2023-11-04");
         subastaUq.getListaproductos().add(producto);
     }
 
