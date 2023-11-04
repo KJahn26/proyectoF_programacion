@@ -111,6 +111,34 @@
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="com.uniquindio.subastasUQ.model.Producto" id="Producto0">
+     <void property="anunciante">
+      <string>cd</string>
+     </void>
+     <void property="descProducto">
+      <string>vkmnviod</string>
+     </void>
+     <void property="fechaPublicacion">
+      <string>q</string>
+     </void>
+     <void property="fechaTerminarPublicacion">
+      <string>2023-11-15</string>
+     </void>
+     <void property="nombreProducto">
+      <string>MOuse</string>
+     </void>
+     <void property="tipoProducto">
+      <string>Tecnología</string>
+     </void>
+     <void property="valorInicial">
+      <string>123</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object idref="Producto0"/>
+   </void>
   </void>
  </object>
 </java>

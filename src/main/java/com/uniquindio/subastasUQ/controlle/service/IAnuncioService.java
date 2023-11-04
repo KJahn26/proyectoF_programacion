@@ -1,7 +1,8 @@
 package com.uniquindio.subastasUQ.controlle.service;
 
+import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
+
 public interface IAnuncioService {
-    public void fechaPublicacion ();
-    public void fechaFinalizacion ();
-    public void valorInicial();
+    public boolean guardarProducto(ProductoDto productoDto);
+
 }
