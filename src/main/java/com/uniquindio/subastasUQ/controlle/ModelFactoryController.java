@@ -43,10 +43,10 @@ public class ModelFactoryController implements iModelFactoryController {
 
     public ModelFactoryController() {
         System.out.println("invocación clase singleton");
-        //cargarDatosBase();
-        cargarResourceXML();
+        cargarDatosBase();
+        //cargarResourceXML();
         //cargarDatosArchivos();
-        //guardarResourceXML();
+        guardarResourceXML();
         //salvaGuardarDatosPrueba();
         //registrarAccionesSistema("Inicio del programa", 1, "inicio de sesion");
 
@@ -127,7 +127,7 @@ public class ModelFactoryController implements iModelFactoryController {
             flagExiste = subastaUq.eliminarUsuario(cedula);
             registrarAccionesSistema("Usuario eliminado", 2, "se elimino a un usuario");
             System.out.println("El usuario se ah eliminado correctamente");
-            guardarResourceXML();
+
         } catch (UsuarioException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -213,6 +213,12 @@ public class ModelFactoryController implements iModelFactoryController {
 
         }
       return centinela;
+    }
+
+
+    public void modificarXml (String atributo)
+    {
+
     }
 }
 

@@ -93,7 +93,7 @@ public class PujasController {
         initDataBindingProductos();
         obtenerProductos();
         listenerSelection();
-        eliminarProducto();
+        //eliminarProducto();
         tableProductos.getItems().clear();
         tableProductos.setItems(listaProductos);
 
@@ -113,16 +113,29 @@ public class PujasController {
     void ActionPujar(ActionEvent event) {
         initDataBindingPujas();
         listenerSelection();
-        if (seleccionar!=null)
+
+        double centinela=0;
+        initDataBindingPujas();
+        listenerSelection();
+        centinela=Long.parseLong(seleccionar.valorInicial());
+        if (centinela<=Long.parseLong(txtxValorPuja.getText()))
         {
-            listaProductosPuja.addAll(seleccionar);
-            tablePujas.setItems(listaProductosPuja);
+            if (seleccionar!=null)
+            {
+                listaProductosPuja.addAll(seleccionar);
+                tablePujas.setItems(listaProductosPuja);
+            }
+            else
+            {
+                mostrarMensaje("Notificación de producto", "Producto no seleccionado", "Por favor vuelva a seleccioanr el producto", Alert.AlertType.ERROR);
+
+            }
         }
         else
         {
-            mostrarMensaje("Notificación de producto", "Producto no seleccionado", "Por favor vuelva a seleccioanr el producto", Alert.AlertType.ERROR);
-
+            mostrarMensaje("Notificación de producto", "La cantidad no es suficiiente", "tiene que aumentar la puja ", Alert.AlertType.ERROR);
         }
+
 
     }
 

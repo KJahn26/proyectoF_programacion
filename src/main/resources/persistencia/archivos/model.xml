@@ -112,6 +112,9 @@
      <void property="tipoProducto">
       <string>juguete</string>
      </void>
+     <void property="valorInicial">
+      <string>10</string>
+     </void>
     </object>
    </void>
   </void>
