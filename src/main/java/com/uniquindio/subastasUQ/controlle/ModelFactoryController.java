@@ -5,6 +5,7 @@ import com.uniquindio.subastasUQ.controlle.service.iModelFactoryController;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
 import com.uniquindio.subastasUQ.mapping.dto.UsuarioDto;
 import com.uniquindio.subastasUQ.mapping.mappings.SubastaMapper;
+import com.uniquindio.subastasUQ.model.Producto;
 import com.uniquindio.subastasUQ.model.SubastaUq;
 import com.uniquindio.subastasUQ.model.Usuario;
 import com.uniquindio.subastasUQ.utils.ArchivoUtil;
@@ -47,7 +48,7 @@ public class ModelFactoryController implements iModelFactoryController {
         //cargarDatosArchivos();
         //guardarResourceXML();
         //salvaGuardarDatosPrueba();
-        registrarAccionesSistema("Inicio del programa", 1, "inicio de sesion");
+        //registrarAccionesSistema("Inicio del programa", 1, "inicio de sesion");
 
 
         if (subastaUq == null) {
@@ -158,6 +159,7 @@ public class ModelFactoryController implements iModelFactoryController {
     }
 
     private void guardarResourceXML() {
+
         Persistencia.guardarRecursoBancoXML(subastaUq);
     }
 
@@ -192,6 +194,17 @@ public class ModelFactoryController implements iModelFactoryController {
     public String cogerFecha() {
 
         return ArchivoUtil.cargarFechaSistema();
+    }
+    public boolean agregarProducto (ProductoDto productoDto) {
+        boolean centinela=false;
+        Producto producto = mapper.productoDtoToProducto(productoDto);
+        if (!subastaUq.verificarProductoExiste(producto))
+        {
+            getSubasta().getListaproductos().add(producto);
+            centinela=true;
+
+        }
+      return centinela;
     }
 }
 

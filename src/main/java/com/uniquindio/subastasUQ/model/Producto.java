@@ -12,6 +12,11 @@ public class Producto extends SubastaUq implements Serializable
 
     private String anunciante="";
 
+    private String valorInicial="";
+
+    private String fechaPublicacion="";
+    private String fechaTerminarPublicacion="";
+
     public Producto ()
     {}
 
@@ -46,5 +51,27 @@ public class Producto extends SubastaUq implements Serializable
     public void setAnunciante(String anunciante) {
         this.anunciante = anunciante;
     }
+    public String getFechaPublicacion() {
+        return fechaPublicacion;
+    }
 
+    public void setFechaPublicacion(String fechaPublicacion) {
+        this.fechaPublicacion = fechaPublicacion;
+    }
+
+    public String getValorInicial() {
+        return valorInicial;
+    }
+
+    public void setValorInicial(String valorInicial) {
+        this.valorInicial = valorInicial;
+    }
+
+    public String getFechaTerminarPublicacion() {
+        return fechaTerminarPublicacion;
+    }
+
+    public void setFechaTerminarPublicacion(String fechaTerminarPublicacion) {
+        this.fechaTerminarPublicacion = fechaTerminarPublicacion;
+    }
 }

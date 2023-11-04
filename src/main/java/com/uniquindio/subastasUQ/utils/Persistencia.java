@@ -16,6 +16,7 @@ public class Persistencia {
     public static final String RUTA_SUBASTA_LOG="C:\\Users\\Carlos Corrales\\OneDrive\\Documentos\\proyectoF_programacion\\src\\main\\resources\\persistencia\\archivos\\log\\SubastaLog.txt";
 
     public static final String RUTA_TRANSACCIONESTxt = "persistencia/archivos/Archivos/objeto_Transaccion.txt";
+    public static final String RUTA_PRODUCTOS ="";
 
     
 

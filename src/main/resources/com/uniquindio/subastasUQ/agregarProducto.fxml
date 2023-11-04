@@ -1,27 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorAbajo" prefHeight="445.0" prefWidth="696.0" stylesheets="@../../../Decoration/AgregarProductos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uniquindio.subastasUQ.controller.view.controllerAgregarProducto">
+<AnchorPane fx:id="anchorAbajo" prefHeight="592.0" prefWidth="863.0" stylesheets="@../../../Decoration/AgregarProductos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uniquindio.subastasUQ.controller.view.controllerAgregarProducto">
    <children>
-      <Label layoutX="236.0" layoutY="23.0" stylesheets="@../../../Decoration/AgregarProductos.css" text="Publicar producto">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtNombreProducto" layoutX="25.0" layoutY="135.0" prefHeight="25.0" prefWidth="165.0" stylesheets="@../../../Decoration/AgregarProductos.css" />
-      <ComboBox fx:id="comboBoxTiṕoProducto" layoutX="33.0" layoutY="312.0" prefWidth="150.0" promptText="tipo de producto" stylesheets="@../../../Decoration/AgregarProductos.css" />
-      <TextField fx:id="txtDescripcionProducto" layoutX="272.0" layoutY="83.0" prefHeight="278.0" prefWidth="384.0" promptText="Descripción del producto" stylesheets="@../../../Decoration/AgregarProductos.css" />
-      <TextField fx:id="txtValorInicialProducto" layoutX="33.0" layoutY="245.0" stylesheets="@../../../Decoration/AgregarProductos.css" />
-      <Button fx:id="btnPublicar" layoutX="616.0" layoutY="399.0" mnemonicParsing="false" onAction="#actionPublicar" stylesheets="@../../../Decoration/AgregarProductos.css" text="Publicar" />
-      <Button fx:id="btnVaciarEspacios" layoutX="377.0" layoutY="399.0" mnemonicParsing="false" onAction="#actionVaciarEspacios" stylesheets="@../../../Decoration/AgregarProductos.css" text="Vaciar espacios" />
-      <Button fx:id="btnRegresar" layoutX="630.0" layoutY="11.0" mnemonicParsing="false" onAction="#RegresarAction" stylesheets="@../../../Decoration/AgregarProductos.css" text="Regresar" />
-      <Label layoutX="25.0" layoutY="112.0" text="Nombre producto" />
-      <Label layoutX="33.0" layoutY="223.0" text="Valor inicial producto" />
+      <HBox fx:id="hboxSuperior" layoutX="-5.0" layoutY="-1.0" prefHeight="37.0" prefWidth="787.0" />
+      <HBox fx:id="hboxMedio" layoutX="-5.0" layoutY="214.0" prefHeight="17.0" prefWidth="863.0" style="-fx-background-color: Black;" />
+      <HBox fx:id="hboxtextInferior" layoutX="211.0" layoutY="231.0" prefHeight="28.0" prefWidth="284.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Datos adicinales producto" wrappingWidth="342.0">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <HBox fx:id="hboxImage" layoutX="250.0" layoutY="296.0" prefHeight="212.0" prefWidth="301.0">
+         <children>
+            <ImageView fx:id="miImageview" fitHeight="212.0" fitWidth="303.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+      <HBox fx:id="hboxAgregarImagen" layoutX="338.0" layoutY="527.0" prefHeight="28.0" prefWidth="127.0">
+         <children>
+            <Button fx:id="btnAgregarImagen" mnemonicParsing="false" onAction="#ActionAgregarImagen" prefHeight="25.0" prefWidth="125.0" text="Agregar imagen" />
+         </children>
+      </HBox>
+      <HBox fx:id="hboxTipoProducto" layoutX="20.0" layoutY="513.0" prefHeight="28.0" prefWidth="175.0">
+         <children>
+            <ComboBox fx:id="comboBoxTipoProducto" prefHeight="25.0" prefWidth="164.0" promptText="Tipo producto" stylesheets="@../../../Decoration/AgregarProductos.css" />
+         </children>
+      </HBox>
+      <HBox layoutX="3.0" layoutY="3.0" prefHeight="37.0" prefWidth="855.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Agregar productos" wrappingWidth="357.732421875">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="350.0" right="10.0" />
+               </HBox.margin>
+            </Text>
+         </children>
+      </HBox>
+      <HBox fx:id="hboxNombreAnunciante" layoutX="20.0" layoutY="328.0" prefHeight="29.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="txtNombreAnunciante" prefHeight="25.0" prefWidth="174.0" promptText="Nombre anunciante" />
+         </children>
+      </HBox>
+      <HBox fx:id="hboxFechaTerminaPublicacion" layoutX="20.0" layoutY="386.0" prefHeight="29.0" prefWidth="200.0">
+         <children>
+            <DatePicker fx:id="dickerFechaTerminaPublicacion" prefHeight="25.0" prefWidth="175.0" promptText="Fecha termina publicación" />
+         </children>
+      </HBox>
+      <HBox fx:id="hboxValorInicial" layoutX="20.0" layoutY="445.0" prefHeight="37.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="txtValorInicial" prefHeight="25.0" prefWidth="175.0" promptText="Valor inicial" />
+         </children>
+      </HBox>
+      <HBox fx:id="hboxNombreProducto" layoutX="20.0" layoutY="84.0" prefHeight="28.0" prefWidth="270.0">
+         <children>
+            <TextField fx:id="txtNombreProducto" prefHeight="25.0" prefWidth="232.0" promptText="Nombre del producto" />
+         </children>
+      </HBox>
+      <HBox fx:id="hboxDescripcionProducto" layoutX="14.0" layoutY="126.0" prefHeight="79.0" prefWidth="677.0">
+         <children>
+            <TextField fx:id="txtDescripcionProducto" prefHeight="73.0" prefWidth="675.0" />
+         </children>
+      </HBox>
+      <HBox fx:id="hboxFechapublicacion" layoutX="607.0" layoutY="271.0" prefHeight="25.0" prefWidth="127.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha publicación" wrappingWidth="188.494140625" />
+         </children>
+      </HBox>
+      <HBox layoutX="607.0" layoutY="323.0" prefHeight="40.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="txtFechaPublicación" prefHeight="25.0" prefWidth="189.0" />
+         </children>
+      </HBox>
+      <HBox fx:id="hboxPublicarProducto" layoutX="737.0" layoutY="541.0" prefHeight="29.0" prefWidth="70.0">
+         <children>
+            <Button fx:id="btnPublicarProducto" mnemonicParsing="false" onAction="#ActionPublicarProducto" text="Publicar" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

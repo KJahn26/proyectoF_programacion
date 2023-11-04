@@ -1,6 +1,7 @@
 package com.uniquindio.subastasUQ.model;
 
 import com.uniquindio.subastasUQ.exceptions.UsuarioException;
+import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
 import com.uniquindio.subastasUQ.model.service.ISubastaUQService;
 
 import java.io.Serializable;
@@ -128,5 +129,29 @@ public class SubastaUq implements Serializable,ISubastaUQService {
             flagExiste = true;
         }
         return flagExiste;
+    }
+
+    public boolean verificarProductoExiste (Producto producto)
+    {
+        boolean centinela=false;
+        productoExiste(producto);
+        return centinela;
+    }
+    public boolean productoExiste (Producto producto)
+    {
+        boolean centinela=false;
+        for (Producto s: getListaproductos())
+        {
+            if (s.getTipoProducto().equals(producto.getTipoProducto()) && s.getNombreProducto().equals(producto.getNombreProducto())&&
+            s.getDescProducto().equals(producto.getDescProducto()) && s.getAnunciante().equals(producto.getAnunciante()) )
+            {
+
+            }
+            else
+            {
+                centinela=true;
+            }
+        }
+        return centinela;
     }
 }
