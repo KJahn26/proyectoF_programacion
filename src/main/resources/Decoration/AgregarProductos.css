@@ -1,58 +1,39 @@
-.combo-box .list-cell
+#anchorAbajo
 {
-    -fx-background: white;
+    -fx-background-color: linear-gradient(white 0%, #EAEAEA 100%);
+}
+
+.button
+{
+
+-fx-background-color: #008000;
+    -fx-border-color: black;
+    -fx-text-fill: black;
+    -fx-border-width: 0px 0px 2px 0px;
+
+}
+.button:hover
+{
+
+    -fx-cursor: HAND;
+}
+.text-field
+{
+    -fx-text-fill: #000000;
+    -fx-border-color: #333333;
     -fx-background-color: transparent;
-    -fx-text-fill: -fx-text-base-color;
-    -fx-padding: 3 0 2 7;
-    -fx-cell-size: 1.66667em;
+    -fx-border-width: 0px 0px 2px 0px;
 }
-
-.combo-box-popup .list-view
+#btnAgregarImagen
 {
-    -fx-background-color: white, white;
-    -fx-background-insets: 0, 1;
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 );
+ -fx-background-color: #32CD32;
 }
-
-.combo-box-popup .list-view .list-cell
+#btnPublicarProducto
 {
-    -fx-padding: 4 0 4 5;
-
-    /* No alternate highlighting */
-    -fx-background-color: white;
+ -fx-background-color: #40E0D0;
 }
-
-.combo-box-popup .list-view .list-cell:filled:selected, .combo-box-popup .list-view .list-cell:filled:selected:hover
+#btnRegresar
 {
-    -fx-background: -fx-accent;
-    -fx-background-color: -fx-selection-bar;
-    -fx-text-fill: -fx-selection-bar-text;
+-fx-background-color: #FF6B6B;
 }
 
-.combo-box-popup .list-view .list-cell:filled:hover
-{
-    -fx-background-color: white;
-    -fx-text-fill: -fx-text-inner-color;
-}
-
-
-
-.combo-box-base:hover
-{
-    -fx-color: -fx-hover-base;
-}
-
-.combo-box-base:showing
-{
-    -fx-color: -fx-pressed-base;
-}
-
-.combo-box-base:focused {
-    -fx-background-color: -fx-focus-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
-    -fx-background-radius: 6.4, 4, 5, 3;
-    -fx-background-insets: -1.4, 0, 1, 2;
-}
-
-.combo-box-base:disabled {
-    -fx-opacity: .4;
-}

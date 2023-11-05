@@ -55,6 +55,8 @@ public class PujasController {
 
     @FXML
     private TableColumn<ProductoDto, String> columnFechaFinalAnuncio;
+    @FXML
+    private TableColumn<ProductoDto, String> columnFechaInicioAnuncio;
 
     @FXML
     private TableColumn<ProductoDto, String> columnValorProductoAnuncio;
@@ -109,7 +111,7 @@ public class PujasController {
         initDataBindingPujas();
         tablePujas.getItems().clear();
         tablePujas.setItems(listaProductosPuja);
-        //listenerSelection();
+        listenerSelection();
         NumberStringConverter converter = new NumberStringConverter();
         TextFormatter<Number> textFormatter = new TextFormatter<>(converter, 0, change -> {
             if (!change.getControlNewText().matches("\\d*")) {
@@ -131,7 +133,7 @@ public class PujasController {
     void ActionPujar(ActionEvent event) {
         listenerSelection();
         initDataBindingPujas();
-        //listenerSelection();
+
         double centinela=0;
         centinela=Long.parseLong(seleccionar.valorInicial());
         if (centinela<=Long.parseLong(txtxValorPuja.getText()))
@@ -183,6 +185,7 @@ public class PujasController {
         columnValorProductoAnuncio.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().valorInicial()));
         columnTipoProductoAnuncio.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().tipoProducto()));
         columnFechaFinalAnuncio.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().fechaTerminarPublicacion()));
+        columnFechaInicioAnuncio.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().fechaTerminarPublicacion()));
 
 
 

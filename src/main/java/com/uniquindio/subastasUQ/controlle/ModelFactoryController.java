@@ -43,10 +43,10 @@ public class ModelFactoryController implements iModelFactoryController {
 
     public ModelFactoryController() {
         System.out.println("invocación clase singleton");
-        cargarDatosBase();
-        //cargarResourceXML();
+        //cargarDatosBase();
+        cargarResourceXML();
         //cargarDatosArchivos();
-        guardarResourceXML();
+        //guardarResourceXML();
         //salvaGuardarDatosPrueba();
         //registrarAccionesSistema("Inicio del programa", 1, "inicio de sesion");
 
@@ -205,8 +205,8 @@ public class ModelFactoryController implements iModelFactoryController {
         {
             try {
                 subastaUq.agregarProducto(producto);
-                guardarResourceXML();
                 centinela=true;
+                guardarResourceXML();
             } catch (UsuarioException e) {
                 throw new RuntimeException(e);
             }
@@ -216,11 +216,6 @@ public class ModelFactoryController implements iModelFactoryController {
       return centinela;
     }
 
-
-    public void modificarXml (String atributo)
-    {
-
-    }
 }
 
 
