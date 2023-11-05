@@ -14,20 +14,8 @@ public class AnuncioController implements IAnuncioService {
 
         modelFactoryController = ModelFactoryController.getInstance();
     }
-    @Override
-    public void fechaPublicacion() {
 
-    }
 
-    @Override
-    public void fechaFinalizacion() {
-
-    }
-
-    @Override
-    public void valorInicial() {
-
-    }
 
     public List<ProductoDto> obtenerProducto() {
         return modelFactoryController.obtenerProductos();
@@ -41,5 +29,9 @@ public class AnuncioController implements IAnuncioService {
         return modelFactoryController.getFecha();
     }
 
+    @Override
+    public boolean guardarProducto(ProductoDto productoDto) {
+        return modelFactoryController.agregarProducto(productoDto);
+    }
 }
 

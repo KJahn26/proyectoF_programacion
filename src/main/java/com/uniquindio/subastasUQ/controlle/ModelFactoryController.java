@@ -5,6 +5,7 @@ import com.uniquindio.subastasUQ.controlle.service.iModelFactoryController;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
 import com.uniquindio.subastasUQ.mapping.dto.UsuarioDto;
 import com.uniquindio.subastasUQ.mapping.mappings.SubastaMapper;
+import com.uniquindio.subastasUQ.model.Producto;
 import com.uniquindio.subastasUQ.model.SubastaUq;
 import com.uniquindio.subastasUQ.model.Usuario;
 import com.uniquindio.subastasUQ.utils.ArchivoUtil;
@@ -45,9 +46,9 @@ public class ModelFactoryController implements iModelFactoryController {
         cargarDatosBase();
         //cargarResourceXML();
         //cargarDatosArchivos();
-        //guardarResourceXML();
+        guardarResourceXML();
         //salvaGuardarDatosPrueba();
-        registrarAccionesSistema("Inicio del programa", 1, "inicio de sesion");
+        //registrarAccionesSistema("Inicio del programa", 1, "inicio de sesion");
 
 
         if (subastaUq == null) {
@@ -110,7 +111,6 @@ public class ModelFactoryController implements iModelFactoryController {
             if (!subastaUq.verificarUsuarioExistente(usuarioDto.cedula())) {
                 Usuario usuario = mapper.usuarioDtoToUsuario(usuarioDto);
                 getSubasta().agregarUsuario(usuario);
-                salvaGuardarDatosPrueba();
                 registrarAccionesSistema("nuevo Usuario", 1, "se agrego a un usuario");
             }
             return true;
@@ -126,6 +126,8 @@ public class ModelFactoryController implements iModelFactoryController {
         try {
             flagExiste = subastaUq.eliminarUsuario(cedula);
             registrarAccionesSistema("Usuario eliminado", 2, "se elimino a un usuario");
+            System.out.println("El usuario se ah eliminado correctamente");
+
         } catch (UsuarioException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -158,6 +160,7 @@ public class ModelFactoryController implements iModelFactoryController {
     }
 
     private void guardarResourceXML() {
+
         Persistencia.guardarRecursoBancoXML(subastaUq);
     }
 
@@ -182,6 +185,7 @@ public class ModelFactoryController implements iModelFactoryController {
         boolean flag = false;
         try {
             flag = subastaUq.eliminarProducto(nombre);
+            guardarResourceXML();
             registrarAccionesSistema("Producto elimnado", 2, "se elimino a un producto debido a su compra");
         } catch (Exception e) {
             e.printStackTrace();
@@ -192,6 +196,29 @@ public class ModelFactoryController implements iModelFactoryController {
     public String cogerFecha() {
 
         return ArchivoUtil.cargarFechaSistema();
+    }
+    public boolean agregarProducto (ProductoDto productoDto) {
+        boolean centinela=false;
+        Producto producto = mapper.productoDtoToProducto(productoDto);
+        if (!subastaUq.verificarProductoExiste(producto))
+        {
+            try {
+                subastaUq.agregarProducto(producto);
+                guardarResourceXML();
+                centinela=true;
+            } catch (UsuarioException e) {
+                throw new RuntimeException(e);
+            }
+
+
+        }
+      return centinela;
+    }
+
+
+    public void modificarXml (String atributo)
+    {
+
     }
 }
 

@@ -103,11 +103,17 @@
      <void property="descProducto">
       <string>juguete del canal del raton</string>
      </void>
+     <void property="fechaTerminarPublicacion">
+      <string>2023-11-04</string>
+     </void>
      <void property="nombreProducto">
       <string>rayo mcqueen</string>
      </void>
      <void property="tipoProducto">
       <string>juguete</string>
+     </void>
+     <void property="valorInicial">
+      <string>10</string>
      </void>
     </object>
    </void>
