@@ -1,5 +1,6 @@
 package com.uniquindio.subastasUQ.controller.view;
 
+import com.uniquindio.subastasUQ.HelloApplication;
 import com.uniquindio.subastasUQ.controlle.AnuncioController;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
 import javafx.beans.property.SimpleStringProperty;
@@ -7,8 +8,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
 
 import java.time.LocalDate;
@@ -81,6 +86,8 @@ public class PujasController {
     @FXML
     private Button btnPujas;
     @FXML
+    private Button btnRegresar;
+    @FXML
     private TableColumn<ProductoDto, String> nombre;
 
     @FXML
@@ -90,13 +97,19 @@ public class PujasController {
     private TextField txtxValorPuja;
     public void initialize() {
         anuncioController = new AnuncioController();
+        initiew();
+
+    }
+    public void initiew ()
+    {
         initDataBindingProductos();
         obtenerProductos();
         listenerSelection();
-        //eliminarProducto();
         tableProductos.getItems().clear();
         tableProductos.setItems(listaProductos);
-
+        initDataBindingPujas();
+        tablePujas.getItems().clear();
+        tablePujas.setItems(listaProductosPuja);
 
         NumberStringConverter converter = new NumberStringConverter();
         TextFormatter<Number> textFormatter = new TextFormatter<>(converter, 0, change -> {
@@ -108,12 +121,13 @@ public class PujasController {
 
         txtxValorPuja.setTextFormatter(textFormatter);
     }
+    @FXML
+    void ActionRegresar(ActionEvent event) {
+        mostrarVentana(event,"hello-view.fxml","Subas universidad del quindio");
+    }
 
     @FXML
     void ActionPujar(ActionEvent event) {
-        initDataBindingPujas();
-        listenerSelection();
-
         double centinela=0;
         initDataBindingPujas();
         listenerSelection();
@@ -155,6 +169,7 @@ public class PujasController {
         tableProductos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             seleccionar= newSelection;
 
+
         });
     }
 
@@ -194,12 +209,9 @@ public class PujasController {
     {
         if (seleccionar!=null)
         {
-            if (mostrarMensajeConfirmacion("¿Estas seguro de elmininar la puja"))
-            {
-                listaProductosPuja.remove(seleccionar);
-                seleccionar=null;
-                tablePujas.getSelectionModel().clearSelection();
-            }
+            listaProductosPuja.remove(seleccionar);
+            seleccionar = null;
+            tablePujas.getSelectionModel().clearSelection();
         }
     }
 
@@ -239,6 +251,27 @@ public class PujasController {
             }
         }
     }
+    private void mostrarVentana (ActionEvent event, String ruta, String centinela)
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(ruta));
+            //loader.setLocation(HelloApplication.class.getResource(ruta));
+            AnchorPane rootLayout  = (AnchorPane) loader.load();
+            Scene scene = new Scene(rootLayout);
+            Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.setTitle(centinela);
+            appStage.toFront();
+            appStage.show();
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+
+        }
+    }
+
 
 }
 

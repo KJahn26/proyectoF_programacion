@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="580.0" prefWidth="860.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uniquindio.subastasUQ.controller.view.controllerPublicaciones">
+   <children>
+      <HBox fx:id="hboxtable" layoutX="293.0" layoutY="94.0" prefHeight="313.0" prefWidth="576.0">
+         <children>
+            <TableView prefHeight="313.0" prefWidth="597.0">
+              <columns>
+                <TableColumn minWidth="0.0" prefWidth="23.0" text="#" />
+                <TableColumn prefWidth="66.0" text="Nombre" />
+                  <TableColumn prefWidth="76.0" text="T.Producto" />
+                  <TableColumn prefWidth="85.0" text="Descripcion" />
+                  <TableColumn prefWidth="97.0" text="N.Anunciante" />
+                  <TableColumn prefWidth="76.0" text="F.Inicio" />
+                  <TableColumn prefWidth="76.0" text="F.Final" />
+                  <TableColumn prefWidth="73.0" text="V.producto" />
+              </columns>
+            </TableView>
+         </children>
+      </HBox>
+      <HBox prefHeight="42.0" prefWidth="953.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Productos publicados">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="350.0" />
+               </HBox.margin>
+            </Text>
+         </children>
+      </HBox>
+      <HBox fx:id="hboxNombreProducto" layoutX="14.0" layoutY="94.0" prefHeight="37.0" prefWidth="277.0">
+         <children>
+            <Label prefHeight="24.0" prefWidth="106.0" text="Nombre producto" />
+            <TextField fx:id="txtNombreProducto" />
+         </children>
+      </HBox>
+      <HBox fx:id="hboxTipoProducto" layoutX="36.0" layoutY="140.0" prefHeight="25.0" prefWidth="248.0">
+         <children>
+            <Label text="Tipo producto">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="txtTipoProducto">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox fx:id="hboxNombreAnunciante" layoutX="14.0" layoutY="186.0" prefHeight="25.0" prefWidth="277.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre anunciante">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </Text>
+            <TextField fx:id="txtNombreAnunciante">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox fx:id="hboxFechaInicio" layoutX="23.0" layoutY="238.0" prefHeight="25.0" prefWidth="258.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha inicio">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </Text>
+            <TextField fx:id="txtFechaInicio">
+               <HBox.margin>
+                  <Insets left="40.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox fx:id="hboxFechFInal" layoutX="28.0" layoutY="278.0" prefHeight="25.0" prefWidth="248.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha final">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </Text>
+            <TextField fx:id="txtFechaFinal">
+               <HBox.margin>
+                  <Insets left="35.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox fx:id="hboxValorProducto" layoutX="19.0" layoutY="315.0" prefHeight="25.0" prefWidth="267.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Valor producto">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </Text>
+            <TextField fx:id="txtValorProducto">
+               <HBox.margin>
+                  <Insets left="25.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox fx:id="hboxImagenProducto" layoutX="36.0" layoutY="392.0" prefHeight="113.0" prefWidth="233.0">
+         <children>
+            <ImageView fx:id="imageviewProducto" fitHeight="128.0" fitWidth="233.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+      <HBox fx:id="hboxEliminar" layoutX="22.0" layoutY="532.0" prefHeight="25.0" prefWidth="130.0">
+         <children>
+            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#ActionEliminar" prefHeight="25.0" prefWidth="132.0" text="Eliminar" />
+         </children>
+      </HBox>
+      <HBox fx:id="hboxActuzalizar" layoutX="176.0" layoutY="532.0" prefHeight="25.0" prefWidth="142.0">
+         <children>
+            <Button fx:id="btnActualizar" mnemonicParsing="false" onAction="#ActionActualizar" prefHeight="25.0" prefWidth="140.0" text="Actualizar" />
+         </children>
+      </HBox>
+   </children>
+   <opaqueInsets>
+      <Insets left="80.0" />
+   </opaqueInsets>
+</AnchorPane>
