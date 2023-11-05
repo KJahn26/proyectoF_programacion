@@ -29,7 +29,7 @@
     -fx-border-width: 0px 0px 2px 0px;
 }
 
-.combo-box-base {
+#dickerFechaTerminaPublicacion {
     -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color,white;
     -fx-background-insets: 0 0 -1 0, 0, 1, 2;
     -fx-background-radius: 3px, 3px, 2px, 1px;
@@ -38,8 +38,40 @@
     -fx-alignment: CENTER;
     -fx-content-display: LEFT;
 }
-.combo-box-base {
+#dickerFechaTerminaPublicacion {
     -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, black;
     -fx-background-insets: 0 0 -1 0, 0, 1, 2;
     -fx-background-radius: 3px, 3px, 2px, 1px;
 }
+#comboBoxTipoProducto
+{
+    -fx-border-width: 0.3px;
+    -fx-border-color: #ACACAC;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-font-size: 15px;
+    -fx-padding: 0px;
+    -fx-font-weight: 700;
+    -fx-font-family: 'Open sans', 'Helvetica Neue', 'Arail','SansSerif';
+}
+#comboBoxTipoProducto:hover {
+    -fx-text-fill: white;
+    -fx-border-color: black;
+
+
+}
+#comboBoxTipoProducto .list-view
+{
+    -fx-border-width: 0.5px;
+    -fx-border-color: #ACACAC;
+    -fx-background-color: white;
+    -fx-padding: 0px;
+    -fx-font-weight:700;
+    -fx-border-radius: 10px 10px 0px 0px;
+    -fx-background-radius: 10px 10px 0px 0px;
+
+
+
+}
+
+
