@@ -1,14 +1,14 @@
 #anchorAbajo
 {
-    -fx-background-color: linear-gradient(white 0%, #EAEAEA 100%);
+    -fx-background-color:  linear-gradient(#131313 0%, #424141 100%);
 }
 
 .button
 {
 
--fx-background-color: #008000;
-    -fx-border-color: black;
-    -fx-text-fill: black;
+-fx-background-color: black;
+    -fx-border-color: white;
+    -fx-text-fill: white;
     -fx-border-width: 0px 0px 2px 0px;
 
 }
@@ -16,24 +16,30 @@
 {
 
     -fx-cursor: HAND;
+    -fx-background-color: white;
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-border-color: #00000;
+    -fx-text-fill: black;
 }
 .text-field
 {
-    -fx-text-fill: #000000;
-    -fx-border-color: #333333;
-    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-border-color: white;
+    -fx-background-color: transprent;
     -fx-border-width: 0px 0px 2px 0px;
 }
-#btnAgregarImagen
-{
- -fx-background-color: #32CD32;
-}
-#btnPublicarProducto
-{
- -fx-background-color: #40E0D0;
-}
-#btnRegresar
-{
--fx-background-color: #FF6B6B;
-}
 
+.combo-box-base {
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color,white;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color, white;
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+.combo-box-base {
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, black;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+}
