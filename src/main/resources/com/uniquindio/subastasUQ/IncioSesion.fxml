@@ -15,7 +15,7 @@
    <children>
       <BorderPane layoutY="6.0" prefHeight="447.0" prefWidth="634.0">
          <right>
-            <AnchorPane fx:id="Principal" prefHeight="447.0" prefWidth="335.0" style="-fx-background-color: #fcfcfa;" stylesheets="@../../../Decoration/Inicio.css" BorderPane.alignment="CENTER">
+            <AnchorPane fx:id="Principal" prefHeight="447.0" prefWidth="335.0" stylesheets="@../../../Decoration/Inicio.css" BorderPane.alignment="CENTER">
                <children>
                   <TextField fx:id="txtIngresoEmail" layoutX="89.0" layoutY="143.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
                      <cursor>
