@@ -562,3 +562,5 @@ nov 05, 2023 12:45:05 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guarda
 INFO: Inicio de sesion como anunciante de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 05 hora  12:45:5 PM
 nov 05, 2023 12:46:44 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
 INFO: Inicio de sesion como anunciante de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 05 hora  12:46:44 PM
+nov 05, 2023 1:12:06 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Inicio de sesion como anunciante de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 05 hora  13:12:6 PM
