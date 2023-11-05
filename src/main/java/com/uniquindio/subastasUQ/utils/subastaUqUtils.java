@@ -70,6 +70,15 @@ public class subastaUqUtils {
         producto.setFechaTerminarPublicacion("2023-11-04");
         producto.setValorInicial("10");
         subastaUq.getListaproductos().add(producto);
+
+        producto = new Producto();
+        producto.setNombreProducto("prueba");
+        producto.setTipoProducto("algo");
+        producto.setDescProducto("aja");
+        producto.setAnunciante("sofia");
+        producto.setFechaTerminarPublicacion("2023-11-05");
+        producto.setValorInicial("10");
+        subastaUq.getListaproductos().add(producto);
     }
 
 }

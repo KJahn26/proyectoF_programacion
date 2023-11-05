@@ -117,31 +117,6 @@
      </void>
     </object>
    </void>
-   <void method="add">
-    <object class="com.uniquindio.subastasUQ.model.Producto">
-     <void property="anunciante">
-      <string>fe</string>
-     </void>
-     <void property="descProducto">
-      <string>ef</string>
-     </void>
-     <void property="fechaPublicacion">
-      <string>2023 - 11 - 04 hora  23:24:47 PM</string>
-     </void>
-     <void property="fechaTerminarPublicacion">
-      <string>2023-11-29</string>
-     </void>
-     <void property="nombreProducto">
-      <string>sc</string>
-     </void>
-     <void property="tipoProducto">
-      <string>Bien raiz</string>
-     </void>
-     <void property="valorInicial">
-      <string>543</string>
-     </void>
-    </object>
-   </void>
   </void>
  </object>
 </java>

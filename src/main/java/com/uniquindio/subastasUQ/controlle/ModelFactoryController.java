@@ -186,6 +186,7 @@ public class ModelFactoryController implements iModelFactoryController {
         try {
             flag = subastaUq.eliminarProducto(nombre);
             guardarResourceXML();
+            cargarResourceXML();
             registrarAccionesSistema("Producto elimnado", 2, "se elimino a un producto debido a su compra");
         } catch (Exception e) {
             e.printStackTrace();
