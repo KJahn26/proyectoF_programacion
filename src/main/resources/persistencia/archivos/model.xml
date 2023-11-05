@@ -120,25 +120,25 @@
    <void method="add">
     <object class="com.uniquindio.subastasUQ.model.Producto">
      <void property="anunciante">
-      <string>jahn carlos martinez vasquez</string>
+      <string>fe</string>
      </void>
      <void property="descProducto">
-      <string>Carrito para conquistar, bien asicalado</string>
+      <string>ef</string>
      </void>
      <void property="fechaPublicacion">
-      <string>2023 - 11 - 04 hora  23:14:45 PM</string>
+      <string>2023 - 11 - 04 hora  23:24:47 PM</string>
      </void>
      <void property="fechaTerminarPublicacion">
-      <string>2023-11-07</string>
+      <string>2023-11-29</string>
      </void>
      <void property="nombreProducto">
-      <string>hot weels</string>
+      <string>sc</string>
      </void>
      <void property="tipoProducto">
-      <string>Vehiculos</string>
+      <string>Bien raiz</string>
      </void>
      <void property="valorInicial">
-      <string>12</string>
+      <string>543</string>
      </void>
     </object>
    </void>
