@@ -55,6 +55,8 @@ public class PujasController {
 
     @FXML
     private TableColumn<ProductoDto, String> columnFechaFinalAnuncio;
+    @FXML
+    private TableColumn<ProductoDto, String> columnFechaInicioAnuncio;
 
     @FXML
     private TableColumn<ProductoDto, String> columnValorProductoAnuncio;
@@ -110,6 +112,7 @@ public class PujasController {
         tablePujas.getItems().clear();
         tablePujas.setItems(listaProductosPuja);
         listenerSelection();
+        eliminarProducto();
         NumberStringConverter converter = new NumberStringConverter();
         TextFormatter<Number> textFormatter = new TextFormatter<>(converter, 0, change -> {
             if (!change.getControlNewText().matches("\\d*")) {
@@ -119,6 +122,7 @@ public class PujasController {
         });
 
         txtxValorPuja.setTextFormatter(textFormatter);
+
     }
     @FXML
     void ActionRegresar(ActionEvent event) {
@@ -127,9 +131,10 @@ public class PujasController {
 
     @FXML
     void ActionPujar(ActionEvent event) {
+
         initDataBindingPujas();
-        listenerSelection();
         double centinela=0;
+        listenerSelection();
         centinela=Long.parseLong(seleccionar.valorInicial());
         if (centinela<=Long.parseLong(txtxValorPuja.getText()))
         {
@@ -180,6 +185,7 @@ public class PujasController {
         columnValorProductoAnuncio.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().valorInicial()));
         columnTipoProductoAnuncio.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().tipoProducto()));
         columnFechaFinalAnuncio.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().fechaTerminarPublicacion()));
+        columnFechaInicioAnuncio.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().fechaTerminarPublicacion()));
 
 
 
@@ -237,18 +243,18 @@ public class PujasController {
         LocalDate fecha = LocalDate.now();
         String centinela="";
         centinela=fecha.toString();
-        System.out.println(centinela);
         for (ProductoDto s: listaProductos)
         {
             if (s.fechaTerminarPublicacion().equals(centinela))
             {
                 anuncioController.eliminarProducto(s.nombreProducto());
+                listaProductos.remove(s);
                 tableProductos.getSelectionModel().clearSelection();
-
                 mostrarMensaje("Notificación de producto", "Producto eliminado", "Se elimino el producto " , Alert.AlertType.ERROR);
 
             }
         }
+
     }
     private void mostrarVentana (ActionEvent event, String ruta, String centinela)
     {
@@ -263,13 +269,13 @@ public class PujasController {
             appStage.setTitle(centinela);
             appStage.toFront();
             appStage.show();
-
         }catch (Exception e)
         {
             e.printStackTrace();
 
         }
     }
+
 
 
 }

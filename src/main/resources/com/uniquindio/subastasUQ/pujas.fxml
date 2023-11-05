@@ -18,7 +18,7 @@
                   <TableColumn fx:id="columnTipoProductoAnuncio" prefWidth="118.0" text="T.Producto" />
                   <TableColumn fx:id="columnDescripcionAnuncio" prefWidth="85.0" text="Descripción" />
                   <TableColumn fx:id="columnNameAnuncianteAnuncio" prefWidth="103.0" text="N.Anunciante" />
-                  <TableColumn fx:id="columnFechaFinalAnuncio" prefWidth="70.0" text="F.Inicio" />
+                  <TableColumn fx:id="columnFechaInicioAnuncio" prefWidth="70.0" text="F.Inicio" />
                   <TableColumn fx:id="columnFechaFinalAnuncio" prefWidth="92.0" text="F.Final" />
                   <TableColumn fx:id="columnValorProductoAnuncio" prefWidth="128.0" text="V.producto" />
               </columns>
