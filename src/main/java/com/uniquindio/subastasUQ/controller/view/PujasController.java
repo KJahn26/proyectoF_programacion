@@ -104,13 +104,12 @@ public class PujasController {
     {
         initDataBindingProductos();
         obtenerProductos();
-        listenerSelection();
         tableProductos.getItems().clear();
         tableProductos.setItems(listaProductos);
         initDataBindingPujas();
         tablePujas.getItems().clear();
         tablePujas.setItems(listaProductosPuja);
-
+        listenerSelection();
         NumberStringConverter converter = new NumberStringConverter();
         TextFormatter<Number> textFormatter = new TextFormatter<>(converter, 0, change -> {
             if (!change.getControlNewText().matches("\\d*")) {
@@ -128,9 +127,9 @@ public class PujasController {
 
     @FXML
     void ActionPujar(ActionEvent event) {
-        double centinela=0;
         initDataBindingPujas();
         listenerSelection();
+        double centinela=0;
         centinela=Long.parseLong(seleccionar.valorInicial());
         if (centinela<=Long.parseLong(txtxValorPuja.getText()))
         {
@@ -151,6 +150,7 @@ public class PujasController {
         }
 
 
+
     }
 
     @FXML
@@ -168,7 +168,6 @@ public class PujasController {
     private void listenerSelection() {
         tableProductos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             seleccionar= newSelection;
-
 
         });
     }

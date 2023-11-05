@@ -18,7 +18,7 @@
 #Image
 {
 
-    -fx-background-image: url("cian.jpg");
+    -fx-background-color: linear-gradient(floralwhite 25%, #0090ff 100%);
     background-size: cover; /* Cubrir completamente el espacio */
     background-position: center; /* Centrar la imagen */
     background-repeat: no-repeat; /* Evitar la repetición de la imagen */
@@ -28,11 +28,16 @@
 #imageView
 {
     -fx-background-image: url("Usuario.jpg");
+    -fx-opacity: 40%;
     background-size: cover; /* Cubrir completamente el espacio */
     background-position: center; /* Centrar la imagen */
     background-repeat: no-repeat; /* Evitar la repetición de la imagen */
     width: 100%;
     height: 12px; /* Altura deseada */
+}
+#Principal
+{
+    -fx-background-color: floralwhite;
 }
 
 
