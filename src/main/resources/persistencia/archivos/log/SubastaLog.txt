@@ -470,3 +470,37 @@ nov 04, 2023 11:14:45 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guarda
 INFO: Inicio de sesion como anunciante de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  23:14:45 PM
 nov 04, 2023 11:16:47 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
 INFO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  23:16:47 PM
+nov 04, 2023 11:25:07 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Inicio de sesion como anunciante de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  23:25:7 PM
+nov 04, 2023 11:50:23 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  23:50:23 PM
+nov 04, 2023 11:59:35 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 04 hora  23:59:35 PM
+nov 05, 2023 12:01:21 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 05 hora  0:1:21 AM
+nov 05, 2023 12:10:55 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Inicio de sesion como anunciante de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 05 hora  0:10:55 AM
+nov 05, 2023 12:22:50 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: se elimino a un producto debido a su compra , Producto elimnado , FECHA: 2023 - 11 - 05 hora  0:22:50 AM
+nov 05, 2023 12:22:52 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 05 hora  0:22:52 AM
+nov 05, 2023 12:25:48 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: se elimino a un producto debido a su compra , Producto elimnado , FECHA: 2023 - 11 - 05 hora  0:25:48 AM
+nov 05, 2023 12:25:51 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 05 hora  0:25:51 AM
+nov 05, 2023 12:27:33 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: se elimino a un producto debido a su compra , Producto elimnado , FECHA: 2023 - 11 - 05 hora  0:27:33 AM
+nov 05, 2023 12:27:36 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 05 hora  0:27:36 AM
+nov 05, 2023 12:34:50 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: se elimino a un producto debido a su compra , Producto elimnado , FECHA: 2023 - 11 - 05 hora  0:34:50 AM
+nov 05, 2023 12:34:51 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 05 hora  0:34:51 AM
+nov 05, 2023 12:41:08 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: se elimino a un producto debido a su compra , Producto elimnado , FECHA: 2023 - 11 - 05 hora  0:41:8 AM
+nov 05, 2023 12:41:10 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 05 hora  0:41:10 AM
+nov 05, 2023 12:44:03 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: se elimino a un producto debido a su compra , Producto elimnado , FECHA: 2023 - 11 - 05 hora  0:44:3 AM
+nov 05, 2023 12:44:05 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 05 hora  0:44:5 AM

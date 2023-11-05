@@ -125,7 +125,7 @@ public class SubastaUq implements Serializable,ISubastaUQService {
             throw new Exception("El Producto a eliminar no existe");
         }
         else{
-            getListaUsuarios().remove(pr);
+            getListaproductos().remove(pr);
             flagExiste = true;
         }
         return flagExiste;

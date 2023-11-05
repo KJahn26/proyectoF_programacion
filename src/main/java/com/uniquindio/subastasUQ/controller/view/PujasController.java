@@ -109,7 +109,7 @@ public class PujasController {
         initDataBindingPujas();
         tablePujas.getItems().clear();
         tablePujas.setItems(listaProductosPuja);
-        listenerSelection();
+        //listenerSelection();
         NumberStringConverter converter = new NumberStringConverter();
         TextFormatter<Number> textFormatter = new TextFormatter<>(converter, 0, change -> {
             if (!change.getControlNewText().matches("\\d*")) {
@@ -119,6 +119,8 @@ public class PujasController {
         });
 
         txtxValorPuja.setTextFormatter(textFormatter);
+        listenerSelection();
+        eliminarProducto();
     }
     @FXML
     void ActionRegresar(ActionEvent event) {
@@ -127,8 +129,9 @@ public class PujasController {
 
     @FXML
     void ActionPujar(ActionEvent event) {
-        initDataBindingPujas();
         listenerSelection();
+        initDataBindingPujas();
+        //listenerSelection();
         double centinela=0;
         centinela=Long.parseLong(seleccionar.valorInicial());
         if (centinela<=Long.parseLong(txtxValorPuja.getText()))
@@ -209,7 +212,7 @@ public class PujasController {
         if (seleccionar!=null)
         {
             listaProductosPuja.remove(seleccionar);
-            seleccionar = null;
+            //seleccionar = null;
             tablePujas.getSelectionModel().clearSelection();
         }
     }
@@ -237,13 +240,18 @@ public class PujasController {
         LocalDate fecha = LocalDate.now();
         String centinela="";
         centinela=fecha.toString();
-        System.out.println(centinela);
-        for (ProductoDto s: listaProductos)
+        //System.out.println(centinela);
+        for(int i=0;i<listaProductos.size();i++)
+       // for (ProductoDto s: listaProductos)
         {
-            if (s.fechaTerminarPublicacion().equals(centinela))
+            ProductoDto s = listaProductos.get(i);
+            if (s.fechaTerminarPublicacion().equalsIgnoreCase(centinela))
             {
                 anuncioController.eliminarProducto(s.nombreProducto());
+                listaProductos.remove(s);
+                i--;
                 tableProductos.getSelectionModel().clearSelection();
+
 
                 mostrarMensaje("Notificación de producto", "Producto eliminado", "Se elimino el producto " , Alert.AlertType.ERROR);
 
