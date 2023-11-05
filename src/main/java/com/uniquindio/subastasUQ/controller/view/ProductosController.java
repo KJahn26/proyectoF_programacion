@@ -55,6 +55,7 @@ public class ProductosController {
 
     }
 
+
     private void listenerSelection() {
         tableUsuarios.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             productoSeleccionado = newSelection;
@@ -69,9 +70,7 @@ public class ProductosController {
         columnDescripcion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().descProducto()));
         columnNombreAnunciante.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().anunciante()));
 
-        //tcNombreProducto.setCellValueFactory(new PropertyValueFactory("nombreProducto"));
-        //tcTipoProducto.setCellValueFactory(new PropertyValueFactory("tipoProducto"));
-        //tcDescripcionProducto.setCellValueFactory(new PropertyValueFactory("descripcionProducto"));
+
 
     }
 
