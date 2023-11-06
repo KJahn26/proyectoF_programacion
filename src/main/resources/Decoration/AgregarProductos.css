@@ -1,6 +1,6 @@
 #anchorAbajo
 {
-    -fx-background-color:  linear-gradient(#131313 0%, #424141 100%);
+    -fx-background-color:  linear-gradient(dimgrey 0%, #424141 100%);
 }
 
 .button
@@ -62,9 +62,11 @@
 }
 #comboBoxTipoProducto .list-view
 {
+
     -fx-border-width: 0.5px;
     -fx-border-color: #ACACAC;
-    -fx-background-color: white;
+    -fx-background-color: black;
+    -fx-text-fill: white;
     -fx-padding: 0px;
     -fx-font-weight:700;
     -fx-border-radius: 10px 10px 0px 0px;
