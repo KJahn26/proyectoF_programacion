@@ -1,3 +1,4 @@
+
 oct 09, 2023 9:24:07 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
 INFO: inicio de sesion , Inicio del programa , FECHA: 2023 - 10 - 09 hora  21:24:7 PM
 oct 09, 2023 9:25:13 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
@@ -566,3 +567,4 @@ nov 07, 2023 1:26:37 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardar
 INFO: se realizo una puja , nueva puja , FECHA: 2023 - 11 - 07 hora  1:26:37 AM
 nov 07, 2023 1:26:47 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
 INFO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co , Inicio de Sesion , FECHA: 2023 - 11 - 07 hora  1:26:47 AM
+

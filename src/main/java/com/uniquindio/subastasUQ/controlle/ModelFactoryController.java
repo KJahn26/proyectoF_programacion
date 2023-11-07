@@ -45,8 +45,8 @@ public class ModelFactoryController implements iModelFactoryController {
 
     public ModelFactoryController() {
         System.out.println("invocación clase singleton");
-        //cargarDatosBase();
-        cargarResourceXML();
+        cargarDatosBase();
+        //cargarResourceXML();
         //cargarDatosArchivos();
         //guardarResourceXML();
         //salvaGuardarDatosPrueba();

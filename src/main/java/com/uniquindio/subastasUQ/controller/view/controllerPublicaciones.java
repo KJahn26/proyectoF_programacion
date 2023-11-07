@@ -19,6 +19,7 @@ public class controllerPublicaciones {
     ObservableList<ProductoDto> listaProductos = FXCollections.observableArrayList();
 
     ObservableList<PujaDto> listaProductosPuja = FXCollections.observableArrayList();
+
     @FXML
     private HBox hboxtable;
 
@@ -134,7 +135,7 @@ public class controllerPublicaciones {
 
     @FXML
     void ActionEliminar(ActionEvent event) {
-
+            eliminarProducto();
     }
 
     @FXML
@@ -188,7 +189,21 @@ public class controllerPublicaciones {
 
 
     private void initDataBindingPuja(){
+    
+    }
 
+    public void eliminarProducto ()
+    {
+        listenerSelection();
+        if (productoSeleccionado!=null)
+        {
+            if (anuncioController.eliminarProducto(productoSeleccionado.nombreProducto()))
+            {
+                listaProductos.remove(productoSeleccionado);
+                tablePublicaciones.getSelectionModel().clearSelection();
+
+            }
+        }
 
     }
 
