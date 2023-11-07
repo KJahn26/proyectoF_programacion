@@ -1,6 +1,7 @@
 package com.uniquindio.subastasUQ.controller.view;
 import com.uniquindio.subastasUQ.controlle.AnuncioController;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
+import com.uniquindio.subastasUQ.mapping.dto.PujaDto;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,6 +17,8 @@ public class controllerPublicaciones {
     AnuncioController anuncioController;
     ProductoDto productoSeleccionado;
     ObservableList<ProductoDto> listaProductos = FXCollections.observableArrayList();
+
+    ObservableList<PujaDto> listaProductosPuja = FXCollections.observableArrayList();
 
     @FXML
     private HBox hboxtable;
@@ -134,6 +137,19 @@ public class controllerPublicaciones {
     void ActionEliminar(ActionEvent event) {
             eliminarProducto();
     }
+
+    @FXML
+    void actionMostrarPujas(){
+
+
+    }
+
+    @FXML
+    void actionvolverDePujas(){
+
+
+    }
+
     private void listenerSelection() {
         tablePublicaciones.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             productoSeleccionado = newSelection;
@@ -162,9 +178,18 @@ public class controllerPublicaciones {
         columnDescripcion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().descProducto()));
         columnNombreAnunciante.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().anunciante()));
         COlumnValorProducto.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().valorInicial()));
-      columnTipoProducto.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().tipoProducto()));
+        columnTipoProducto.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().tipoProducto()));
         ColumnFechaFInal.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().fechaTerminarPublicacion()));
         ColumnFechaInicio.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().fechaPublicacion()));
+    }
+
+    public void obtenerPorductosPuja(){
+        listaProductosPuja.addAll(anuncioController.obtenerProductosPuja());
+    }
+
+
+    private void initDataBindingPuja(){
+    
     }
 
     public void eliminarProducto ()
@@ -179,6 +204,7 @@ public class controllerPublicaciones {
 
             }
         }
+
     }
 
 }

@@ -14,6 +14,8 @@ public class SubastaUq implements Serializable,ISubastaUQService {
 
     ArrayList<Producto> listaproductos= new ArrayList<>();
 
+    ArrayList<Puja> listaProductosPuja= new ArrayList<>();
+
     public SubastaUq(){
 
     }
@@ -157,5 +159,53 @@ public class SubastaUq implements Serializable,ISubastaUQService {
     public void agregarProducto(Producto nuevoProducto) throws UsuarioException{
         getListaproductos().add(nuevoProducto);
     }
+
+    public ArrayList<Puja> getListaProductosPuja() {
+        return listaProductosPuja;
+    }
+
+    public void setListaProductosPuja(ArrayList<Puja> listaProductosPuja) {
+        this.listaProductosPuja = listaProductosPuja;
+    }
+
+    public boolean eliminarPuja(String nombre)throws Exception{
+        boolean f=false;
+        Puja pr=obtenerPuja(nombre);
+        if(pr==null){
+            throw new Exception("el producto no existe");
+        }
+        else{
+            listaProductosPuja.remove(pr);
+            f=true;
+        }
+    return f;}
+
+    public Puja obtenerPuja(String nombre){
+        Puja pr=null;
+        for(Puja p:listaProductosPuja){
+            if(p.getNombreProducto().equalsIgnoreCase(nombre)){
+                pr=p;
+                break;
+            }
+        }
+    return pr;}
+
+    public void agregarPuja(Puja puja){
+        listaProductosPuja.add(puja);
+    }
+
+    public boolean verificarCantidadPujas(String n){
+        boolean f=false;
+        int c=0;
+        for(Puja p:listaProductosPuja){
+            if(p.getNombreAnunciante().equalsIgnoreCase(n)){
+                c++;
+            }
+        }
+        if(c>=3){
+            f=true;
+        }
+
+    return f;}
 
 }

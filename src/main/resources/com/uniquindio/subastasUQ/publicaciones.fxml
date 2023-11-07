@@ -12,11 +12,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchor" prefHeight="580.0" prefWidth="830.0" stylesheets="@../../../Decoration/publicaciones.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uniquindio.subastasUQ.controller.view.controllerPublicaciones">
+<AnchorPane fx:id="anchor" prefHeight="580.0" prefWidth="830.0" stylesheets="@../../../Decoration/publicaciones.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uniquindio.subastasUQ.controller.view.controllerPublicaciones">
    <children>
       <HBox fx:id="hboxtable" layoutX="293.0" layoutY="94.0" prefHeight="313.0" prefWidth="576.0">
          <children>
-            <TableView fx:id="tablePublicaciones" prefHeight="313.0" prefWidth="597.0" stylesheets="@../../../Decoration/publicaciones.css">
+            <TableView fx:id="tablePublicaciones" prefHeight="310.0" prefWidth="576.0" stylesheets="@../../../Decoration/publicaciones.css">
               <columns>
                 <TableColumn fx:id="columnId" minWidth="0.0" prefWidth="23.0" text="#" />
                 <TableColumn fx:id="columnNombre" prefWidth="66.0" text="Nombre" />
@@ -118,7 +118,7 @@
             </TextField>
          </children>
       </HBox>
-      <HBox fx:id="hboxImagenProducto" layoutX="492.0" layoutY="429.0" prefHeight="113.0" prefWidth="233.0" stylesheets="@../../../Decoration/publicaciones.css">
+      <HBox fx:id="hboxImagenProducto" layoutX="373.0" layoutY="430.0" prefHeight="113.0" prefWidth="233.0" stylesheets="@../../../Decoration/publicaciones.css">
          <children>
             <ImageView fx:id="imageviewProducto" fitHeight="128.0" fitWidth="233.0" pickOnBounds="true" preserveRatio="true" />
          </children>
@@ -141,6 +141,16 @@
       <HBox layoutX="15.0" layoutY="357.0" prefHeight="24.0" prefWidth="106.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción" />
+         </children>
+      </HBox>
+      <HBox fx:id="hboxImagenProducto1" layoutX="659.0" layoutY="457.0" prefHeight="42.0" prefWidth="113.0" stylesheets="@../../../Decoration/publicaciones.css">
+         <children>
+            <Button fx:id="btnPujas" mnemonicParsing="false" onAction="#actionMostrarPujas" prefHeight="29.0" prefWidth="113.0" text="Ver Pujas" />
+         </children>
+      </HBox>
+      <HBox fx:id="hboxImagenProducto11" layoutX="659.0" layoutY="499.0" prefHeight="42.0" prefWidth="113.0" stylesheets="@../../../Decoration/publicaciones.css">
+         <children>
+            <Button fx:id="btnvolver" mnemonicParsing="false" onAction="#actionvolverDePujas" prefHeight="29.0" prefWidth="113.0" text="regresar" />
          </children>
       </HBox>
    </children>
