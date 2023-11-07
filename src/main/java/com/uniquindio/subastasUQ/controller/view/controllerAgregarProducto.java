@@ -17,7 +17,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+
 import javafx.stage.FileChooser;
+
 import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
 
@@ -31,9 +33,6 @@ public class controllerAgregarProducto {
     ObservableList<ProductoDto> listaProductos = FXCollections.observableArrayList();
     AnuncioController controllerAnuncio;
     UsuarioController usuarioControllerService;
-
-    final FileChooser fileimg= new FileChooser();
-
     @FXML
     private AnchorPane anchorAbajo;
 
@@ -122,14 +121,15 @@ public class controllerAgregarProducto {
 
         txtValorInicial.setTextFormatter(textFormatter);
 
-
 }
 
     @FXML
     void ActionAgregarImagen(ActionEvent event) {
 
+
         try{
-        File file= fileimg.showOpenDialog(((Node) event.getSource()).getScene().getWindow());
+            FileChooser fileimg = null;
+            File file= fileimg.showOpenDialog(((Node) event.getSource()).getScene().getWindow());
 
             String url= file.toURI().toURL().toString();
             System.out.print(url);
@@ -138,6 +138,7 @@ public class controllerAgregarProducto {
         }catch(MalformedURLException e){
             e.printStackTrace();
         }
+
 
     }
 
