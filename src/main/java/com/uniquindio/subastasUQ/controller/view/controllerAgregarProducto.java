@@ -132,7 +132,6 @@ public class controllerAgregarProducto {
         File file= fileimg.showOpenDialog(((Node) event.getSource()).getScene().getWindow());
 
             String url= file.toURI().toURL().toString();
-            System.out.print(url);
             Image imgload= new Image(url);
             miImageview.setImage(imgload);
         }catch(MalformedURLException e){
