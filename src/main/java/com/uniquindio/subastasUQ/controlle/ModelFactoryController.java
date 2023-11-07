@@ -3,9 +3,11 @@ package com.uniquindio.subastasUQ.controlle;
 import com.uniquindio.subastasUQ.exceptions.*;
 import com.uniquindio.subastasUQ.controlle.service.iModelFactoryController;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
+import com.uniquindio.subastasUQ.mapping.dto.PujaDto;
 import com.uniquindio.subastasUQ.mapping.dto.UsuarioDto;
 import com.uniquindio.subastasUQ.mapping.mappings.SubastaMapper;
 import com.uniquindio.subastasUQ.model.Producto;
+import com.uniquindio.subastasUQ.model.Puja;
 import com.uniquindio.subastasUQ.model.SubastaUq;
 import com.uniquindio.subastasUQ.model.Usuario;
 import com.uniquindio.subastasUQ.utils.ArchivoUtil;
@@ -215,6 +217,36 @@ public class ModelFactoryController implements iModelFactoryController {
         }
       return centinela;
     }
+
+   public List<PujaDto> obtenerProductosPuja(){
+        return mapper.getPujasDto(subastaUq.getListaProductosPuja());
+   }
+
+   public boolean eliminarPuja(String nombre){
+        boolean flag=false;
+        try{
+            flag= subastaUq.eliminarPuja(nombre);
+            guardarResourceXML();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+   return flag;}
+
+    public boolean agregarPuja(PujaDto pujaDto){
+        try{
+            if(!subastaUq.verificarCantidadPujas(pujaDto.nombreAnunciante())) {
+                Puja puja = mapper.PujaDtoToPuja(pujaDto);
+                subastaUq.agregarPuja(puja);
+                registrarAccionesSistema("nueva puja", 1, "se realizo una puja");
+            }
+                return true;
+            }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
 
 }
 

@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class    HelloApplication extends Application {
+
     private Stage primaryStage;
     private BorderPane rootLayout;
     @Override
@@ -39,5 +40,7 @@ public class    HelloApplication extends Application {
     public static void main(String[] args) {
         launch();
     }
+
+
 
 }

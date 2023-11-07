@@ -1,8 +1,10 @@
 package com.uniquindio.subastasUQ.mapping.mappings;
 
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
+import com.uniquindio.subastasUQ.mapping.dto.PujaDto;
 import com.uniquindio.subastasUQ.mapping.dto.UsuarioDto;
 import com.uniquindio.subastasUQ.model.Producto;
+import com.uniquindio.subastasUQ.model.Puja;
 import com.uniquindio.subastasUQ.model.Usuario;
 import org.mapstruct.IterableMapping;
 import org.mapstruct.Mapper;
@@ -31,4 +33,9 @@ public interface SubastaMapper {
 
     //@IterableMapping(qualifiedByName = "productoToProductoDto")
     List<ProductoDto> getProductosDto(ArrayList<Producto> listaproductos);
+
+    PujaDto PujaToPujaDto(Puja puja);
+
+    Puja PujaDtoToPuja (PujaDto pujaDto);
+    List<PujaDto> getPujasDto(ArrayList<Puja> listaProductosPuja);
 }

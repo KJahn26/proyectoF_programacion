@@ -3,6 +3,7 @@ package com.uniquindio.subastasUQ.controller.view;
 import com.uniquindio.subastasUQ.HelloApplication;
 import com.uniquindio.subastasUQ.controlle.AnuncioController;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
+import com.uniquindio.subastasUQ.mapping.dto.PujaDto;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,8 +24,10 @@ public class PujasController {
 
      AnuncioController anuncioController;
      ObservableList<ProductoDto> listaProductos = FXCollections.observableArrayList();
-    ObservableList<ProductoDto> listaProductosPuja = FXCollections.observableArrayList();
+    ObservableList<PujaDto> listaProductosPuja = FXCollections.observableArrayList();
     ProductoDto seleccionar;
+
+    PujaDto seleccionPuja;
     int seleccionarPosicion=0;
 
     @FXML
@@ -36,7 +39,7 @@ public class PujasController {
     @FXML
     private TableView<ProductoDto> tableProductos;
     @FXML
-    private TableView<ProductoDto> tablePujas;
+    private TableView<PujaDto> tablePujas;
 
     @FXML
     private TableColumn<ProductoDto, String> columnNumeralAnuncio;
@@ -65,25 +68,25 @@ public class PujasController {
     private AnchorPane AnchorPuja;
 
     @FXML
-    private TableColumn<ProductoDto, String> columnNumeralPuja;
+    private TableColumn<PujaDto, String> columnNumeralPuja;
 
     @FXML
-    private TableColumn<ProductoDto, String> columnTipoProductoPuja;
+    private TableColumn<PujaDto, String> columnNombreComprador;
 
     @FXML
-    private TableColumn<ProductoDto, String> columnDescripcionPuja;
+    private TableColumn<PujaDto, String> columnNombreProducto;
 
     @FXML
-    private TableColumn<ProductoDto, String> columnNombreAnuncinatePuja;
+    private TableColumn<PujaDto, String> columnNombreAnuncinatePuja;
 
     @FXML
-    private TableColumn<ProductoDto, String> columnFechaInicioPuja;
+    private TableColumn<PujaDto, String> columnFechaInicioPuja;
 
     @FXML
-    private TableColumn<ProductoDto, String> columnFechaFInalPuja;
+    private TableColumn<PujaDto, String> columnFechaFInalPuja;
 
     @FXML
-    private TableColumn<ProductoDto, String> columValorProductoPuja;
+    private TableColumn<PujaDto, String> columValorProductoPuja;
 
     @FXML
     private Button btnPujas;
@@ -109,9 +112,11 @@ public class PujasController {
         tableProductos.getItems().clear();
         tableProductos.setItems(listaProductos);
         initDataBindingPujas();
+        obtenerProductosPuja();
         tablePujas.getItems().clear();
         tablePujas.setItems(listaProductosPuja);
         listenerSelection();
+        listenerSelectionPuja();
         NumberStringConverter converter = new NumberStringConverter();
         TextFormatter<Number> textFormatter = new TextFormatter<>(converter, 0, change -> {
             if (!change.getControlNewText().matches("\\d*")) {
@@ -140,7 +145,11 @@ public class PujasController {
         {
             if (seleccionar!=null)
             {
-                listaProductosPuja.addAll(seleccionar);
+                PujaDto p=new PujaDto("",seleccionar.nombreProducto(),seleccionar.anunciante()
+                        ,txtxValorPuja.getText(),seleccionar.fechaTerminarPublicacion());
+                listaProductosPuja.addAll(p);
+                anuncioController.guardarPuja(p);
+                anuncioController.obtenerProductosPuja();
                 tablePujas.setItems(listaProductosPuja);
             }
             else
@@ -169,10 +178,22 @@ public class PujasController {
         listaProductos.addAll(anuncioController.obtenerProducto());
     }
 
+    public void obtenerProductosPuja ()
+    {
+        listaProductosPuja.addAll(anuncioController.obtenerProductosPuja());
+    }
+
 
     private void listenerSelection() {
         tableProductos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            seleccionar= newSelection;
+            seleccionar = newSelection;
+
+        });
+    }
+
+    private void listenerSelectionPuja() {
+        tablePujas.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            seleccionPuja= newSelection;
 
         });
     }
@@ -193,13 +214,12 @@ public class PujasController {
     }
     private void initDataBindingPujas ()
     {
-        nombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
-        columnDescripcionPuja.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().descProducto()));
-        columnNombreAnuncinatePuja.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().anunciante()));
-        columValorProductoPuja.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().valorInicial()));
-        columnTipoProductoPuja.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().tipoProducto()));
-        columnFechaFInalPuja.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().fechaTerminarPublicacion()));
-        columnFechaInicioPuja.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().fechaPublicacion()));
+        //nombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
+        columnNombreComprador.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreComprador()));
+        columnNombreProducto.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().nombreProducto()));
+        columnNombreAnuncinatePuja.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().nombreAnunciante()));
+        columValorProductoPuja.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().valorPuja()));
+        columnFechaFInalPuja.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().fechaFinal()));
 
     }
     private void mostrarMensaje(String msj, String header, String contenido, Alert.AlertType alertType){
@@ -214,7 +234,8 @@ public class PujasController {
     {
         if (seleccionar!=null)
         {
-            listaProductosPuja.remove(seleccionar);
+            listaProductosPuja.remove(seleccionPuja);
+            anuncioController.eliminarpuja(seleccionPuja.nombreProducto());
             //seleccionar = null;
             tablePujas.getSelectionModel().clearSelection();
         }
