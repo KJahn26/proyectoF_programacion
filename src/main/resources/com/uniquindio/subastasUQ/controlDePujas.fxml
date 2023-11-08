@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+
+<AnchorPane prefHeight="568.0" prefWidth="979.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.uniquindio.subastasUQ.controller.view.controllerDePujasUsuario">
+   <children>
+      <HBox fx:id="hboxPujas" layoutX="363.0" layoutY="70.0" prefHeight="466.0" prefWidth="505.0">
+         <children>
+            <TableView prefHeight="466.0" prefWidth="533.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="#" />
+                <TableColumn prefWidth="105.0" text="Nombre usuario" />
+                  <TableColumn prefWidth="124.0" text="Nombre producto" />
+                  <TableColumn prefWidth="124.0" text="fecha puja" />
+                  <TableColumn prefWidth="76.0" text="Valor puja" />
+              </columns>
+            </TableView>
+         </children>
+      </HBox>
+      <Label layoutX="483.0" layoutY="26.0" text="COntrol de pujas" />
+      <TextField fx:id="txtNOmbreUsuario" layoutX="171.0" layoutY="94.0" />
+      <TextField fx:id="txtNombreProducto" layoutX="171.0" layoutY="152.0" />
+      <TextField fx:id="txtFechaPuja" layoutX="171.0" layoutY="218.0" />
+      <TextField fx:id="txtValorPuja" layoutX="171.0" layoutY="291.0" />
+      <Label layoutX="42.0" layoutY="98.0" text="Nombre usuario" />
+      <Label layoutX="38.0" layoutY="156.0" text="Nombre producto" />
+      <Label layoutX="72.0" layoutY="222.0" text="Fecha puja" />
+      <Label layoutX="72.0" layoutY="295.0" text="Valor producto" />
+   </children>
+</AnchorPane>
