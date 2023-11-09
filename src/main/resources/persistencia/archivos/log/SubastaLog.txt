@@ -16,3 +16,13 @@ nov 09, 2023 1:12:36 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardar
 INFO: Anunciante REALIZO: Inicio de sesion como anunciante de lalalala@uqvirtual.edu.co en InicioSesion , FECHA: 2023 - 11 - 09 hora  1:12:36 AM
 nov 09, 2023 1:12:53 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
 INFO: Anunciante REALIZO: Cierre de sesion en agregarProducto , FECHA: 2023 - 11 - 09 hora  1:12:53 AM
+nov 09, 2023 6:38:46 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 09 hora  6:38:46 AM
+nov 09, 2023 6:39:16 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Comprador REALIZO: inicio de sesion como comprador de jahnc.martinezv@uqvirtual.edu.co en inicioSesion , FECHA: 2023 - 11 - 09 hora  6:39:16 AM
+nov 09, 2023 6:39:23 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Comprador REALIZO: realizo una puja en pujas , FECHA: 2023 - 11 - 09 hora  6:39:23 AM
+nov 09, 2023 6:39:31 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Comprador REALIZO: cierre de sesion en Pujas , FECHA: 2023 - 11 - 09 hora  6:39:31 AM
+nov 09, 2023 6:39:38 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Anunciante REALIZO: Inicio de sesion como anunciante de jahnc.martinezv@uqvirtual.edu.co en InicioSesion , FECHA: 2023 - 11 - 09 hora  6:39:38 AM
