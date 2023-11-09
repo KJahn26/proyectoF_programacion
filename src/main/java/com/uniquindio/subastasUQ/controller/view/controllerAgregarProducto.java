@@ -4,6 +4,7 @@ import com.uniquindio.subastasUQ.controlle.AnuncioController;
 import com.uniquindio.subastasUQ.controlle.UsuarioController;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
 import com.uniquindio.subastasUQ.mapping.dto.UsuarioDto;
+import com.uniquindio.subastasUQ.utils.Persistencia;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -248,7 +249,8 @@ public class controllerAgregarProducto {
     }
     @FXML
     void ActionRegresar(ActionEvent event) {
-        mostrarVentana(event,"hello-view.fxml","Subas universidad del quindio");
+        mostrarVentana(event,"hello-view.fxml","Subasta universidad del quindio");
+        Persistencia.guardaRegistroLog("Anunciante",1,"Cierre de sesion","agregarProducto");
 
     }
     private void mostrarVentana (ActionEvent event, String ruta, String centinela)

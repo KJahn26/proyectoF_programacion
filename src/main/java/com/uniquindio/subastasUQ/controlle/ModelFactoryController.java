@@ -80,7 +80,7 @@ public class ModelFactoryController implements iModelFactoryController {
         //cargarDatosArchivos();
         //guardarResourceXML();
         //salvaGuardarDatosPrueba();
-        //registrarAccionesSistema("Inicio del programa", 1, "inicio de sesion");
+
 
 
         if (subastaUq == null) {
@@ -89,9 +89,9 @@ public class ModelFactoryController implements iModelFactoryController {
             salvaGuardarDatosPrueba();
 
 
-            registrarAccionesSistema("Inicio del programa", 1, "inicio de sesion");
-        }
 
+        }
+        registrarAccionesSistema("Sin identificar Tipo de Usuario ", 1, "inicio el programa","InicioSesion");
     }
 
     public void salvaGuardarDatosPrueba() {
@@ -143,7 +143,7 @@ public class ModelFactoryController implements iModelFactoryController {
             if (!subastaUq.verificarUsuarioExistente(usuarioDto.cedula())) {
                 Usuario usuario = mapper.usuarioDtoToUsuario(usuarioDto);
                 getSubasta().agregarUsuario(usuario);
-                registrarAccionesSistema("nuevo Usuario", 1, "se agrego a un usuario");
+                registrarAccionesSistema("Sin identificar", 1, "agrego a un usuario","RegistroUsuario");
             }
             return true;
         } catch (UsuarioException e) {
@@ -157,7 +157,7 @@ public class ModelFactoryController implements iModelFactoryController {
         boolean flagExiste = false;
         try {
             flagExiste = subastaUq.eliminarUsuario(cedula);
-            registrarAccionesSistema("Usuario eliminado", 2, "se elimino a un usuario");
+            registrarAccionesSistema("Sin identificar", 2, "elimino a un usuario","AdministracionUsuarios");
             System.out.println("El usuario se ah eliminado correctamente");
 
         } catch (UsuarioException e) {
@@ -172,7 +172,7 @@ public class ModelFactoryController implements iModelFactoryController {
         try {
             Usuario usuario = mapper.usuarioDtoToUsuario(usuriosDto);
             getSubasta().actualizarUsuario(cedulaActual, usuario);
-            registrarAccionesSistema("Actualizacion Usuario", 2, "se Actualizo a un usuario");
+            registrarAccionesSistema("Sin identificar", 2, "Actualizo a un usuario","AdministracionUsuarios");
             return true;
         } catch (UsuarioException e) {
             e.printStackTrace();
@@ -204,8 +204,8 @@ public class ModelFactoryController implements iModelFactoryController {
         Persistencia.guardarRecursoBancoBinario(subastaUq);
     }
 
-    public void registrarAccionesSistema(String mensajeLog, int nivel, String accion) {
-        Persistencia.guardaRegistroLog(mensajeLog, nivel, accion);
+    public void registrarAccionesSistema(String tipoUsuario, int nivel, String accion,String interfaz) {
+        Persistencia.guardaRegistroLog(tipoUsuario, nivel, accion,interfaz);
     }
 
     public List<ProductoDto> obtenerProductos(boolean f) {
@@ -224,7 +224,7 @@ public class ModelFactoryController implements iModelFactoryController {
             flag = subastaUq.eliminarProducto(nombre);
             guardarResourceXML();
             cargarResourceXML();
-            registrarAccionesSistema("Producto elimnado", 2, "se elimino a un producto debido a su compra");
+            registrarAccionesSistema("Anunciante", 2, "elimino a un producto debido a su compra o retiro por parte del propietario","publicaciones");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -244,6 +244,7 @@ public class ModelFactoryController implements iModelFactoryController {
                 subastaUq.agregarProducto(producto);
                 centinela=true;
                 guardarResourceXML();
+                registrarAccionesSistema("Anunciante",1,"agrego un Producto","CrearAnuncio");
             } catch (UsuarioException e) {
                 throw new RuntimeException(e);
             }
@@ -266,6 +267,7 @@ public class ModelFactoryController implements iModelFactoryController {
         try{
             flag= subastaUq.eliminarPuja(nombre);
             guardarResourceXML();
+            registrarAccionesSistema("Comprador",2,"Elimino una puja","pujas");
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -276,7 +278,7 @@ public class ModelFactoryController implements iModelFactoryController {
             if(!subastaUq.verificarCantidadPujas(pujaDto.nombreAnunciante())) {
                 Puja puja = mapper.PujaDtoToPuja(pujaDto);
                 subastaUq.agregarPuja(puja);
-                registrarAccionesSistema("nueva puja", 1, "se realizo una puja");
+                registrarAccionesSistema("Comprador", 1, "realizo una puja","pujas");
             }
                 return true;
             }catch (Exception e){

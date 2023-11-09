@@ -4,6 +4,7 @@ import com.uniquindio.subastasUQ.HelloApplication;
 import com.uniquindio.subastasUQ.controlle.AnuncioController;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
 import com.uniquindio.subastasUQ.mapping.dto.PujaDto;
+import com.uniquindio.subastasUQ.utils.Persistencia;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -132,6 +133,7 @@ public class PujasController {
     @FXML
     void ActionRegresar(ActionEvent event) {
         mostrarVentana(event,"hello-view.fxml","Subas universidad del quindio");
+        Persistencia.guardaRegistroLog("Comprador",1,"cierre de sesion","Pujas");
     }
 
     @FXML

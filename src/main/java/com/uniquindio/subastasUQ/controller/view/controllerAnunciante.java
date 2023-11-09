@@ -40,7 +40,7 @@ public class controllerAnunciante {
     public void RegresarAction(javafx.event.ActionEvent event) {
 
         mostrarVentanaPrincipal(event);
-        Persistencia.guardaRegistroLog("Cierre de sesion",1,"Anunciante cierra sesion");
+        Persistencia.guardaRegistroLog("Anunciante",1,"cierre de sesion","Anunciante");
 
     }
 }

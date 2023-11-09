@@ -99,9 +99,11 @@ public class controllerAnuncio {
                 productoVendido=anuncioControllerService.eliminarProducto(productoSeleccionado.nombreProducto());
                 if (productoVendido!=false)
                 {
+                    //REVISAR
+
                     String centinela=anuncioControllerService.obtenerFecha()+" Compro "+productoSeleccionado.nombreProducto()+" "+productoSeleccionado.anunciante();
                     Persistencia.guardarTransacciones(centinela);
-                    Persistencia.guardaRegistroLog(centinela,2,"registro de venta en el Log");
+                    Persistencia.guardaRegistroLog("Comprador",2,"compro un producto","Anuncio");
 
                     listaProductos.remove(productoSeleccionado);
                     productoSeleccionado=null;

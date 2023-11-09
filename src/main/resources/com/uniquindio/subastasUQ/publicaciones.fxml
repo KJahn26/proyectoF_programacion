@@ -148,11 +148,7 @@
             <Button fx:id="btnPujas" mnemonicParsing="false" onAction="#actionMostrarPujas" prefHeight="29.0" prefWidth="113.0" text="Ver Pujas" />
          </children>
       </HBox>
-      <HBox fx:id="hboxImagenProducto11" layoutX="659.0" layoutY="499.0" prefHeight="42.0" prefWidth="113.0" stylesheets="@../../../Decoration/publicaciones.css">
-         <children>
-            <Button fx:id="btnvolver" mnemonicParsing="false" onAction="#actionvolverDePujas" prefHeight="29.0" prefWidth="113.0" text="regresar" />
-         </children>
-      </HBox>
+      <HBox fx:id="hboxImagenProducto11" layoutX="659.0" layoutY="499.0" prefHeight="42.0" prefWidth="113.0" stylesheets="@../../../Decoration/publicaciones.css" />
    </children>
    <opaqueInsets>
       <Insets left="80.0" />
