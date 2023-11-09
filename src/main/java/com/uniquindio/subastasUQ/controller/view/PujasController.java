@@ -145,11 +145,11 @@ public class PujasController {
         {
             if (seleccionar!=null)
             {
-                PujaDto p=new PujaDto("",seleccionar.nombreProducto(),seleccionar.anunciante()
+                PujaDto p=new PujaDto(anuncioController.getNombreComprador(), seleccionar.nombreProducto(),seleccionar.anunciante()
                         ,txtxValorPuja.getText(),seleccionar.fechaTerminarPublicacion());
                 listaProductosPuja.addAll(p);
                 anuncioController.guardarPuja(p);
-                anuncioController.obtenerProductosPuja();
+                anuncioController.obtenerProductosPuja(false);
                 tablePujas.setItems(listaProductosPuja);
             }
             else
@@ -175,12 +175,12 @@ public class PujasController {
 
     public void obtenerProductos ()
     {
-        listaProductos.addAll(anuncioController.obtenerProducto());
+        listaProductos.addAll(anuncioController.obtenerProducto(false));
     }
 
     public void obtenerProductosPuja ()
     {
-        listaProductosPuja.addAll(anuncioController.obtenerProductosPuja());
+        listaProductosPuja.addAll(anuncioController.obtenerProductosPuja(false));
     }
 
 

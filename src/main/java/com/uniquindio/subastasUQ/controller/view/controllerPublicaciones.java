@@ -1,4 +1,5 @@
 package com.uniquindio.subastasUQ.controller.view;
+import com.uniquindio.subastasUQ.HelloApplication;
 import com.uniquindio.subastasUQ.controlle.AnuncioController;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
 import com.uniquindio.subastasUQ.mapping.dto.PujaDto;
@@ -7,12 +8,18 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+
 public class controllerPublicaciones {
     AnuncioController anuncioController;
     ProductoDto productoSeleccionado;
@@ -139,8 +146,9 @@ public class controllerPublicaciones {
     }
 
     @FXML
-    void actionMostrarPujas(){
-
+    void actionMostrarPujas(ActionEvent event){
+        mostrarVentana(event,"controlDePujas.fxml","Pujas Realizadas");
+        anuncioController.setNombreProducto(productoSeleccionado.nombreProducto());
 
     }
 
@@ -170,7 +178,7 @@ public class controllerPublicaciones {
     }
     public void obtnerProductos ()
     {
-        listaProductos.addAll(anuncioController.obtenerProducto());
+        listaProductos.addAll(anuncioController.obtenerProducto(true));
     }
     private void initDataBinding() {
 
@@ -184,7 +192,7 @@ public class controllerPublicaciones {
     }
 
     public void obtenerPorductosPuja(){
-        listaProductosPuja.addAll(anuncioController.obtenerProductosPuja());
+        listaProductosPuja.addAll(anuncioController.obtenerProductosPuja(true));
     }
 
 
@@ -205,6 +213,27 @@ public class controllerPublicaciones {
             }
         }
 
+    }
+
+    private void mostrarVentana (ActionEvent event, String ruta, String centinela)
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(ruta));
+            //loader.setLocation(HelloApplication.class.getResource(ruta));
+            AnchorPane rootLayout  = (AnchorPane) loader.load();
+            Scene scene = new Scene(rootLayout);
+            Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.setTitle(centinela);
+            appStage.toFront();
+            appStage.show();
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+
+        }
     }
 
 }

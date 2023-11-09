@@ -104,6 +104,16 @@ public class SubastaUq implements Serializable,ISubastaUQService {
         return listaproductos;
     }
 
+    public ArrayList<Producto> getListaproductos(String nombreAnunciante) {
+        ArrayList<Producto> p= new ArrayList<>();
+
+        for(Producto pr:listaproductos){
+            if(pr.getAnunciante().equals(nombreAnunciante)){
+                p.add(pr);
+            }
+        }
+    return p;}
+
     public void setListaproductos(ArrayList<Producto> listaproductos) {
         this.listaproductos = listaproductos;
     }
@@ -160,8 +170,26 @@ public class SubastaUq implements Serializable,ISubastaUQService {
         getListaproductos().add(nuevoProducto);
     }
 
-    public ArrayList<Puja> getListaProductosPuja() {
-        return listaProductosPuja;
+    public ArrayList<Puja> getListaProductosPuja(String nombreComprador) {
+        ArrayList<Puja> p= new ArrayList<>();
+        for(Puja pr: listaProductosPuja){
+            if(pr.getNombreComprador().equals(nombreComprador)){
+                p.add(pr);
+            }
+        }
+
+        return p;
+    }
+
+    public ArrayList<Puja> getListaProductosPuja(String nombreProducto,String nombreAnunciante) {
+        ArrayList<Puja> p= new ArrayList<>();
+        for(Puja pr: listaProductosPuja){
+            if(pr.getNombreProducto().equals(nombreProducto)&&pr.getNombreAnunciante().equals(nombreAnunciante)){
+                p.add(pr);
+            }
+        }
+
+        return p;
     }
 
     public void setListaProductosPuja(ArrayList<Puja> listaProductosPuja) {

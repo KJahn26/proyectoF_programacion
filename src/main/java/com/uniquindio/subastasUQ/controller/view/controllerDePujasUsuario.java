@@ -1,5 +1,6 @@
 package com.uniquindio.subastasUQ.controller.view;
 
+import com.uniquindio.subastasUQ.HelloApplication;
 import com.uniquindio.subastasUQ.controlle.AnuncioController;
 import com.uniquindio.subastasUQ.mapping.dto.PujaDto;
 import com.uniquindio.subastasUQ.model.Puja;
@@ -8,10 +9,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 public class controllerDePujasUsuario {
 
@@ -69,7 +76,7 @@ public class controllerDePujasUsuario {
 
     @FXML
     void RegresarAction(ActionEvent event) {
-
+        mostrarVentana(event,"Anunciante.fxml","publicaciones");
 
     }
 
@@ -84,7 +91,29 @@ public class controllerDePujasUsuario {
     }
 
     void obtenerPujas(){
-        listaPujas.addAll(anuncioController.obtenerProductosPuja());
+
+        listaPujas.addAll(anuncioController.obtenerProductosPuja(true));
+    }
+
+    private void mostrarVentana (ActionEvent event, String ruta, String centinela)
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(ruta));
+            //loader.setLocation(HelloApplication.class.getResource(ruta));
+            AnchorPane rootLayout  = (AnchorPane) loader.load();
+            Scene scene = new Scene(rootLayout);
+            Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.setTitle(centinela);
+            appStage.toFront();
+            appStage.show();
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+
+        }
     }
 
 }
