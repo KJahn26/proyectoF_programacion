@@ -152,12 +152,6 @@ public class controllerPublicaciones {
 
     }
 
-    @FXML
-    void actionvolverDePujas(){
-
-
-    }
-
     private void listenerSelection() {
         tablePublicaciones.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             productoSeleccionado = newSelection;

@@ -19,7 +19,7 @@ public class controllerComprador {
     public void RegresarAction(ActionEvent actionEvent) {
 
         mostrarVentanaPrincipal(actionEvent);
-        Persistencia.guardaRegistroLog("Cierre de sesion",1,"comprador cierra sesion");
+        Persistencia.guardaRegistroLog("Comprador",1,"cierre de sesion","Comprador");
     }
 
         public void mostrarVentanaPrincipal (ActionEvent actionEvent)

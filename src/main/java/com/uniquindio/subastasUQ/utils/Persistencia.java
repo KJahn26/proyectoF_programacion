@@ -65,8 +65,8 @@ public class Persistencia {
 
     }
 
-    public static void guardaRegistroLog(String mensajeLog,int nivel,String accion){
-        ArchivoUtil.guardarRegistroLog(mensajeLog,nivel,accion,RUTA_SUBASTA_LOG);
+    public static void guardaRegistroLog(String tipoUsuario,int nivel,String accion,String interfaz){
+        ArchivoUtil.guardarRegistroLog(tipoUsuario,nivel,accion,interfaz,RUTA_SUBASTA_LOG);
     }
 
     public static SubastaUq cargarRecursoBancoXML() {

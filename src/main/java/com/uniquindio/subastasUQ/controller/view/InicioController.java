@@ -163,12 +163,12 @@ private CheckBox CheckComprador;
                    if (centinela.equals("anunciante"))
                    {
                        mostrarVentana(event,"Anunciante.fxml","Anunciante");
-                       Persistencia.guardaRegistroLog("Inicio de Sesion",1,"Inicio de sesion como anunciante de "+ayuda);
+                       Persistencia.guardaRegistroLog("Anunciante",1,"Inicio de sesion como anunciante de "+ayuda,"InicioSesion");
                    }
                    else if (centinela.equals("comprador"))
                    {
                        mostrarVentana(event,"manejoPujas.fxml","Comprador");
-                       Persistencia.guardaRegistroLog("Inicio de Sesion",1,"inicio de sesion como comprador de "+ayuda );
+                       Persistencia.guardaRegistroLog("Comprador",1,"inicio de sesion como comprador de "+ayuda,"inicioSesion" );
                    }
                    else if(centinela.equals("no"))
                    {
