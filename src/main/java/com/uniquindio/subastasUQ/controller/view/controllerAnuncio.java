@@ -74,7 +74,7 @@ public class controllerAnuncio {
     }
 
     private void obtenerProducto() {
-        listaProductos.addAll(anuncioControllerService.obtenerProducto());
+        listaProductos.addAll(anuncioControllerService.obtenerProducto(false));
 
     }
 

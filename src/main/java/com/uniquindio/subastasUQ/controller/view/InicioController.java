@@ -151,6 +151,7 @@ private CheckBox CheckComprador;
     public void   Seleccionar(MouseEvent event) {
         String centinela="";
         String ayuda=txtIngresoEmail.getText();
+        String ayuda2=txtIngresoContraseña.getText();
          System.out.println(txtIngresoEmail.getText()+ " " +usuarioControllerService.fecha());
          usuarioControllerService.extraerfecha(cogerDatosInicio());
            if (validarDatos())
@@ -158,6 +159,7 @@ private CheckBox CheckComprador;
                if (validarAcceso())
                {
                    centinela=CompradorMauseClick(event);
+                   obtenerNombre(centinela,ayuda,ayuda2);
                    if (centinela.equals("anunciante"))
                    {
                        mostrarVentana(event,"Anunciante.fxml","Anunciante");
@@ -198,12 +200,31 @@ private CheckBox CheckComprador;
                 if (s.email().equals(txtIngresoEmail.getText()))
                 {
                     centinela=true;
+
                 }
 
             }
 
         }
         return centinela;
+    }
+
+    public void obtenerNombre(String c,String ayuda,String ayuda2){
+        for (UsuarioDto s: listaUsuarios)
+        {
+            if (s.contrasena().equals(ayuda2))
+            {
+                if (s.email().equals(ayuda))
+                {
+                    if(c.equals("comprador")){
+                        usuarioControllerService.setNombreComprador(s.nombre());
+                    }
+                    else if(c.equals("anunciante")){
+                        usuarioControllerService.setNombreAnunciante(s.nombre());
+                    }
+                }
+            }
+        }
     }
     private void obtenerUsuario() {
 

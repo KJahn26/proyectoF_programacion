@@ -24,6 +24,38 @@ public class ModelFactoryController implements iModelFactoryController {
 
     SubastaMapper mapper = SubastaMapper.INSTANCE;
 
+    String fecha="";
+
+    String nombreAnunciante="";
+
+    String nombreProducto="";
+
+    String nombreComprador="";
+
+    public String getNombreAnunciante() {
+        return nombreAnunciante;
+    }
+
+    public void setNombreAnunciante(String nombreAnunciante) {
+        this.nombreAnunciante = nombreAnunciante;
+    }
+
+    public String getNombreProducto() {
+        return nombreProducto;
+    }
+
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
+    }
+
+    public String getNombreComprador() {
+        return nombreComprador;
+    }
+
+    public void setNombreComprador(String nombreComprador) {
+        this.nombreComprador = nombreComprador;
+    }
+
     public String getFecha() {
         return fecha;
     }
@@ -31,8 +63,6 @@ public class ModelFactoryController implements iModelFactoryController {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
-
-    String fecha="";
 
     private static class SingletonHolder {
         private final static ModelFactoryController eINSTANCE = new ModelFactoryController();
@@ -178,10 +208,15 @@ public class ModelFactoryController implements iModelFactoryController {
         Persistencia.guardaRegistroLog(mensajeLog, nivel, accion);
     }
 
-    public List<ProductoDto> obtenerProductos() {
+    public List<ProductoDto> obtenerProductos(boolean f) {
 
-        return mapper.getProductosDto(subastaUq.getListaproductos());
+        if(f){
+            return mapper.getProductosDto(subastaUq.getListaproductos(nombreAnunciante));
+        }else{
+            return mapper.getProductosDto(subastaUq.getListaproductos());
+        }
     }
+
 
     public boolean eliminarProducto(String nombre) {
         boolean flag = false;
@@ -218,8 +253,12 @@ public class ModelFactoryController implements iModelFactoryController {
       return centinela;
     }
 
-   public List<PujaDto> obtenerProductosPuja(){
-        return mapper.getPujasDto(subastaUq.getListaProductosPuja());
+   public List<PujaDto> obtenerProductosPuja(boolean flag){
+        if(flag){
+            return mapper.getPujasDto(subastaUq.getListaProductosPuja(nombreProducto,nombreAnunciante));
+        }else{
+            return mapper.getPujasDto(subastaUq.getListaProductosPuja(nombreComprador));
+        }
    }
 
    public boolean eliminarPuja(String nombre){

@@ -17,15 +17,15 @@ public class AnuncioController implements IAnuncioService {
 
 
 
-    public List<ProductoDto> obtenerProducto() {
-        return modelFactoryController.obtenerProductos();
+    public List<ProductoDto> obtenerProducto(boolean flag) {
+        return modelFactoryController.obtenerProductos(flag);
     }
 
     public boolean eliminarProducto(String s) {
         return modelFactoryController.eliminarProducto(s);
     }
 
-    public List<PujaDto> obtenerProductosPuja(){ return modelFactoryController.obtenerProductosPuja();}
+    public List<PujaDto> obtenerProductosPuja(boolean flag){ return modelFactoryController.obtenerProductosPuja(flag);}
 
     public boolean guardarPuja(PujaDto pujaDto){
         return modelFactoryController.agregarPuja(pujaDto);
@@ -41,5 +41,17 @@ public class AnuncioController implements IAnuncioService {
     public boolean guardarProducto(ProductoDto productoDto) {
         return modelFactoryController.agregarProducto(productoDto);
     }
+
+    public String getNombreComprador(){
+        return modelFactoryController.getNombreComprador();
+    }
+
+    public String getNombreProducto(){ return modelFactoryController.getNombreProducto();}
+
+    public void setNombreProducto(String nombreProducto){ modelFactoryController.setNombreProducto(nombreProducto);}
+
+    public String getNombreAnunciante(){ return modelFactoryController.getNombreAnunciante();}
+
+
 }
 

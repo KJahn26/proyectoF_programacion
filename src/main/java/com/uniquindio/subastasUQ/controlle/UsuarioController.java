@@ -40,6 +40,30 @@ public class UsuarioController {
        modelFactoryController.setFecha(fecha);
     }
 
+    public String getNombreComprador(){
+        return modelFactoryController.getNombreComprador();
+    }
+
+    public void setNombreComprador(String n){
+        modelFactoryController.setNombreComprador(n);
+    }
+
+    public String getNombreAnunciante(){
+        return modelFactoryController.getNombreAnunciante();
+    }
+
+    public void setNombreAnunciante(String n){
+        modelFactoryController.setNombreAnunciante(n);
+    }
+
+    public String getNombreProducto(){
+        return modelFactoryController.getNombreProducto();
+    }
+
+    public void setNombreProducto(String n){
+        modelFactoryController.setNombreProducto(n);
+    }
+
 
 
 

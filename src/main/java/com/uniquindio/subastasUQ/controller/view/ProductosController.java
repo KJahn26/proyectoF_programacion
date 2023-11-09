@@ -63,7 +63,7 @@ public class ProductosController {
     }
     public void obtenerDatos ()
     {
-        listaProductos.addAll(anuncioControllerService.obtenerProducto());
+        listaProductos.addAll(anuncioControllerService.obtenerProducto(false));
     }
     private void initDataBinding() {
         columnNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
