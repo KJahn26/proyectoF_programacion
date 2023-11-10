@@ -16,6 +16,9 @@ public class Producto extends SubastaUq implements Serializable
 
     private String fechaPublicacion="";
     private String fechaTerminarPublicacion="";
+    private String fechaAdquirido="";
+
+
 
     public Producto ()
     {}
@@ -69,6 +72,14 @@ public class Producto extends SubastaUq implements Serializable
 
     public String getFechaTerminarPublicacion() {
         return fechaTerminarPublicacion;
+    }
+
+    public String getFechaAdquirido() {
+        return fechaAdquirido;
+    }
+
+    public void setFechaAdquirido(String fechaAdquirido) {
+        this.fechaAdquirido = fechaAdquirido;
     }
 
     public void setFechaTerminarPublicacion(String fechaTerminarPublicacion) {

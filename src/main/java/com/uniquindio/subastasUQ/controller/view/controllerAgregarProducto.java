@@ -129,11 +129,10 @@ public class controllerAgregarProducto {
 
 
         try{
-            FileChooser fileimg = null;
-            File file= fileimg.showOpenDialog(((Node) event.getSource()).getScene().getWindow());
+            FileChooser fileChooser = new FileChooser();
+            File archivo = fileChooser.showSaveDialog(((Node) event.getSource()).getScene().getWindow());
 
-            String url= file.toURI().toURL().toString();
-            Image imgload= new Image(url);
+            Image imgload= new Image(archivo.toURI().toURL().toString());
             miImageview.setImage(imgload);
         }catch(MalformedURLException e){
             e.printStackTrace();
@@ -176,7 +175,8 @@ public class controllerAgregarProducto {
                 txtNombreAnunciante.getText(),
                 txtValorInicial.getText(),
                 txtFechaPublicación.getText(),
-                cogerFecha()
+                cogerFecha(),
+                ""
 
         );
 

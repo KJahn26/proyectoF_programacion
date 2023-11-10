@@ -10,7 +10,9 @@ public record ProductoDto(
         String anunciante,
         String valorInicial,
         String fechaPublicacion,
-        String fechaTerminarPublicacion
+        String fechaTerminarPublicacion,
+        String fechaAdquirido
+
 
 ) {
 }
