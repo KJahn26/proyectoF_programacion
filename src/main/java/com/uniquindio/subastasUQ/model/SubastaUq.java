@@ -15,6 +15,7 @@ public class SubastaUq implements Serializable,ISubastaUQService {
     ArrayList<Producto> listaproductos= new ArrayList<>();
 
     ArrayList<Puja> listaProductosPuja= new ArrayList<>();
+    ArrayList<Producto> listaProductosAdquiridos = new ArrayList<>();
 
     public SubastaUq(){
 
@@ -27,6 +28,18 @@ public class SubastaUq implements Serializable,ISubastaUQService {
 
     public void setListaUsuarios(ArrayList<Usuario> listaUsuarios) {
         this.listaUsuarios = listaUsuarios;
+    }
+
+    public ArrayList<Puja> getListaProductosPuja() {
+        return listaProductosPuja;
+    }
+
+    public ArrayList<Producto> getListaProductosAdquiridos() {
+        return listaProductosAdquiridos;
+    }
+
+    public void setListaProductosAdquiridos(ArrayList<Producto> listaProductosAdquiridos) {
+        this.listaProductosAdquiridos = listaProductosAdquiridos;
     }
 
     public boolean verificarUsuarioExistente(String cedula) throws UsuarioException {

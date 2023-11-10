@@ -76,6 +76,7 @@ public class ModelFactoryController implements iModelFactoryController {
     public ModelFactoryController() {
         System.out.println("invocación clase singleton");
         cargarDatosBase();
+        agregarDatos();
         //cargarResourceXML();
         //cargarDatosArchivos();
         //guardarResourceXML();
@@ -216,6 +217,25 @@ public class ModelFactoryController implements iModelFactoryController {
             return mapper.getProductosDto(subastaUq.getListaproductos());
         }
     }
+    public List<ProductoDto> obtenerProductosAdquiridos(boolean f) {
+
+        if(f){
+            return mapper.getProductosDto(subastaUq.getListaProductosAdquiridos());
+        }else{
+            return mapper.getProductosDto(subastaUq.getListaProductosAdquiridos());
+        }
+    }
+    public void agregarDatos ()
+    {
+       Producto producto = new Producto();
+       producto.setNombreProducto("VENENO AZUL");
+       producto.setFechaAdquirido("9/11/2023");
+       producto.setTipoProducto("Vehiculo");
+
+        subastaUq.getListaProductosAdquiridos().add(producto);
+    }
+
+
 
 
     public boolean eliminarProducto(String nombre) {

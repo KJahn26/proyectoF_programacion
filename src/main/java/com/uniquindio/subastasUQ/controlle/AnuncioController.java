@@ -20,6 +20,9 @@ public class AnuncioController implements IAnuncioService {
     public List<ProductoDto> obtenerProducto(boolean flag) {
         return modelFactoryController.obtenerProductos(flag);
     }
+    public List<ProductoDto> obtenerProductoAdquirido(boolean flag) {
+        return modelFactoryController.obtenerProductosAdquiridos(flag);
+    }
 
     public boolean eliminarProducto(String s) {
         return modelFactoryController.eliminarProducto(s);
