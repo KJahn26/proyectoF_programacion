@@ -1,33 +1,3 @@
-#anchorAbajo
-{
-    -fx-background-color:  linear-gradient(dimgrey 0%, #424141 100%);
-}
-
-.button
-{
-
--fx-background-color: black;
-    -fx-border-color: white;
-    -fx-text-fill: white;
-    -fx-border-width: 0px 0px 2px 0px;
-
-}
-.button:hover
-{
-
-    -fx-cursor: HAND;
-    -fx-background-color: white;
-    -fx-border-width: 0px 0px 2px 0px;
-    -fx-border-color: #00000;
-    -fx-text-fill: black;
-}
-.text-field
-{
-    -fx-text-fill: white;
-    -fx-border-color: white;
-    -fx-background-color: transprent;
-    -fx-border-width: 0px 0px 2px 0px;
-}
 
 #dickerFechaTerminaPublicacion {
     -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color,white;
@@ -39,7 +9,7 @@
     -fx-content-display: LEFT;
 }
 #dickerFechaTerminaPublicacion {
-    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, black;
+
     -fx-background-insets: 0 0 -1 0, 0, 1, 2;
     -fx-background-radius: 3px, 3px, 2px, 1px;
 }
