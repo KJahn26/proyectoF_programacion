@@ -18,7 +18,7 @@
 #Image
 {
 
-    -fx-background-color: linear-gradient(floralwhite 25%, #0090ff 100%);
+    -fx-background-color:  #0090ff 100%;
     background-size: cover; /* Cubrir completamente el espacio */
     background-position: center; /* Centrar la imagen */
     background-repeat: no-repeat; /* Evitar la repetición de la imagen */
