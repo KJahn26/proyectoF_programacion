@@ -107,3 +107,5 @@ nov 09, 2023 10:44:09 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guarda
 INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 09 hora  22:44:9 PM
 nov 09, 2023 10:44:17 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
 INFO: Comprador REALIZO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co en inicioSesion , FECHA: 2023 - 11 - 09 hora  22:44:17 PM
+nov 09, 2023 10:52:01 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 09 hora  22:52:1 PM
