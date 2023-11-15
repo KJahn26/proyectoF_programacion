@@ -1,6 +1,7 @@
 package com.uniquindio.subastasUQ.controller.view;
 
 import com.uniquindio.subastasUQ.controlle.UsuarioController;
+import com.uniquindio.subastasUQ.hilos.agregarUsuario;
 import com.uniquindio.subastasUQ.mapping.dto.UsuarioDto;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +13,7 @@ public class RegistroController {
     UsuarioController usuarioControllerService;
     ObservableList<UsuarioDto> listaUsuarios = FXCollections.observableArrayList();
     UsuarioDto usuarioSeleccionado;
+    agregarUsuario AgregarUsuario;
     @FXML
     private TextField txtContrasena;
 
@@ -54,16 +56,14 @@ public class RegistroController {
 
 
     private void crearUsuario(){
-        UsuarioDto usuarioDto= new UsuarioDto(txtNombre.getText(),txtTelefono.getText(),txtEmail.getText(),txtCedula.getText(),txtDireccion.getText(),txtContrasena.getText(),txtConfirmarContrasena.getText());
 
+        UsuarioDto usuarioDto= new UsuarioDto(txtNombre.getText(),txtTelefono.getText(),txtEmail.getText(),txtCedula.getText(),txtDireccion.getText(),txtContrasena.getText(),txtConfirmarContrasena.getText());
+            AgregarUsuario = new agregarUsuario(usuarioDto);
         if(datosValidos(usuarioDto)){
-            if(usuarioControllerService.agregarUsuario(usuarioDto)){
+            AgregarUsuario.run();
                 listaUsuarios.add(usuarioDto);
-                mostrarMensaje("Notificación usuario", "usuario creado", "El usuario se ha creado con éxito", Alert.AlertType.INFORMATION);
-                limpiarCamposUsuario();
-            }else{
-                mostrarMensaje("Notificación usuario", "usuario creado", "El usuario no se ha creado con éxito", Alert.AlertType.ERROR);
-            }
+                                limpiarCamposUsuario();
+
         }else{
             mostrarMensaje("Notificación usuario", "usuario no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
         }
@@ -74,7 +74,6 @@ public class RegistroController {
         txtEmail.setText("");
         txtCedula.setText("");
         txtTelefono.setText("");
-
     }
 
 

@@ -2,6 +2,7 @@ package com.uniquindio.subastasUQ.controller.view;
 import com.uniquindio.subastasUQ.HelloApplication;
 import com.uniquindio.subastasUQ.controlle.AnuncioController;
 import com.uniquindio.subastasUQ.controlle.UsuarioController;
+import com.uniquindio.subastasUQ.hilos.agregarCompra;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
 import com.uniquindio.subastasUQ.mapping.dto.UsuarioDto;
 import com.uniquindio.subastasUQ.utils.Persistencia;
@@ -34,6 +35,7 @@ public class controllerAgregarProducto {
     ObservableList<ProductoDto> listaProductos = FXCollections.observableArrayList();
     AnuncioController controllerAnuncio;
     UsuarioController usuarioControllerService;
+     agregarCompra compraAgregar;
     @FXML
     private AnchorPane anchorAbajo;
 
@@ -110,7 +112,7 @@ public class controllerAgregarProducto {
 
     @FXML
     void initialize() {
-        controllerAnuncio =  new AnuncioController();
+        controllerAnuncio = new AnuncioController();
         inicializarComboBOx();
         txtFechaPublicación.setText(fechaPublicación());
         TextFormatter<String> textFormatter = new TextFormatter<>(change -> {
@@ -122,19 +124,19 @@ public class controllerAgregarProducto {
 
         txtValorInicial.setTextFormatter(textFormatter);
 
-}
+    }
 
     @FXML
     void ActionAgregarImagen(ActionEvent event) {
 
 
-        try{
+        try {
             FileChooser fileChooser = new FileChooser();
             File archivo = fileChooser.showSaveDialog(((Node) event.getSource()).getScene().getWindow());
 
-            Image imgload= new Image(archivo.toURI().toURL().toString());
+            Image imgload = new Image(archivo.toURI().toURL().toString());
             miImageview.setImage(imgload);
-        }catch(MalformedURLException e){
+        } catch (MalformedURLException e) {
             e.printStackTrace();
         }
 
@@ -147,27 +149,26 @@ public class controllerAgregarProducto {
 
     }
 
-    private void inicializarComboBOx ()
-    {
+    private void inicializarComboBOx() {
 
-         comboBoxTipoProducto.getItems().addAll(
-                 "Tecnología",
-                 "Hogar",
-                 "Bien raiz",
-                 "Deportes",
-                 "Vehiculos"
-         );
+        comboBoxTipoProducto.getItems().addAll(
+                "Tecnología",
+                "Hogar",
+                "Bien raiz",
+                "Deportes",
+                "Vehiculos"
+        );
 
 
     }
-    public String cogerDatosComboBox ()
-    {
-        String centinela="";
-        centinela=((String)comboBoxTipoProducto.getSelectionModel().getSelectedItem());
+
+    public String cogerDatosComboBox() {
+        String centinela = "";
+        centinela = ((String) comboBoxTipoProducto.getSelectionModel().getSelectedItem());
         return centinela;
     }
-    private void crearproductoDto ()
-    {
+
+    private void crearproductoDto() {
         ProductoDto productoDto = new ProductoDto(
                 txtNombreProducto.getText(),
                 cogerDatosComboBox(),
@@ -177,22 +178,16 @@ public class controllerAgregarProducto {
                 txtFechaPublicación.getText(),
                 cogerFecha(),
                 ""
-
         );
-
-        if(datosValidos(productoDto))
-        {
-            if (controllerAnuncio.guardarProducto(productoDto));
-            {
-            listaProductos.add(productoDto);
-            mostrarMensajeConfirmacion("producto agregado correctamente");
-            }
-        }
+        compraAgregar = new agregarCompra(productoDto);
+        compraAgregar.start();
+        listaProductos.add(productoDto);
+        mostrarMensajeConfirmacion("producto agregado correctamente");
 
 
 
 
-    }
+}
     private String cogerFecha ()
     {
         String centinela="";

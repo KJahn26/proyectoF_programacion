@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <java version="20.0.2" class="java.beans.XMLDecoder">
  <object class="com.uniquindio.subastasUQ.model.SubastaUq" id="SubastaUq0">
+  <void property="listaProductosAdquiridos">
+   <void method="add">
+    <object class="com.uniquindio.subastasUQ.model.Producto">
+     <void property="fechaAdquirido">
+      <string>9/11/2023</string>
+     </void>
+     <void property="nombreProducto">
+      <string>VENENO AZUL</string>
+     </void>
+     <void property="tipoProducto">
+      <string>Vehiculo</string>
+     </void>
+    </object>
+   </void>
+  </void>
   <void property="listaUsuarios">
    <void method="add">
     <object class="com.uniquindio.subastasUQ.model.Usuario">
@@ -77,31 +92,6 @@
      </void>
     </object>
    </void>
-   <void method="add">
-    <object class="com.uniquindio.subastasUQ.model.Usuario">
-     <void property="cedula">
-      <string>129865</string>
-     </void>
-     <void property="confirmacioncontrasena">
-      <string>ja</string>
-     </void>
-     <void property="contrasena">
-      <string>ja</string>
-     </void>
-     <void property="direccion">
-      <string>shashdjsah</string>
-     </void>
-     <void property="email">
-      <string>jala@loca</string>
-     </void>
-     <void property="nombre">
-      <string>sara</string>
-     </void>
-     <void property="telefono">
-      <string>312893</string>
-     </void>
-    </object>
-   </void>
   </void>
   <void property="listaproductos">
    <void method="add">
@@ -167,25 +157,25 @@
    <void method="add">
     <object class="com.uniquindio.subastasUQ.model.Producto">
      <void property="anunciante">
-      <string>sota</string>
+      <string>ew</string>
      </void>
      <void property="descProducto">
-      <string>mete la mano saca y huele</string>
+      <string>ggw</string>
      </void>
      <void property="fechaPublicacion">
-      <string>2023 - 11 - 09 hora  1:10:57 AM</string>
+      <string>2023 - 11 - 15 hora  0:51:15 AM</string>
      </void>
      <void property="fechaTerminarPublicacion">
-      <string>2023-11-10</string>
+      <string>2023-11-22</string>
      </void>
      <void property="nombreProducto">
-      <string>hoyla</string>
+      <string>gwe</string>
      </void>
      <void property="tipoProducto">
       <string>Bien raiz</string>
      </void>
      <void property="valorInicial">
-      <string>20</string>
+      <string>100000</string>
      </void>
     </object>
    </void>
