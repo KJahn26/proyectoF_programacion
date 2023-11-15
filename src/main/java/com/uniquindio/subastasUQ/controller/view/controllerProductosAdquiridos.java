@@ -115,7 +115,7 @@ public class controllerProductosAdquiridos {
             " 12345"+"\n";
         }
 
-        return centinela;//nombre,fechaadquirido,tipo,codigo,nombre
+        return centinela;
     }
     private void initDataBindingProductos() {
         columnProducto.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
