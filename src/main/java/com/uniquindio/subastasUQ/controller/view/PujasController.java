@@ -94,7 +94,7 @@ public class PujasController {
     @FXML
     private Button btnRegresar;
     @FXML
-    private TableColumn<ProductoDto, String> nombre;
+    private TableColumn<PujaDto, String> nombre;
 
     @FXML
     private Button btnEliminarPuja;
@@ -209,16 +209,15 @@ public class PujasController {
         columnTipoProductoAnuncio.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().tipoProducto()));
         columnFechaFinalAnuncio.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().fechaTerminarPublicacion()));
         columnFechaInicioAnuncio.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().fechaTerminarPublicacion()));
-
+        nombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
 
 
 
     }
     private void initDataBindingPujas ()
     {
-        //nombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
+        columnNombreProducto.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
         columnNombreComprador.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreComprador()));
-        columnNombreProducto.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().nombreProducto()));
         columnNombreAnuncinatePuja.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().nombreAnunciante()));
         columValorProductoPuja.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().valorPuja()));
         columnFechaFInalPuja.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().fechaFinal()));
@@ -236,9 +235,8 @@ public class PujasController {
     {
         if (seleccionar!=null)
         {
-            listaProductosPuja.remove(seleccionPuja);
             anuncioController.eliminarpuja(seleccionPuja.nombreProducto());
-            //seleccionar = null;
+            listaProductosPuja.remove(seleccionPuja);
             tablePujas.getSelectionModel().clearSelection();
         }
     }
@@ -266,9 +264,8 @@ public class PujasController {
         LocalDate fecha = LocalDate.now();
         String centinela="";
         centinela=fecha.toString();
-        //System.out.println(centinela);
         for(int i=0;i<listaProductos.size();i++)
-       // for (ProductoDto s: listaProductos)
+
         {
             ProductoDto s = listaProductos.get(i);
             if (s.fechaTerminarPublicacion().equalsIgnoreCase(centinela))
@@ -289,7 +286,6 @@ public class PujasController {
         try
         {
             FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(ruta));
-            //loader.setLocation(HelloApplication.class.getResource(ruta));
             AnchorPane rootLayout  = (AnchorPane) loader.load();
             Scene scene = new Scene(rootLayout);
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();

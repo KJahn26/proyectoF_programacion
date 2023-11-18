@@ -144,6 +144,7 @@ public class ModelFactoryController implements iModelFactoryController {
             if (!subastaUq.verificarUsuarioExistente(usuarioDto.cedula())) {
                 Usuario usuario = mapper.usuarioDtoToUsuario(usuarioDto);
                 getSubasta().agregarUsuario(usuario);
+                guardarResourceXML();
                 registrarAccionesSistema("Sin identificar", 1, "agrego a un usuario","RegistroUsuario");
             }
             return true;
