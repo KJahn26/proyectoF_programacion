@@ -46,6 +46,8 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
 
     Thread hiloServicioUsuarios;
 
+    Thread hiloServicioProductos;
+
     public String getNombreAnunciante() {
         return nombreAnunciante;
     }
@@ -97,6 +99,7 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
         //salvaGuardarDatosPrueba();
         initRabbitConnection();
         consumirServicioUsuarios();
+        consumirServicioProductos();
 
 
 
@@ -116,6 +119,9 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
         Thread currentThread= Thread.currentThread();
         if(hiloServicioUsuarios==currentThread){
             consumirUsuarios();
+        }
+        if(hiloServicioProductos==currentThread){
+            consumirProductos();
         }
 
     }
@@ -153,6 +159,43 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
         }
     }
 
+    public void consumirProductos(){
+        try {
+            Connection connection = connectionFactory.newConnection();
+            Channel channel = connection.createChannel();
+            channel.queueDeclare(QUEUE, false, false, false, null);
+
+            DeliverCallback deliverCallback = (consumerTag, delivery) -> {
+                String message = new String(delivery.getBody());
+                System.out.println("Mensaje recibido: " + message);
+                Producto us= new Producto();
+                us.setNombreProducto(message.split("@")[0]);
+                us.setTipoProducto(message.split("@")[1]);
+                us.setDescProducto(message.split("@")[2]);
+                us.setAnunciante(message.split("@")[3]);
+                us.setValorInicial(message.split("@")[4]);
+                us.setFechaPublicacion(message.split("@")[5]);
+                us.setFechaTerminarPublicacion(message.split("@")[6]);
+                us.setFechaAdquirido(message.split("@")[7]);
+                try {
+                    if(us.verificarProductoExiste(us)){
+                        getSubasta().agregarProducto(us);
+                        guardarResourceXML();
+                        cargarResourceXML();
+
+                    }
+                } catch (ProductoException e) {
+                    throw new RuntimeException(e);
+                }
+            };
+            while (true) {
+                channel.basicConsume(QUEUE, true, deliverCallback, consumerTag -> { });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private void initRabbitConnection() {
         rabbitFactory = new RabbitFactory();
@@ -165,7 +208,23 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
         hiloServicioUsuarios.start();
     }
 
+    public void consumirServicioProductos(){
+        hiloServicioProductos= new Thread();
+        hiloServicioProductos.start();
+    }
+
     public void producirUsuarios(String message){
+        try (Connection connection = connectionFactory.newConnection();
+             Channel channel = connection.createChannel()) {
+            channel.queueDeclare(QUEUE, false, false, false, null);
+            channel.basicPublish("", QUEUE, null, message.getBytes(StandardCharsets.UTF_8));
+            System.out.println(" [x] Sent '" + message + "'");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void producirProductos(String message){
         try (Connection connection = connectionFactory.newConnection();
              Channel channel = connection.createChannel()) {
             channel.queueDeclare(QUEUE, false, false, false, null);
@@ -348,10 +407,14 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
         {
             try {
                 subastaUq.agregarProducto(producto);
+                String msg=producto.getNombreProducto()+"@"+producto.getTipoProducto()+"@"+producto.getDescProducto()+"@"+producto.getAnunciante()+"@"+producto.getValorInicial()
+                        +"@"+producto.getFechaPublicacion()+"@"+producto.getFechaTerminarPublicacion()+"@"+producto.getFechaAdquirido();
+                producirProductos(msg);
                 centinela=true;
                 guardarResourceXML();
+                cargarResourceXML();
                 registrarAccionesSistema("Anunciante",1,"agrego un Producto","CrearAnuncio");
-            } catch (UsuarioException e) {
+            } catch (ProductoException e) {
                 throw new RuntimeException(e);
             }
 

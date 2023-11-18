@@ -1,5 +1,6 @@
 package com.uniquindio.subastasUQ.model;
 
+import com.uniquindio.subastasUQ.exceptions.ProductoException;
 import com.uniquindio.subastasUQ.exceptions.UsuarioException;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
 import com.uniquindio.subastasUQ.model.service.ISubastaUQService;
@@ -179,7 +180,7 @@ public class SubastaUq implements Serializable,ISubastaUQService {
         }
         return centinela;
     }
-    public void agregarProducto(Producto nuevoProducto) throws UsuarioException{
+    public void agregarProducto(Producto nuevoProducto) throws ProductoException{
         getListaproductos().add(nuevoProducto);
     }
 
