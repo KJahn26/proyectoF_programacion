@@ -130,20 +130,6 @@ public class ProductosController {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private void listenerSelection() {
         tableUsuarios.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             productoSeleccionado = newSelection;
