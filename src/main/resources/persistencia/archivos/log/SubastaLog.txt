@@ -315,3 +315,7 @@ nov 18, 2023 2:49:36 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardar
 INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 18 hora  2:49:35 AM
 nov 18, 2023 2:50:11 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
 INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 18 hora  2:50:10 AM
+nov 18, 2023 4:30:59 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 18 hora  4:30:59 AM
+nov 18, 2023 4:31:07 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 18 hora  4:31:7 AM
