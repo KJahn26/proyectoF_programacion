@@ -16,14 +16,22 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class ProductosController {
     AnuncioController anuncioControllerService;
     ProductoDto productoSeleccionado;
     ObservableList<ProductoDto> listaProductos= FXCollections.observableArrayList();
+
+    ArrayList<String> rutas = new ArrayList<>();
 
     @FXML
     private TableView<ProductoDto> tableUsuarios;
@@ -66,6 +74,7 @@ public class ProductosController {
         initDataBinding();
         obtenerDatos();
         cogerPosicion();
+        datosDirectorio();
         tableUsuarios.getItems().clear();
         tableUsuarios.setItems(listaProductos);
 
@@ -77,30 +86,19 @@ public class ProductosController {
             if (newValue != null) {
                 int indiceSeleccionado = tableUsuarios.getSelectionModel().getSelectedIndex();
                 ponerImagen(indiceSeleccionado);
-                System.out.println("Índice seleccionado: " + indiceSeleccionado);
             }
         });
     }
     public void ponerImagen (int posicion)
     {
 
-        String rutaDirectorioImagenes = "src/main/resources/Imagenes"; // Ajusta la ruta según tu estructura de proyecto
-
-        // Crear un objeto File que representa el directorio
-        File directorio = new File(rutaDirectorioImagenes);
-
-        // Obtener la lista de archivos en el directorio
-        File[] archivos = directorio.listFiles();
-
-        // Crear un ImageView para mostrar la imagen
-        ImageView imageView = new ImageView();
-
         // Verificar si hay archivos en el directorio
-        if (archivos != null && archivos.length > 0) {
+        if (rutas != null && rutas.size() > 0 && posicion<=rutas.size()) {
             // Mostrar la primera imagen en el ImageView (puedes ajustar según tus necesidades)
             try {
-                Image imagen = new Image(new FileInputStream(archivos[0]));
+                Image imagen = new Image(new FileInputStream(rutas.get(posicion)));
                 ImageViewAnuncios.setImage(imagen);
+
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -109,6 +107,37 @@ public class ProductosController {
         }
 
     }
+
+
+
+    private void datosDirectorio ()
+    {
+         String rutaDirectorioImagenes = "src/main/resources/Imagenes"; // Ajusta la ruta según tu estructura de proyecto
+
+        // Crear un objeto File que representa el directorio
+        File directorio = new File(rutaDirectorioImagenes);
+
+        // Obtener la lista de archivos en el directorio
+         File [] archivos= directorio.listFiles();
+         guaardarImagenes(archivos);
+    }
+
+    private void guaardarImagenes (File [] archivos)
+    {
+        for (int i=0;i<archivos.length;i+=1)
+        {
+            rutas.add(archivos[i].toString());
+        }
+    }
+
+
+
+
+
+
+
+
+
 
 
 
