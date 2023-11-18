@@ -204,6 +204,56 @@
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="com.uniquindio.subastasUQ.model.Producto">
+     <void property="anunciante">
+      <string>ce</string>
+     </void>
+     <void property="descProducto">
+      <string>cd</string>
+     </void>
+     <void property="fechaPublicacion">
+      <string>2023 - 11 - 18 hora  14:28:25 PM</string>
+     </void>
+     <void property="fechaTerminarPublicacion">
+      <string>2023-11-19</string>
+     </void>
+     <void property="nombreProducto">
+      <string>c</string>
+     </void>
+     <void property="tipoProducto">
+      <string>Deportes</string>
+     </void>
+     <void property="valorInicial">
+      <string>12</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="com.uniquindio.subastasUQ.model.Producto">
+     <void property="anunciante">
+      <string>c</string>
+     </void>
+     <void property="descProducto">
+      <string>c</string>
+     </void>
+     <void property="fechaPublicacion">
+      <string>2023 - 11 - 18 hora  14:30:8 PM</string>
+     </void>
+     <void property="fechaTerminarPublicacion">
+      <string>2023-11-05</string>
+     </void>
+     <void property="nombreProducto">
+      <string>s</string>
+     </void>
+     <void property="tipoProducto">
+      <string>Bien raiz</string>
+     </void>
+     <void property="valorInicial">
+      <string>12</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
 </java>
