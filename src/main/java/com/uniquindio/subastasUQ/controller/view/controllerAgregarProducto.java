@@ -153,7 +153,7 @@ public class controllerAgregarProducto {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        
+
     }
 
     @FXML
