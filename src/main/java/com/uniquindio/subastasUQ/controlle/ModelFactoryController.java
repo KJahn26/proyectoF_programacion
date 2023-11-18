@@ -1,5 +1,7 @@
 package com.uniquindio.subastasUQ.controlle;
 
+import com.rabbitmq.client.DeliverCallback;
+import com.uniquindio.subastasUQ.config.RabbitFactory;
 import com.uniquindio.subastasUQ.exceptions.*;
 import com.uniquindio.subastasUQ.controlle.service.iModelFactoryController;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
@@ -13,16 +15,22 @@ import com.uniquindio.subastasUQ.model.Usuario;
 import com.uniquindio.subastasUQ.utils.ArchivoUtil;
 import com.uniquindio.subastasUQ.utils.Persistencia;
 import com.uniquindio.subastasUQ.utils.subastaUqUtils;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ModelFactoryController implements iModelFactoryController {
+public class ModelFactoryController implements iModelFactoryController,Runnable {
 
     SubastaUq subastaUq;
 
     SubastaMapper mapper = SubastaMapper.INSTANCE;
+
+    public final String QUEUE ="persistenciaUsuario";
 
     String fecha="";
 
@@ -31,6 +39,12 @@ public class ModelFactoryController implements iModelFactoryController {
     String nombreProducto="";
 
     String nombreComprador="";
+
+    RabbitFactory rabbitFactory;
+
+    ConnectionFactory connectionFactory;
+
+    Thread hiloServicioUsuarios;
 
     public String getNombreAnunciante() {
         return nombreAnunciante;
@@ -81,6 +95,8 @@ public class ModelFactoryController implements iModelFactoryController {
         //cargarDatosArchivos();
         //guardarResourceXML();
         //salvaGuardarDatosPrueba();
+        initRabbitConnection();
+        consumirServicioUsuarios();
 
 
 
@@ -93,6 +109,71 @@ public class ModelFactoryController implements iModelFactoryController {
 
         }
         registrarAccionesSistema("Sin identificar Tipo de Usuario ", 1, "inicio el programa","InicioSesion");
+    }
+
+    @Override
+    public void run(){
+        Thread currentThread= Thread.currentThread();
+        if(hiloServicioUsuarios==currentThread){
+            consumirUsuarios();
+        }
+
+    }
+    public void consumirUsuarios() {
+        try {
+            Connection connection = connectionFactory.newConnection();
+            Channel channel = connection.createChannel();
+            channel.queueDeclare(QUEUE, false, false, false, null);
+
+            DeliverCallback deliverCallback = (consumerTag, delivery) -> {
+                String message = new String(delivery.getBody());
+                System.out.println("Mensaje recibido: " + message);
+                Usuario us= new Usuario();
+                us.setNombre(message.split("@")[0]);
+                us.setCedula(message.split("@")[1]);
+                us.setTelefono(message.split("@")[2]);
+                us.setDireccion(message.split("@")[3]);
+                us.setEmail(message.split("@")[4]);
+                us.setContrasena(message.split("@")[5]);
+                try {
+                    if(us.verificarUsuarioExistente(message.split("@")[1])){
+                        getSubasta().agregarUsuario(us);
+                        guardarResourceXML();
+                        cargarResourceXML();
+                    }
+                } catch (UsuarioException e) {
+                    throw new RuntimeException(e);
+                }
+            };
+            while (true) {
+                channel.basicConsume(QUEUE, true, deliverCallback, consumerTag -> { });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private void initRabbitConnection() {
+        rabbitFactory = new RabbitFactory();
+        connectionFactory = rabbitFactory.getConnectionFactory();
+        System.out.println("conexion establecida con rabbitMQ");
+    }
+
+    public void consumirServicioUsuarios(){
+        hiloServicioUsuarios = new Thread(this);
+        hiloServicioUsuarios.start();
+    }
+
+    public void producirUsuarios(String message){
+        try (Connection connection = connectionFactory.newConnection();
+             Channel channel = connection.createChannel()) {
+            channel.queueDeclare(QUEUE, false, false, false, null);
+            channel.basicPublish("", QUEUE, null, message.getBytes(StandardCharsets.UTF_8));
+            System.out.println(" [x] Sent '" + message + "'");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void salvaGuardarDatosPrueba() {
@@ -144,6 +225,11 @@ public class ModelFactoryController implements iModelFactoryController {
             if (!subastaUq.verificarUsuarioExistente(usuarioDto.cedula())) {
                 Usuario usuario = mapper.usuarioDtoToUsuario(usuarioDto);
                 getSubasta().agregarUsuario(usuario);
+                String msj=usuario.getNombre() + "@" + usuario.getCedula() + "@" + usuario.getTelefono() +
+                        "@" + usuario.getDireccion() + "@" + usuario.getEmail() + "@" + usuario.getContrasena() + "\n";
+                producirUsuarios(msj);
+                guardarResourceXML();
+                cargarResourceXML();
                 registrarAccionesSistema("Sin identificar", 1, "agrego a un usuario","RegistroUsuario");
             }
             return true;

@@ -5,6 +5,7 @@ module com.uniquindio.proyectofinal2023 {
     requires java.logging;
     requires java.desktop;
     requires com.jfoenix;
+    requires com.rabbitmq.client;
 
 
     //opens com.uniquindio.UQ to javafx.fxml;
