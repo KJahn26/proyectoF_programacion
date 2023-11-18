@@ -242,8 +242,6 @@ public class PujasController {
     }
 
 
-
-
     private boolean mostrarMensajeConfirmacion(String mensaje) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setHeaderText(null);

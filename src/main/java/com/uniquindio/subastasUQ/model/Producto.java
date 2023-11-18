@@ -18,8 +18,6 @@ public class Producto extends SubastaUq implements Serializable
     private String fechaTerminarPublicacion="";
     private String fechaAdquirido="";
 
-
-
     public Producto ()
     {}
 

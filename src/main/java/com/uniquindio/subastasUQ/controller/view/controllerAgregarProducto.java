@@ -26,7 +26,12 @@ import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -136,11 +141,19 @@ public class controllerAgregarProducto {
 
             Image imgload = new Image(archivo.toURI().toURL().toString());
             miImageview.setImage(imgload);
+             // Directorio de imágenes
+                String rutaDirectorioImagenes = "src/main/resources/Imagenes"; // Ajusta la ruta según tu estructura de proyecto
+
+                // Copiar la imagen al directorio de imágenes
+                Path destino = Paths.get(rutaDirectorioImagenes, archivo.getName());
+                Files.copy(archivo.toPath(), destino, StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("Imagen guardada en: " + destino.toString());
         } catch (MalformedURLException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-
-
+        
     }
 
     @FXML
