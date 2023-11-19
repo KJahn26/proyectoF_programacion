@@ -1,6 +1,7 @@
 package com.uniquindio.subastasUQ.controller.view;
 
 import com.uniquindio.subastasUQ.HelloApplication;
+import com.uniquindio.subastasUQ.controlle.AnuncioController;
 import com.uniquindio.subastasUQ.controlle.ModelFactoryController;
 import com.uniquindio.subastasUQ.controlle.UsuarioController;
 import com.uniquindio.subastasUQ.mapping.dto.UsuarioDto;
@@ -31,6 +32,8 @@ public class InicioController {
 
 
     UsuarioController usuarioControllerService;
+
+    AnuncioController anuncioController;
     ObservableList<UsuarioDto> listaUsuarios= FXCollections.observableArrayList();
     UsuarioDto usuariosSeleccionados;
     @FXML
@@ -49,6 +52,7 @@ private CheckBox CheckComprador;
     @FXML
     void initialize(){
         usuarioControllerService =new UsuarioController();
+        anuncioController= new AnuncioController();
         obtenerUsuario();
     }
 

@@ -10,6 +10,11 @@ public class UsuarioController {
     public UsuarioController(){
 
         modelFactoryController = ModelFactoryController.getInstance();
+        //consumirServicioUsuario();
+    }
+
+    public void consumirServicioUsuario(){
+        modelFactoryController.consumirServicioUsuarios();
     }
 
     public List<UsuarioDto> obtenerUsuario() {

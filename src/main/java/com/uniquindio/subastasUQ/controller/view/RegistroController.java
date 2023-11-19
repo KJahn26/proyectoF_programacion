@@ -47,6 +47,13 @@ public class RegistroController {
     void initialize ()
    {
        usuarioControllerService =new UsuarioController();
+       //consumirservio();
+   }
+
+   public void consumirservio(){
+       while(true){
+           usuarioControllerService.consumirServicioUsuario();
+       }
    }
 
     public void RegistrarAction (ActionEvent event)

@@ -18,6 +18,7 @@ import com.uniquindio.subastasUQ.utils.subastaUqUtils;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import javafx.concurrent.Task;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -47,6 +48,8 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
     Thread hiloServicioUsuarios;
 
     Thread hiloServicioProductos;
+
+    Thread hiloprueba;
 
     public String getNombreAnunciante() {
         return nombreAnunciante;
@@ -98,8 +101,7 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
         //guardarResourceXML();
         //salvaGuardarDatosPrueba();
         initRabbitConnection();
-        consumirServicioUsuarios();
-        consumirServicioProductos();
+
 
 
 
@@ -125,6 +127,7 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
         }
 
     }
+
     public void consumirUsuarios() {
         try {
             Connection connection = connectionFactory.newConnection();
@@ -161,9 +164,11 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
 
     public void consumirProductos(){
         try {
+            System.out.println("llegue primero");
             Connection connection = connectionFactory.newConnection();
             Channel channel = connection.createChannel();
             channel.queueDeclare(QUEUE, false, false, false, null);
+            System.out.println("llegue");
 
             DeliverCallback deliverCallback = (consumerTag, delivery) -> {
                 String message = new String(delivery.getBody());
@@ -178,12 +183,12 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
                 us.setFechaTerminarPublicacion(message.split("@")[6]);
                 us.setFechaAdquirido(message.split("@")[7]);
                 try {
-                    if(us.verificarProductoExiste(us)){
+
                         getSubasta().agregarProducto(us);
                         guardarResourceXML();
                         cargarResourceXML();
 
-                    }
+
                 } catch (ProductoException e) {
                     throw new RuntimeException(e);
                 }
@@ -191,10 +196,13 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
             while (true) {
                 channel.basicConsume(QUEUE, true, deliverCallback, consumerTag -> { });
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
 
 
     private void initRabbitConnection() {
@@ -209,8 +217,8 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
     }
 
     public void consumirServicioProductos(){
-        hiloServicioProductos= new Thread();
-        hiloServicioProductos.start();
+        this.hiloServicioProductos= new Thread(this);
+        this.hiloServicioProductos.start();
     }
 
     public void producirUsuarios(String message){

@@ -447,3 +447,105 @@ nov 18, 2023 6:39:11 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardar
 INFO: Anunciante REALIZO: Inicio de sesion como anunciante de lalalala@uqvirtual.edu.co en InicioSesion , FECHA: 2023 - 11 - 18 hora  18:39:11 PM
 nov 18, 2023 6:39:33 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
 WARNING: Anunciante REALIZO: elimino a un producto debido a su compra o retiro por parte del propietario en publicaciones , FECHA: 2023 - 11 - 18 hora  18:39:33 PM
+nov 18, 2023 11:29:04 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 18 hora  23:29:4 PM
+nov 18, 2023 11:33:31 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 18 hora  23:33:31 PM
+nov 18, 2023 11:34:18 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 18 hora  23:34:18 PM
+nov 18, 2023 11:36:09 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 18 hora  23:36:9 PM
+nov 18, 2023 11:39:19 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 18 hora  23:39:19 PM
+nov 18, 2023 11:39:57 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 18 hora  23:39:57 PM
+nov 18, 2023 11:51:18 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 18 hora  23:51:18 PM
+nov 18, 2023 11:53:22 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 18 hora  23:53:22 PM
+nov 18, 2023 11:53:55 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 18 hora  23:53:55 PM
+nov 18, 2023 11:58:19 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 18 hora  23:58:19 PM
+nov 19, 2023 12:16:32 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  0:16:32 AM
+nov 19, 2023 12:17:30 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  0:17:30 AM
+nov 19, 2023 12:20:26 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  0:20:26 AM
+nov 19, 2023 12:56:42 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  0:56:42 AM
+nov 19, 2023 12:57:53 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  0:57:53 AM
+nov 19, 2023 1:16:53 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  1:16:53 AM
+nov 19, 2023 1:17:06 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: Anunciante REALIZO: elimino a un producto debido a su compra o retiro por parte del propietario en publicaciones , FECHA: 2023 - 11 - 19 hora  1:17:6 AM
+nov 19, 2023 1:17:10 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Comprador REALIZO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co en inicioSesion , FECHA: 2023 - 11 - 19 hora  1:17:10 AM
+nov 19, 2023 1:21:15 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  1:21:15 AM
+nov 19, 2023 1:21:30 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  1:21:30 AM
+nov 19, 2023 1:22:11 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Anunciante REALIZO: Inicio de sesion como anunciante de lalalala@uqvirtual.edu.co en InicioSesion , FECHA: 2023 - 11 - 19 hora  1:22:11 AM
+nov 19, 2023 1:22:24 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Comprador REALIZO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co en inicioSesion , FECHA: 2023 - 11 - 19 hora  1:22:24 AM
+nov 19, 2023 1:23:42 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Anunciante REALIZO: agrego un Producto en CrearAnuncio , FECHA: 2023 - 11 - 19 hora  1:23:42 AM
+nov 19, 2023 1:24:04 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Comprador REALIZO: cierre de sesion en Pujas , FECHA: 2023 - 11 - 19 hora  1:24:4 AM
+nov 19, 2023 1:24:11 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Comprador REALIZO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co en inicioSesion , FECHA: 2023 - 11 - 19 hora  1:24:11 AM
+nov 19, 2023 2:15:25 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  2:15:25 AM
+nov 19, 2023 2:15:54 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  2:15:54 AM
+nov 19, 2023 2:16:11 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Anunciante REALIZO: Inicio de sesion como anunciante de lalalala@uqvirtual.edu.co en InicioSesion , FECHA: 2023 - 11 - 19 hora  2:16:11 AM
+nov 19, 2023 2:16:23 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Comprador REALIZO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co en inicioSesion , FECHA: 2023 - 11 - 19 hora  2:16:23 AM
+nov 19, 2023 2:16:53 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Anunciante REALIZO: agrego un Producto en CrearAnuncio , FECHA: 2023 - 11 - 19 hora  2:16:53 AM
+nov 19, 2023 2:17:39 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Comprador REALIZO: cierre de sesion en Pujas , FECHA: 2023 - 11 - 19 hora  2:17:39 AM
+nov 19, 2023 2:17:53 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Comprador REALIZO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co en inicioSesion , FECHA: 2023 - 11 - 19 hora  2:17:53 AM
+nov 19, 2023 2:18:07 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Anunciante REALIZO: Cierre de sesion en agregarProducto , FECHA: 2023 - 11 - 19 hora  2:18:7 AM
+nov 19, 2023 2:18:17 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Comprador REALIZO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co en inicioSesion , FECHA: 2023 - 11 - 19 hora  2:18:17 AM
+nov 19, 2023 2:19:48 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  2:19:48 AM
+nov 19, 2023 2:20:11 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Comprador REALIZO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co en inicioSesion , FECHA: 2023 - 11 - 19 hora  2:20:11 AM
+nov 19, 2023 2:20:23 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Comprador REALIZO: cierre de sesion en Pujas , FECHA: 2023 - 11 - 19 hora  2:20:23 AM
+nov 19, 2023 2:28:49 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  2:28:49 AM
+nov 19, 2023 2:29:04 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Comprador REALIZO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co en inicioSesion , FECHA: 2023 - 11 - 19 hora  2:29:4 AM
+nov 19, 2023 2:31:50 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  2:31:49 AM
+nov 19, 2023 2:33:39 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  2:33:39 AM
+nov 19, 2023 2:36:29 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  2:36:29 AM
+nov 19, 2023 2:36:43 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Comprador REALIZO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co en inicioSesion , FECHA: 2023 - 11 - 19 hora  2:36:43 AM
+nov 19, 2023 2:38:18 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  2:38:18 AM
+nov 19, 2023 2:41:43 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  2:41:42 AM
+nov 19, 2023 2:43:35 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  2:43:34 AM
+nov 19, 2023 2:46:52 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  2:46:52 AM
+nov 19, 2023 2:47:57 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  2:47:57 AM
+nov 19, 2023 2:53:12 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  2:53:11 AM
+nov 19, 2023 2:59:04 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  2:59:3 AM
+nov 19, 2023 3:00:39 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 19 hora  3:0:38 AM

@@ -185,16 +185,41 @@
       <string>sota</string>
      </void>
      <void property="descProducto">
-      <string>maracachafa</string>
+      <string>min</string>
      </void>
      <void property="fechaPublicacion">
-      <string>2023 - 11 - 18 hora  4:23:12 AM</string>
+      <string>2023 - 11 - 19 hora  1:22:10 AM</string>
      </void>
      <void property="fechaTerminarPublicacion">
-      <string>2023-11-19</string>
+      <string>2023-11-20</string>
      </void>
      <void property="nombreProducto">
-      <string>yerba buena</string>
+      <string>agua</string>
+     </void>
+     <void property="tipoProducto">
+      <null/>
+     </void>
+     <void property="valorInicial">
+      <string>123</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="com.uniquindio.subastasUQ.model.Producto">
+     <void property="anunciante">
+      <string>sota</string>
+     </void>
+     <void property="descProducto">
+      <string>seria</string>
+     </void>
+     <void property="fechaPublicacion">
+      <string>2023 - 11 - 19 hora  2:16:9 AM</string>
+     </void>
+     <void property="fechaTerminarPublicacion">
+      <string>2023-11-20</string>
+     </void>
+     <void property="nombreProducto">
+      <string>fresa</string>
      </void>
      <void property="tipoProducto">
       <null/>

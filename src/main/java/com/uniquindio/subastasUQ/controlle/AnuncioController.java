@@ -13,9 +13,13 @@ public class AnuncioController implements IAnuncioService {
     public AnuncioController(){
 
         modelFactoryController = ModelFactoryController.getInstance();
+        //consumirProductos();
     }
 
 
+    public void consumirProductos(){
+        modelFactoryController.consumirServicioProductos();
+    }
 
     public List<ProductoDto> obtenerProducto(boolean flag) {
         return modelFactoryController.obtenerProductos(flag);

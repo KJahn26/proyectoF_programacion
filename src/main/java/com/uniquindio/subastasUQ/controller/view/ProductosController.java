@@ -2,6 +2,7 @@ package com.uniquindio.subastasUQ.controller.view;
 import com.uniquindio.subastasUQ.controlle.AnuncioController;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
 import com.uniquindio.subastasUQ.mapping.dto.UsuarioDto;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
@@ -70,6 +71,7 @@ public class ProductosController {
     @FXML
     void initialize ()
     {
+
         anuncioControllerService = new AnuncioController();
         initDataBinding();
         obtenerDatos();
@@ -78,6 +80,41 @@ public class ProductosController {
         tableUsuarios.getItems().clear();
         tableUsuarios.setItems(listaProductos);
 
+        anuncioControllerService.consumirProductos();
+        actualizarInterfaz();
+
+
+
+    }
+
+    public void actualizarInterfaz() {
+        Platform.runLater(() -> {
+            initDataBinding();
+            obtenerDatos();
+            cogerPosicion();
+            datosDirectorio();
+            tableUsuarios.getItems().clear();
+            tableUsuarios.setItems(listaProductos);
+        });
+    }
+
+
+
+    public void consumirProducto(){
+        consume();
+    }
+    public void consume(){
+
+        while(true){
+            anuncioControllerService.consumirProductos();
+            initDataBinding();
+            obtenerDatos();
+            cogerPosicion();
+            datosDirectorio();
+            tableUsuarios.getItems().clear();
+            tableUsuarios.setItems(listaProductos);
+
+        }
 
     }
     public void cogerPosicion ()
