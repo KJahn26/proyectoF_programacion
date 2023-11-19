@@ -435,3 +435,15 @@ nov 18, 2023 2:30:09 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardar
 INFO: Anunciante REALIZO: Inicio de sesion como anunciante de lalalala@uqvirtual.edu.co en InicioSesion , FECHA: 2023 - 11 - 18 hora  14:30:9 PM
 nov 18, 2023 2:30:28 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
 INFO: Anunciante REALIZO: agrego un Producto en CrearAnuncio , FECHA: 2023 - 11 - 18 hora  14:30:28 PM
+nov 18, 2023 6:20:07 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 18 hora  18:20:7 PM
+nov 18, 2023 6:35:53 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 18 hora  18:35:53 PM
+nov 18, 2023 6:36:03 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Anunciante REALIZO: Inicio de sesion como anunciante de lalalala@uqvirtual.edu.co en InicioSesion , FECHA: 2023 - 11 - 18 hora  18:36:3 PM
+nov 18, 2023 6:39:01 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 18 hora  18:39:1 PM
+nov 18, 2023 6:39:11 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Anunciante REALIZO: Inicio de sesion como anunciante de lalalala@uqvirtual.edu.co en InicioSesion , FECHA: 2023 - 11 - 18 hora  18:39:11 PM
+nov 18, 2023 6:39:33 P. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: Anunciante REALIZO: elimino a un producto debido a su compra o retiro por parte del propietario en publicaciones , FECHA: 2023 - 11 - 18 hora  18:39:33 PM

@@ -135,28 +135,6 @@
    <void method="add">
     <object class="com.uniquindio.subastasUQ.model.Producto">
      <void property="anunciante">
-      <string>sota</string>
-     </void>
-     <void property="descProducto">
-      <string>aja</string>
-     </void>
-     <void property="fechaTerminarPublicacion">
-      <string>2023-11-05</string>
-     </void>
-     <void property="nombreProducto">
-      <string>prueba</string>
-     </void>
-     <void property="tipoProducto">
-      <string>algo</string>
-     </void>
-     <void property="valorInicial">
-      <string>10</string>
-     </void>
-    </object>
-   </void>
-   <void method="add">
-    <object class="com.uniquindio.subastasUQ.model.Producto">
-     <void property="anunciante">
       <string>ew</string>
      </void>
      <void property="descProducto">
