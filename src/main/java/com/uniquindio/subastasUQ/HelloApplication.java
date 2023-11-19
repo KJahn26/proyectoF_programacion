@@ -1,5 +1,6 @@
 package com.uniquindio.subastasUQ;
 
+import com.uniquindio.subastasUQ.exceptions.AbrirventanaException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,7 +15,7 @@ public class    HelloApplication extends Application {
     private Stage primaryStage;
     private BorderPane rootLayout;
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws AbrirventanaException {
         this.primaryStage = stage;
         this.primaryStage.setTitle("Subastas Universidad del Quindio");
         mostrarVentanaPrincipal();
