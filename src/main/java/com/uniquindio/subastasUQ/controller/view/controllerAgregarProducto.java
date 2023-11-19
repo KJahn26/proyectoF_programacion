@@ -26,7 +26,12 @@ import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -36,6 +41,7 @@ public class controllerAgregarProducto {
     AnuncioController controllerAnuncio;
     UsuarioController usuarioControllerService;
      agregarCompra compraAgregar;
+     File archivo;
     @FXML
     private AnchorPane anchorAbajo;
 
@@ -132,20 +138,21 @@ public class controllerAgregarProducto {
 
         try {
             FileChooser fileChooser = new FileChooser();
-            File archivo = fileChooser.showSaveDialog(((Node) event.getSource()).getScene().getWindow());
+            archivo = fileChooser.showSaveDialog(((Node) event.getSource()).getScene().getWindow());
 
+            System.out.println(archivo.toString());
             Image imgload = new Image(archivo.toURI().toURL().toString());
             miImageview.setImage(imgload);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
 
-
     }
 
     @FXML
     void ActionPublicarProducto(ActionEvent event) {
         crearproductoDto();
+        guardarImagen(archivo);
 
     }
 
@@ -253,7 +260,6 @@ public class controllerAgregarProducto {
         try
         {
             FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(ruta));
-            //loader.setLocation(HelloApplication.class.getResource(ruta));
             AnchorPane rootLayout  = (AnchorPane) loader.load();
             Scene scene = new Scene(rootLayout);
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -274,5 +280,16 @@ public class controllerAgregarProducto {
 
         usuarioControllerService = new UsuarioController();
         return usuarioControllerService.fecha();
+    }
+
+    private void guardarImagen (File archivo)
+    {
+        String rutaDirectorioImagenes = "src/main/resources/Imagenes";
+        Path destino = Paths.get(rutaDirectorioImagenes, archivo.getName());
+        try {
+            Files.copy(archivo.toPath(), destino, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
