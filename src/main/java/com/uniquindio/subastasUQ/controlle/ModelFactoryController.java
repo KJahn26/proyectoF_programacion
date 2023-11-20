@@ -313,6 +313,7 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
         try {
             flagExiste = subastaUq.eliminarUsuario(cedula);
             registrarAccionesSistema("Sin identificar", 2, "elimino a un usuario","AdministracionUsuarios");
+            //guardarResourceXML();
             System.out.println("El usuario se ah eliminado correctamente");
 
         } catch (UsuarioException e) {
@@ -431,11 +432,11 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
         }
    }
 
-   public boolean eliminarPuja(String nombre){
+   public boolean eliminarPuja(String nombre,String cedulaC,String cedulaA){
         boolean flag=false;
         try{
-            flag= subastaUq.eliminarPuja(nombre);
-            guardarResourceXML();
+            flag= subastaUq.eliminarPuja(nombre,cedulaC,cedulaA);
+            //guardarResourceXML();
             registrarAccionesSistema("Comprador",2,"Elimino una puja","pujas");
         }catch(Exception e){
             e.printStackTrace();
@@ -447,6 +448,7 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
             if(!subastaUq.verificarCantidadPujas(pujaDto.cedulaAnunciante())) {
                 Puja puja = mapper.PujaDtoToPuja(pujaDto);
                 subastaUq.agregarPuja(puja);
+                //guardarResourceXML();
                 registrarAccionesSistema("Comprador", 1, "realizo una puja","pujas");
             }
                 return true;
@@ -487,6 +489,13 @@ public boolean agregarAnuncio (AnuncioDto anuncioDto)
     public void setMapper(SubastaMapper mapper) {
         this.mapper = mapper;
     }
+
+    public void compraProducto(String nombreP, String cedulaC, String cedulaA) throws pujaException {
+            subastaUq.agregarProductoAdquirido(nombreP,cedulaA,cedulaC);
+            boolean f=subastaUq.eliminarPuja(nombreP,cedulaC,cedulaA);
+            //guardarResourceXML();
+    }
+
 }
 
 

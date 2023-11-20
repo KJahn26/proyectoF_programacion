@@ -1,6 +1,7 @@
 package com.uniquindio.subastasUQ.controlle;
 
 import com.uniquindio.subastasUQ.controlle.service.IAnuncioService;
+import com.uniquindio.subastasUQ.exceptions.pujaException;
 import com.uniquindio.subastasUQ.mapping.dto.AnuncioDto;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
 import com.uniquindio.subastasUQ.mapping.dto.PujaDto;
@@ -41,7 +42,7 @@ public class AnuncioController implements IAnuncioService {
         return modelFactoryController.agregarPuja(pujaDto);
     }
 
-    public boolean eliminarpuja(String nombre){ return modelFactoryController.eliminarPuja(nombre);}
+    public boolean eliminarpuja(String nombre, String cedulaC,String cedulaA){ return modelFactoryController.eliminarPuja(nombre,cedulaC,cedulaA);}
 
     public String obtenerFecha(){
         return modelFactoryController.getFecha();
@@ -85,5 +86,9 @@ public class AnuncioController implements IAnuncioService {
         }
 
 
+    public void compradelProducto(String nombreP, String cedulaC, String cedulaA) throws pujaException {
+        modelFactoryController.compraProducto(nombreP,cedulaC,cedulaA);
+        //modelFactoryController.eliminarPuja(nombreP,cedulaC,cedulaA);
+    }
 }
 

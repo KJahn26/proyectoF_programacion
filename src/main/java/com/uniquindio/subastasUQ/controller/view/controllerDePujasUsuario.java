@@ -2,6 +2,7 @@ package com.uniquindio.subastasUQ.controller.view;
 
 import com.uniquindio.subastasUQ.HelloApplication;
 import com.uniquindio.subastasUQ.controlle.AnuncioController;
+import com.uniquindio.subastasUQ.exceptions.pujaException;
 import com.uniquindio.subastasUQ.mapping.dto.PujaDto;
 import com.uniquindio.subastasUQ.model.Producto;
 import com.uniquindio.subastasUQ.model.Puja;
@@ -27,6 +28,8 @@ public class controllerDePujasUsuario {
 
     ObservableList<Producto> listaProductosAdquiridos = FXCollections.observableArrayList();
     AnuncioController anuncioController;
+
+    PujaDto pujaseleccion;
 
     @FXML
     private HBox hboxPujas;
@@ -75,6 +78,7 @@ public class controllerDePujasUsuario {
         obtenerPujas();
         tablePujas.getItems().clear();
         tablePujas.setItems(listaPujas);
+        listenerSelectionPuja();
     }
 
     @FXML
@@ -83,8 +87,15 @@ public class controllerDePujasUsuario {
 
     }
     @FXML
-    void aceptarPujaAction(ActionEvent event){
+    void aceptarPujaAction(ActionEvent event) throws pujaException{
         aceptarPuja();
+    }
+
+    private void listenerSelectionPuja() {
+        tablePujas.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            pujaseleccion= newSelection;
+
+        });
     }
 
     void initDataBinding(){
@@ -123,8 +134,10 @@ public class controllerDePujasUsuario {
         }
     }
 
-    public void aceptarPuja(){
-
+    public void aceptarPuja() throws pujaException {
+        if(pujaseleccion!=null){
+            anuncioController.compradelProducto(pujaseleccion.nombreProducto(),pujaseleccion.cedulaComprador(),pujaseleccion.cedulaAnunciante());
+        }
     }
 
 }
