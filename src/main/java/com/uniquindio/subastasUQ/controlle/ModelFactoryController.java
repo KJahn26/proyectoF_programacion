@@ -25,6 +25,17 @@ import java.util.concurrent.TimeoutException;
 
 public class ModelFactoryController implements iModelFactoryController,Runnable {
 
+    public final String QUEUE_UA ="persistenciaUsuarioAnunciante";
+
+    public final String QUEUE_UC ="persistenciaUsuarioComprador";
+
+    public final String QUEUE_P ="persistenciaproductos";
+
+    public final String QUEUE_Anuncios ="persistenciaAnuncios";
+
+    public final String QUEUE_pujas ="persistenciaPujas";
+
+    public final String QUEUE_compras ="persistenciacompras";
     SubastaUq subastaUq;
 
     SubastaMapper mapper = SubastaMapper.INSTANCE;
@@ -122,7 +133,17 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
         }
 
     }
-
+     public void producirPujas (String message)
+     {
+         try (Connection connection = connectionFactory.newConnection();
+             Channel channel = connection.createChannel()) {
+            channel.queueDeclare(QUEUE_pujas, false, false, false, null);
+            channel.basicPublish("", QUEUE, null, message.getBytes(StandardCharsets.UTF_8));
+            System.out.println(" [x] Sent '" + message + "'");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+     }
     public void consumirUsuarios() {
         try {
             Connection connection = connectionFactory.newConnection();
@@ -424,6 +445,10 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
       return centinela;
     }
 
+    /*public Producto consumirProducto() {
+
+    }*/
+
    public List<PujaDto> obtenerProductosPuja(boolean flag){
         if(flag){
             return mapper.getPujasDto(subastaUq.getListaProductosPuja(nombreProducto,cedulaAnunciante));
@@ -448,7 +473,7 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
             if(!subastaUq.verificarCantidadPujas(pujaDto.cedulaAnunciante())) {
                 Puja puja = mapper.PujaDtoToPuja(pujaDto);
                 subastaUq.agregarPuja(puja);
-                //guardarResourceXML();
+                producirPujas(cosa(puja));
                 registrarAccionesSistema("Comprador", 1, "realizo una puja","pujas");
             }
                 return true;
@@ -456,6 +481,13 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
             e.printStackTrace();
             return false;
         }
+    }
+
+
+
+    public String cosa (Puja puja)
+    {
+        return puja.getNombreComprador() + puja.getCedulaComprador() + puja.getNombreProducto() + puja.getNombreAnunciante() + puja.getCedulaAnunciante() + puja.getValorPuja() + puja.getFechaFinal();
     }
 
 public boolean agregarAnuncio (AnuncioDto anuncioDto)
