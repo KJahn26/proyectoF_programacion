@@ -244,7 +244,7 @@ public class PujasController {
     {
         if (seleccionPuja!=null)
         {
-            anuncioController.eliminarpuja(seleccionPuja.nombreProducto());
+            anuncioController.eliminarpuja(seleccionPuja.nombreProducto(),seleccionPuja.cedulaComprador(),seleccionPuja.cedulaAnunciante());
             listaProductosPuja.remove(seleccionPuja);
             tablePujas.getSelectionModel().clearSelection();
         }

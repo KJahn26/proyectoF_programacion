@@ -2,9 +2,11 @@ package com.uniquindio.subastasUQ.model;
 
 import com.uniquindio.subastasUQ.exceptions.ProductoException;
 import com.uniquindio.subastasUQ.exceptions.UsuarioException;
+import com.uniquindio.subastasUQ.exceptions.pujaException;
 import com.uniquindio.subastasUQ.mapping.dto.AnuncioDto;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
 import com.uniquindio.subastasUQ.model.service.ISubastaUQService;
+import com.uniquindio.subastasUQ.utils.ArchivoUtil;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -223,11 +225,11 @@ public class SubastaUq implements Serializable,ISubastaUQService {
         this.listaProductosPuja = listaProductosPuja;
     }
 
-    public boolean eliminarPuja(String nombre)throws Exception{
+    public boolean eliminarPuja(String nombre,String cedulaC,String cedulaA)throws pujaException {
         boolean f=false;
-        Puja pr=obtenerPuja(nombre);
+        Puja pr=obtenerPuja(nombre,cedulaC,cedulaA);
         if(pr==null){
-            throw new Exception("el producto no existe");
+            throw new pujaException("el producto no existe");
         }
         else{
             listaProductosPuja.remove(pr);
@@ -235,10 +237,10 @@ public class SubastaUq implements Serializable,ISubastaUQService {
         }
     return f;}
 
-    public Puja obtenerPuja(String nombre){
+    public Puja obtenerPuja(String nombre,String cedulaC, String cedulaA){
         Puja pr=null;
         for(Puja p:listaProductosPuja){
-            if(p.getNombreProducto().equalsIgnoreCase(nombre)){
+            if(p.getNombreProducto().equalsIgnoreCase(nombre)&&p.getCedulaComprador().equalsIgnoreCase(cedulaC)&&p.getCedulaAnunciante().equalsIgnoreCase(cedulaA)){
                 pr=p;
                 break;
             }
@@ -276,6 +278,26 @@ public void agregarAnuncio(Anuncio anuncio) {
             }
         }
 
+    }
+
+    public void agregarProductoAdquirido(String nombreP, String cedulaA,String cedulaC){
+
+        for(int i=0;i<listaproductos.size();i++){
+            if(listaproductos.get(i).getNombreProducto().equalsIgnoreCase(nombreP)&&listaproductos.get(i).getCedulaAnunciante().equalsIgnoreCase(cedulaA)){
+                listaproductos.get(i).setCedulaAdquisicion(cedulaC);
+                listaproductos.get(i).setFechaAdquirido(ArchivoUtil.cargarFechaSistema());
+                listaProductosAdquiridos.add(listaproductos.get(i));
+                listaproductos.remove(listaproductos.get(i));
+
+            }
+        }
+
+        for(Anuncio a:listaAnuncios){
+            if(a.getCedulaAnunciante().equalsIgnoreCase(cedulaA)){
+                listaAnuncios.remove(a);
+                break;
+            }
+        }
     }
 
 }
