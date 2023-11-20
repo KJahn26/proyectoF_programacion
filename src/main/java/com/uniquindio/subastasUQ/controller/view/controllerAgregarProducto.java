@@ -2,7 +2,9 @@ package com.uniquindio.subastasUQ.controller.view;
 import com.uniquindio.subastasUQ.HelloApplication;
 import com.uniquindio.subastasUQ.controlle.AnuncioController;
 import com.uniquindio.subastasUQ.controlle.UsuarioController;
+import com.uniquindio.subastasUQ.exceptions.AgregarImagenException;
 import com.uniquindio.subastasUQ.hilos.agregarCompra;
+import com.uniquindio.subastasUQ.mapping.dto.AnuncioDto;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
 import com.uniquindio.subastasUQ.mapping.dto.UsuarioDto;
 import com.uniquindio.subastasUQ.utils.Persistencia;
@@ -133,16 +135,17 @@ public class controllerAgregarProducto {
     }
 
     @FXML
-    void ActionAgregarImagen(ActionEvent event) {
+    void ActionAgregarImagen(ActionEvent event) throws AgregarImagenException {
 
 
         try {
             FileChooser fileChooser = new FileChooser();
             archivo = fileChooser.showSaveDialog(((Node) event.getSource()).getScene().getWindow());
+            Image    imgload = new Image(archivo.toURI().toURL().toString());
 
-            System.out.println(archivo.toString());
-            Image imgload = new Image(archivo.toURI().toURL().toString());
             miImageview.setImage(imgload);
+
+
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -151,8 +154,15 @@ public class controllerAgregarProducto {
 
     @FXML
     void ActionPublicarProducto(ActionEvent event) {
-        crearproductoDto();
-        guardarImagen(archivo);
+
+        try {
+            crearproductoDto();
+            guardarAnuncio();
+            guardarImagen(archivo);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 
@@ -180,7 +190,7 @@ public class controllerAgregarProducto {
                 txtNombreProducto.getText(),
                 cogerDatosComboBox(),
                 txtDescripcionProducto.getText(),
-                txtNombreAnunciante.getText(),
+                "",
                 txtValorInicial.getText(),
                 txtFechaPublicación.getText(),
                 cogerFecha(),
@@ -291,5 +301,27 @@ public class controllerAgregarProducto {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void guardarAnuncio  () throws MalformedURLException {
+        AnuncioDto usuarioDto = crearAnuncioDto();
+        if (controllerAnuncio.guardarAnuncio(usuarioDto))    {
+            {
+
+            }
+        }
+    }
+
+    public AnuncioDto crearAnuncioDto () throws MalformedURLException {
+        AnuncioDto anuncioDto = new AnuncioDto(
+                "codigo",
+                txtDescripcionProducto.getText(),
+                fechaPublicación(),
+                cogerFecha(),
+                archivo.toURI().toURL().toString()
+
+
+        );
+        return anuncioDto;
     }
 }

@@ -2,14 +2,12 @@ package com.uniquindio.subastasUQ.controlle;
 
 import com.uniquindio.subastasUQ.exceptions.*;
 import com.uniquindio.subastasUQ.controlle.service.iModelFactoryController;
+import com.uniquindio.subastasUQ.mapping.dto.AnuncioDto;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
 import com.uniquindio.subastasUQ.mapping.dto.PujaDto;
 import com.uniquindio.subastasUQ.mapping.dto.UsuarioDto;
 import com.uniquindio.subastasUQ.mapping.mappings.SubastaMapper;
-import com.uniquindio.subastasUQ.model.Producto;
-import com.uniquindio.subastasUQ.model.Puja;
-import com.uniquindio.subastasUQ.model.SubastaUq;
-import com.uniquindio.subastasUQ.model.Usuario;
+import com.uniquindio.subastasUQ.model.*;
 import com.uniquindio.subastasUQ.utils.ArchivoUtil;
 import com.uniquindio.subastasUQ.utils.Persistencia;
 import com.uniquindio.subastasUQ.utils.subastaUqUtils;
@@ -88,9 +86,6 @@ public class ModelFactoryController implements iModelFactoryController {
             cargarDatosBase();
             guardarResourceXML();
             salvaGuardarDatosPrueba();
-
-
-
         }
         registrarAccionesSistema("Sin identificar Tipo de Usuario ", 1, "inicio el programa","InicioSesion");
     }
@@ -104,8 +99,6 @@ public class ModelFactoryController implements iModelFactoryController {
 
         subastaUq = subastaUqUtils.inicializarDatos();
     }
-
-
     @Override
     public void cargarDatosArchivos() {
         subastaUq = new SubastaUq();
@@ -117,23 +110,19 @@ public class ModelFactoryController implements iModelFactoryController {
         }
 
     }
-
     public SubastaUq getSubasta() {
 
         return subastaUq;
     }
-
     public void setSubastaUq(SubastaUq SubastaUq) {
 
         this.subastaUq = SubastaUq;
     }
-
     @Override
     public List<UsuarioDto> obtenerUsuarios() {
 
         return mapper.getUsuariosDto(subastaUq.getListaUsuarios());
     }
-
     public ArrayList<Usuario> coger() {
         return subastaUq.getListaUsuarios();
     }
@@ -182,8 +171,6 @@ public class ModelFactoryController implements iModelFactoryController {
         }
     }
 
-
-
     @Override
     public boolean buscarEmpleado() {
         return false;
@@ -226,17 +213,11 @@ public class ModelFactoryController implements iModelFactoryController {
             return mapper.getProductosDto(subastaUq.getListaProductosAdquiridos());
         }
     }
-    public void agregarDatos ()
+
+    public List<Anuncio> cogerAnuncios ()
     {
-       Producto producto = new Producto();
-       producto.setNombreProducto("VENENO AZUL");
-       producto.setFechaAdquirido("9/11/2023");
-       producto.setTipoProducto("Vehiculo");
-
-        subastaUq.getListaProductosAdquiridos().add(producto);
+        return subastaUq.getListaAnuncios();
     }
-
-
 
 
     public boolean eliminarProducto(String nombre) {
@@ -308,8 +289,37 @@ public class ModelFactoryController implements iModelFactoryController {
         }
     }
 
+public boolean agregarAnuncio (AnuncioDto anuncioDto)
+{
+    boolean centinela=false;
+    Anuncio anuncio = mapper.anuncioDtoToAnuncio(anuncioDto);
+    if (anuncio!=null)
+    {
+         try {
+                subastaUq.agregarAnuncio(anuncio);
+                centinela=true;
+                guardarResourceXML();
+                cargarResourceXML();
+                registrarAccionesSistema("Anunciante",1,"agrego un Producto","CrearAnuncio");
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+    }
+    return centinela;
 
+}
 
+    public SubastaUq getSubastaUq() {
+        return subastaUq;
+    }
+
+    public SubastaMapper getMapper() {
+        return mapper;
+    }
+
+    public void setMapper(SubastaMapper mapper) {
+        this.mapper = mapper;
+    }
 }
 
 
