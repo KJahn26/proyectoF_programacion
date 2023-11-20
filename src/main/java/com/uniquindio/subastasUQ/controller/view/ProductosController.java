@@ -108,8 +108,6 @@ public class ProductosController {
 
     }
 
-
-
     private void datosDirectorio ()
     {
          String rutaDirectorioImagenes = "src/main/resources/Imagenes"; // Ajusta la ruta según tu estructura de proyecto

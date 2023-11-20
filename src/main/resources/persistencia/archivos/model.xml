@@ -4,21 +4,20 @@
   <void property="listaAnuncios">
    <void method="add">
     <object class="com.uniquindio.subastasUQ.model.Anuncio">
+     <void property="cedulaAnunciante">
+      <string>1096006075</string>
+     </void>
      <void property="descripcion">
-      <string>wdef</string>
+      <string>kncknneknvoneioneevvvvv</string>
+     </void>
+     <void property="fechaFIn">
+      <string>2023-11-02</string>
      </void>
      <void property="fechaInicio">
-      <string>2023 - 11 - 20 hora  3:7:44 AM</string>
+      <string>2023 - 11 - 20 hora  8:50:21 AM</string>
      </void>
-    </object>
-   </void>
-   <void method="add">
-    <object class="com.uniquindio.subastasUQ.model.Anuncio">
-     <void property="descripcion">
-      <string>dqqwdqcq</string>
-     </void>
-     <void property="fechaInicio">
-      <string>2023 - 11 - 20 hora  3:13:33 AM</string>
+     <void property="rutaImagen">
+      <string>src\main\resources\Imagenes\datos.pdf.jpg</string>
      </void>
     </object>
    </void>
@@ -164,38 +163,16 @@
    <void method="add">
     <object class="com.uniquindio.subastasUQ.model.Producto">
      <void property="descProducto">
-      <string>wdef</string>
+      <string>kncknneknvoneioneevvvvv</string>
      </void>
      <void property="fechaPublicacion">
-      <string>2023 - 11 - 20 hora  3:7:15 AM</string>
+      <string>2023 - 11 - 20 hora  8:50:21 AM</string>
      </void>
      <void property="fechaTerminarPublicacion">
-      <string>2023-11-22</string>
+      <string>2023-11-02</string>
      </void>
      <void property="nombreProducto">
-      <string>xw</string>
-     </void>
-     <void property="tipoProducto">
-      <string>Bien raiz</string>
-     </void>
-     <void property="valorInicial">
-      <string>1223</string>
-     </void>
-    </object>
-   </void>
-   <void method="add">
-    <object class="com.uniquindio.subastasUQ.model.Producto">
-     <void property="descProducto">
-      <string>dqqwdqcq</string>
-     </void>
-     <void property="fechaPublicacion">
-      <string>2023 - 11 - 20 hora  3:13:9 AM</string>
-     </void>
-     <void property="fechaTerminarPublicacion">
-      <string>2023-11-15</string>
-     </void>
-     <void property="nombreProducto">
-      <string>qw</string>
+      <string>Carros</string>
      </void>
      <void property="tipoProducto">
       <string>Bien raiz</string>
