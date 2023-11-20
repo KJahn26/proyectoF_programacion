@@ -2,6 +2,7 @@ package com.uniquindio.subastasUQ.model;
 
 import com.uniquindio.subastasUQ.exceptions.ProductoException;
 import com.uniquindio.subastasUQ.exceptions.UsuarioException;
+import com.uniquindio.subastasUQ.mapping.dto.AnuncioDto;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
 import com.uniquindio.subastasUQ.model.service.ISubastaUQService;
 
@@ -17,9 +18,18 @@ public class SubastaUq implements Serializable,ISubastaUQService {
 
     ArrayList<Puja> listaProductosPuja= new ArrayList<>();
     ArrayList<Producto> listaProductosAdquiridos = new ArrayList<>();
+    ArrayList<Anuncio> listaAnuncios = new ArrayList<>();
 
     public SubastaUq(){
 
+    }
+
+    public ArrayList<Anuncio> getListaAnuncios() {
+        return listaAnuncios;
+    }
+
+    public void setListaAnuncios(ArrayList<Anuncio> listaAnuncios) {
+        this.listaAnuncios = listaAnuncios;
     }
 
     public ArrayList<Usuario> getListaUsuarios()
@@ -231,5 +241,15 @@ public class SubastaUq implements Serializable,ISubastaUQService {
         }
 
     return f;}
+public void agregarAnuncio(Anuncio anuncio)
+{
+
+
+        listaAnuncios.add(anuncio);
+        System.out.println("Se agrego con exito" );
+
+
+}
+
 
 }

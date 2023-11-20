@@ -1,8 +1,10 @@
 package com.uniquindio.subastasUQ.mapping.mappings;
 
+import com.uniquindio.subastasUQ.mapping.dto.AnuncioDto;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
 import com.uniquindio.subastasUQ.mapping.dto.PujaDto;
 import com.uniquindio.subastasUQ.mapping.dto.UsuarioDto;
+import com.uniquindio.subastasUQ.model.Anuncio;
 import com.uniquindio.subastasUQ.model.Producto;
 import com.uniquindio.subastasUQ.model.Puja;
 import com.uniquindio.subastasUQ.model.Usuario;
@@ -38,4 +40,9 @@ public interface SubastaMapper {
 
     Puja PujaDtoToPuja (PujaDto pujaDto);
     List<PujaDto> getPujasDto(ArrayList<Puja> listaProductosPuja);
+
+    List<AnuncioDto> getANuncioDTo (ArrayList<Anuncio> anuncios);
+    AnuncioDto anuciotoanuncioDto (Anuncio anuncio);
+    Anuncio anuncioDtoToAnuncio (AnuncioDto anunciodto);
+
 }

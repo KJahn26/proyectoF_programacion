@@ -1,9 +1,12 @@
 package com.uniquindio.subastasUQ.controlle;
 
 import com.uniquindio.subastasUQ.controlle.service.IAnuncioService;
+import com.uniquindio.subastasUQ.mapping.dto.AnuncioDto;
 import com.uniquindio.subastasUQ.mapping.dto.ProductoDto;
 import com.uniquindio.subastasUQ.mapping.dto.PujaDto;
+import com.uniquindio.subastasUQ.model.Anuncio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AnuncioController implements IAnuncioService {
@@ -49,6 +52,12 @@ public class AnuncioController implements IAnuncioService {
         return modelFactoryController.agregarProducto(productoDto);
     }
 
+    @Override
+    public boolean guardarAnuncio(AnuncioDto anunciodto) {
+        return modelFactoryController.agregarAnuncio(anunciodto);
+    }
+
+
     public String getNombreComprador(){
         return modelFactoryController.getNombreComprador();
     }
@@ -59,6 +68,10 @@ public class AnuncioController implements IAnuncioService {
 
     public String getNombreAnunciante(){ return modelFactoryController.getNombreAnunciante();}
 
+    public boolean setDatos (AnuncioDto anuncioDto)
+        {
+            return modelFactoryController.agregarAnuncio(anuncioDto);
+        }
 
 }
 
