@@ -76,6 +76,7 @@ public class subastaUqUtils {
         producto.setTipoProducto("algo");
         producto.setDescProducto("aja");
         producto.setAnunciante("sota");
+        producto.setCedulaAnunciante("7237493274");
         producto.setFechaTerminarPublicacion("2023-11-05");
         producto.setValorInicial("10");
         subastaUq.getListaproductos().add(producto);

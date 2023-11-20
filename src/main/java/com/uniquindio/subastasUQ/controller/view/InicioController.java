@@ -1,10 +1,9 @@
 package com.uniquindio.subastasUQ.controller.view;
 
 import com.uniquindio.subastasUQ.HelloApplication;
-import com.uniquindio.subastasUQ.controlle.ModelFactoryController;
+import com.uniquindio.subastasUQ.controlle.AnuncioController;
 import com.uniquindio.subastasUQ.controlle.UsuarioController;
 import com.uniquindio.subastasUQ.mapping.dto.UsuarioDto;
-import com.uniquindio.subastasUQ.model.Usuario;
 import com.uniquindio.subastasUQ.utils.Persistencia;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,25 +11,20 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
-import javafx.stage.Stage;
 
 
 public class InicioController {
 
 
     UsuarioController usuarioControllerService;
+
+    AnuncioController anuncioController;
     ObservableList<UsuarioDto> listaUsuarios= FXCollections.observableArrayList();
     UsuarioDto usuariosSeleccionados;
     @FXML
@@ -49,6 +43,7 @@ private CheckBox CheckComprador;
     @FXML
     void initialize(){
         usuarioControllerService =new UsuarioController();
+        anuncioController= new AnuncioController();
         obtenerUsuario();
     }
 
@@ -217,10 +212,10 @@ private CheckBox CheckComprador;
                 if (s.email().equals(ayuda))
                 {
                     if(c.equals("comprador")){
-                        usuarioControllerService.setNombreComprador(s.nombre());
+                        usuarioControllerService.setCedulaComprador(s.cedula());
                     }
                     else if(c.equals("anunciante")){
-                        usuarioControllerService.setNombreAnunciante(s.nombre());
+                        usuarioControllerService.setCedulaAnunciante(s.cedula());
                     }
                 }
             }

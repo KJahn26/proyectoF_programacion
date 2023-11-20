@@ -36,5 +36,6 @@
       <TextField fx:id="txtNombreAnunciante" layoutX="171.0" layoutY="224.0" />
       <Label layoutX="47.0" layoutY="228.0" text="Nombre Anunciante" />
       <Button layoutX="817.0" layoutY="19.0" mnemonicParsing="false" onAction="#RegresarAction" prefHeight="31.0" prefWidth="96.0" text="Regresar" />
+      <Button fx:id="BtnAceptarPuja" layoutX="224.0" layoutY="467.0" mnemonicParsing="false" onAction="#aceptarPujaAction" prefHeight="31.0" prefWidth="96.0" text="Aceptar Puja" />
    </children>
 </AnchorPane>

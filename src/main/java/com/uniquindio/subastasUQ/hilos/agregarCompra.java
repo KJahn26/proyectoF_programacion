@@ -11,6 +11,8 @@ public class agregarCompra extends Thread{
         this.productoDto=productoDto;
         this.controllerAnuncio= new AnuncioController();
     }
+
+
     @Override
     public void run ()
     {

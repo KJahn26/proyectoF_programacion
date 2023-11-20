@@ -16,15 +16,19 @@ public class AnuncioController implements IAnuncioService {
     public AnuncioController(){
 
         modelFactoryController = ModelFactoryController.getInstance();
+        //consumirProductos();
     }
 
 
+    public void consumirProductos(){
+        modelFactoryController.consumirServicioProductos();
+    }
 
     public List<ProductoDto> obtenerProducto(boolean flag) {
         return modelFactoryController.obtenerProductos(flag);
     }
-    public List<ProductoDto> obtenerProductoAdquirido(boolean flag) {
-        return modelFactoryController.obtenerProductosAdquiridos(flag);
+    public List<ProductoDto> obtenerProductoAdquirido() {
+        return modelFactoryController.obtenerProductosAdquiridos();
     }
 
     public boolean eliminarProducto(String s) {
@@ -54,6 +58,10 @@ public class AnuncioController implements IAnuncioService {
     }
 
 
+    public String getCedulaComprador(){
+        return modelFactoryController.getCedulaComprador();
+    }
+
     public String getNombreComprador(){
         return modelFactoryController.getNombreComprador();
     }
@@ -62,7 +70,15 @@ public class AnuncioController implements IAnuncioService {
 
     public void setNombreProducto(String nombreProducto){ modelFactoryController.setNombreProducto(nombreProducto);}
 
-    public String getNombreAnunciante(){ return modelFactoryController.getNombreAnunciante();}
+    public String getCedulaAnunciante(){ return modelFactoryController.getCedulaAnunciante();}
+
+    public String getNombreAnunciante(){
+        return modelFactoryController.getNombreAnunciante();
+    }
+
+    public void setvalorInicial(String nombreP,String cedulaAnunciante,String valorPuja){
+        modelFactoryController.setvalorpuja(nombreP,cedulaAnunciante,valorPuja);
+    }
 
     public boolean setDatos (AnuncioDto anuncioDto)
         {

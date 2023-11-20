@@ -9,6 +9,11 @@ import java.util.List;
 public class CompradorController implements ICompradorService {
 
 
+    public CompradorController(){
+
+    }
+
+
 
     @Override
     public void pujarProducto() {

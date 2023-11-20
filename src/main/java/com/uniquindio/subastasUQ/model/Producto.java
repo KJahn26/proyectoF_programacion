@@ -12,11 +12,15 @@ public class Producto extends SubastaUq implements Serializable
 
     private String anunciante="";
 
+    private String cedulaAnunciante="";
+
     private String valorInicial="";
 
     private String fechaPublicacion="";
     private String fechaTerminarPublicacion="";
     private String fechaAdquirido="";
+
+    private String cedulaAdquisicion="";
 
     public Producto ()
     {}
@@ -82,5 +86,21 @@ public class Producto extends SubastaUq implements Serializable
 
     public void setFechaTerminarPublicacion(String fechaTerminarPublicacion) {
         this.fechaTerminarPublicacion = fechaTerminarPublicacion;
+    }
+
+    public String getCedulaAnunciante() {
+        return cedulaAnunciante;
+    }
+
+    public void setCedulaAnunciante(String cedulaAnunciante) {
+        this.cedulaAnunciante = cedulaAnunciante;
+    }
+
+    public String getCedulaAdquisicion() {
+        return cedulaAdquisicion;
+    }
+
+    public void setCedulaAdquisicion(String cedulaAdquisicion) {
+        this.cedulaAdquisicion = cedulaAdquisicion;
     }
 }

@@ -188,10 +188,12 @@ public class controllerAgregarProducto {
                 txtNombreProducto.getText(),
                 cogerDatosComboBox(),
                 txtDescripcionProducto.getText(),
-                "",
+                controllerAnuncio.getNombreAnunciante(),
+                controllerAnuncio.getCedulaAnunciante(),
                 txtValorInicial.getText(),
                 txtFechaPublicación.getText(),
                 cogerFecha(),
+                "",
                 ""
         );
         compraAgregar = new agregarCompra(productoDto);
