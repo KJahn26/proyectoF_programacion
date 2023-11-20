@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <java version="20.0.2" class="java.beans.XMLDecoder">
  <object class="com.uniquindio.subastasUQ.model.SubastaUq" id="SubastaUq0">
-  <void property="listaProductosAdquiridos">
+  <void property="listaAnuncios">
    <void method="add">
-    <object class="com.uniquindio.subastasUQ.model.Producto">
-     <void property="fechaAdquirido">
-      <string>9/11/2023</string>
+    <object class="com.uniquindio.subastasUQ.model.Anuncio">
+     <void property="descripcion">
+      <string>wdef</string>
      </void>
-     <void property="nombreProducto">
-      <string>VENENO AZUL</string>
+     <void property="fechaInicio">
+      <string>2023 - 11 - 20 hora  3:7:44 AM</string>
      </void>
-     <void property="tipoProducto">
-      <string>Vehiculo</string>
+    </object>
+   </void>
+   <void method="add">
+    <object class="com.uniquindio.subastasUQ.model.Anuncio">
+     <void property="descripcion">
+      <string>dqqwdqcq</string>
+     </void>
+     <void property="fechaInicio">
+      <string>2023 - 11 - 20 hora  3:13:33 AM</string>
      </void>
     </object>
    </void>
@@ -135,94 +142,60 @@
    <void method="add">
     <object class="com.uniquindio.subastasUQ.model.Producto">
      <void property="anunciante">
-      <string>ew</string>
+      <string>sota</string>
      </void>
      <void property="descProducto">
-      <string>ggw</string>
-     </void>
-     <void property="fechaPublicacion">
-      <string>2023 - 11 - 15 hora  0:51:15 AM</string>
-     </void>
-     <void property="fechaTerminarPublicacion">
-      <string>2023-11-22</string>
-     </void>
-     <void property="nombreProducto">
-      <string>gwe</string>
-     </void>
-     <void property="tipoProducto">
-      <string>Bien raiz</string>
-     </void>
-     <void property="valorInicial">
-      <string>100000</string>
-     </void>
-    </object>
-   </void>
-   <void method="add">
-    <object class="com.uniquindio.subastasUQ.model.Producto">
-     <void property="anunciante">
-      <string>carlos</string>
-     </void>
-     <void property="descProducto">
-      <string>bajito </string>
-     </void>
-     <void property="fechaPublicacion">
-      <string>2023 - 11 - 17 hora  22:27:7 PM</string>
-     </void>
-     <void property="fechaTerminarPublicacion">
-      <string>2023-11-18</string>
-     </void>
-     <void property="nombreProducto">
-      <string>jahn</string>
-     </void>
-     <void property="tipoProducto">
-      <null/>
-     </void>
-     <void property="valorInicial">
-      <string>12</string>
-     </void>
-    </object>
-   </void>
-   <void method="add">
-    <object class="com.uniquindio.subastasUQ.model.Producto">
-     <void property="anunciante">
-      <string>ce</string>
-     </void>
-     <void property="descProducto">
-      <string>cd</string>
-     </void>
-     <void property="fechaPublicacion">
-      <string>2023 - 11 - 18 hora  14:28:25 PM</string>
-     </void>
-     <void property="fechaTerminarPublicacion">
-      <string>2023-11-19</string>
-     </void>
-     <void property="nombreProducto">
-      <string>c</string>
-     </void>
-     <void property="tipoProducto">
-      <string>Deportes</string>
-     </void>
-     <void property="valorInicial">
-      <string>12</string>
-     </void>
-    </object>
-   </void>
-   <void method="add">
-    <object class="com.uniquindio.subastasUQ.model.Producto">
-     <void property="anunciante">
-      <string>c</string>
-     </void>
-     <void property="descProducto">
-      <string>c</string>
-     </void>
-     <void property="fechaPublicacion">
-      <string>2023 - 11 - 18 hora  14:30:8 PM</string>
+      <string>aja</string>
      </void>
      <void property="fechaTerminarPublicacion">
       <string>2023-11-05</string>
      </void>
      <void property="nombreProducto">
-      <string>s</string>
+      <string>prueba</string>
+     </void>
+     <void property="tipoProducto">
+      <string>algo</string>
+     </void>
+     <void property="valorInicial">
+      <string>10</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="com.uniquindio.subastasUQ.model.Producto">
+     <void property="descProducto">
+      <string>wdef</string>
+     </void>
+     <void property="fechaPublicacion">
+      <string>2023 - 11 - 20 hora  3:7:15 AM</string>
+     </void>
+     <void property="fechaTerminarPublicacion">
+      <string>2023-11-22</string>
+     </void>
+     <void property="nombreProducto">
+      <string>xw</string>
+     </void>
+     <void property="tipoProducto">
+      <string>Bien raiz</string>
+     </void>
+     <void property="valorInicial">
+      <string>1223</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="com.uniquindio.subastasUQ.model.Producto">
+     <void property="descProducto">
+      <string>dqqwdqcq</string>
+     </void>
+     <void property="fechaPublicacion">
+      <string>2023 - 11 - 20 hora  3:13:9 AM</string>
+     </void>
+     <void property="fechaTerminarPublicacion">
+      <string>2023-11-15</string>
+     </void>
+     <void property="nombreProducto">
+      <string>qw</string>
      </void>
      <void property="tipoProducto">
       <string>Bien raiz</string>

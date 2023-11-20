@@ -1,6 +1,9 @@
 package com.uniquindio.subastasUQ.model;
 
-public class Puja {
+import java.io.Serializable;
+
+public class Puja  implements Serializable {
+    private static final long serialVersionUID = 1L;
     String nombreComprador;
 
     String nombreProducto;

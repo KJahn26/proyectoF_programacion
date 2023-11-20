@@ -64,19 +64,6 @@
             </Button>
          </children>
       </HBox>
-      <HBox fx:id="hboxNombreAnunciante" layoutX="20.0" layoutY="328.0" prefHeight="35.0" prefWidth="273.0" stylesheets="@../../../Decoration/AgregarProductos.css">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre anunciante">
-               <HBox.margin>
-                  <Insets top="5.0" />
-               </HBox.margin>
-            </Text>
-            <TextField fx:id="txtNombreAnunciante" prefHeight="25.0" prefWidth="154.0" promptText="Nombre anunciante" stylesheets="@../../../Decoration/AgregarProductos.css">
-               <HBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </HBox.margin></TextField>
-         </children>
-      </HBox>
       <HBox fx:id="hboxFechaTerminaPublicacion" layoutX="20.0" layoutY="386.0" prefHeight="43.0" prefWidth="327.0" stylesheets="@../../../Decoration/AgregarProductos.css">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha termina publicación">
