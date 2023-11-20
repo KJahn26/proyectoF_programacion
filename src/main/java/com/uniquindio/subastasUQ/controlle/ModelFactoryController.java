@@ -1,5 +1,7 @@
 package com.uniquindio.subastasUQ.controlle;
 
+import com.rabbitmq.client.DeliverCallback;
+import com.uniquindio.subastasUQ.config.RabbitFactory;
 import com.uniquindio.subastasUQ.exceptions.*;
 import com.uniquindio.subastasUQ.controlle.service.iModelFactoryController;
 import com.uniquindio.subastasUQ.mapping.dto.AnuncioDto;
@@ -11,31 +13,48 @@ import com.uniquindio.subastasUQ.model.*;
 import com.uniquindio.subastasUQ.utils.ArchivoUtil;
 import com.uniquindio.subastasUQ.utils.Persistencia;
 import com.uniquindio.subastasUQ.utils.subastaUqUtils;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
-public class ModelFactoryController implements iModelFactoryController {
+public class ModelFactoryController implements iModelFactoryController,Runnable {
 
     SubastaUq subastaUq;
 
     SubastaMapper mapper = SubastaMapper.INSTANCE;
 
+    public final String QUEUE ="persistenciaUsuario";
+
     String fecha="";
 
-    String nombreAnunciante="";
+    String cedulaAnunciante ="";
 
     String nombreProducto="";
 
-    String nombreComprador="";
+    String cedulaComprador ="";
 
-    public String getNombreAnunciante() {
-        return nombreAnunciante;
+    RabbitFactory rabbitFactory;
+
+    ConnectionFactory connectionFactory;
+
+    Thread hiloServicioUsuarios;
+
+    Thread hiloServicioProductos;
+
+    Thread hiloprueba;
+
+    public String getCedulaAnunciante() {
+        return cedulaAnunciante;
     }
 
-    public void setNombreAnunciante(String nombreAnunciante) {
-        this.nombreAnunciante = nombreAnunciante;
+    public void setCedulaAnunciante(String cedulaAnunciante) {
+        this.cedulaAnunciante = cedulaAnunciante;
     }
 
     public String getNombreProducto() {
@@ -46,12 +65,12 @@ public class ModelFactoryController implements iModelFactoryController {
         this.nombreProducto = nombreProducto;
     }
 
-    public String getNombreComprador() {
-        return nombreComprador;
+    public String getCedulaComprador() {
+        return cedulaComprador;
     }
 
-    public void setNombreComprador(String nombreComprador) {
-        this.nombreComprador = nombreComprador;
+    public void setCedulaComprador(String cedulaComprador) {
+        this.cedulaComprador = cedulaComprador;
     }
 
     public String getFecha() {
@@ -73,12 +92,14 @@ public class ModelFactoryController implements iModelFactoryController {
 
     public ModelFactoryController() {
         System.out.println("invocación clase singleton");
-        //cargarDatosBase();
+        cargarDatosBase();
         //agregarDatos();
         cargarResourceXML();
         //cargarDatosArchivos();
         //guardarResourceXML();
         //salvaGuardarDatosPrueba();
+        //initRabbitConnection();
+
 
 
 
@@ -88,6 +109,141 @@ public class ModelFactoryController implements iModelFactoryController {
             salvaGuardarDatosPrueba();
         }
         registrarAccionesSistema("Sin identificar Tipo de Usuario ", 1, "inicio el programa","InicioSesion");
+    }
+
+    @Override
+    public void run(){
+        Thread currentThread= Thread.currentThread();
+        if(hiloServicioUsuarios==currentThread){
+            consumirUsuarios();
+        }
+        if(hiloServicioProductos==currentThread){
+            consumirProductos();
+        }
+
+    }
+
+    public void consumirUsuarios() {
+        try {
+            Connection connection = connectionFactory.newConnection();
+            Channel channel = connection.createChannel();
+            channel.queueDeclare(QUEUE, false, false, false, null);
+
+            DeliverCallback deliverCallback = (consumerTag, delivery) -> {
+                String message = new String(delivery.getBody());
+                System.out.println("Mensaje recibido: " + message);
+                Usuario us= new Usuario();
+                us.setNombre(message.split("@")[0]);
+                us.setCedula(message.split("@")[1]);
+                us.setTelefono(message.split("@")[2]);
+                us.setDireccion(message.split("@")[3]);
+                us.setEmail(message.split("@")[4]);
+                us.setContrasena(message.split("@")[5]);
+                try {
+                    if(us.verificarUsuarioExistente(message.split("@")[1])){
+                        getSubasta().agregarUsuario(us);
+                        guardarResourceXML();
+                        cargarResourceXML();
+                    }
+                } catch (UsuarioException e) {
+                    throw new RuntimeException(e);
+                }
+            };
+            while (true) {
+                channel.basicConsume(QUEUE, true, deliverCallback, consumerTag -> { });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void consumirProductos(){
+        try {
+            System.out.println("llegue primero");
+            Connection connection = connectionFactory.newConnection();
+            Channel channel = connection.createChannel();
+            channel.queueDeclare(QUEUE, false, false, false, null);
+            System.out.println("llegue");
+
+            DeliverCallback deliverCallback = (consumerTag, delivery) -> {
+                String message = new String(delivery.getBody());
+                System.out.println("Mensaje recibido: " + message);
+                Producto pr= new Producto();
+                pr.setNombreProducto(message.split("@")[0]);
+                pr.setTipoProducto(message.split("@")[1]);
+                pr.setDescProducto(message.split("@")[2]);
+                pr.setAnunciante(message.split("@")[3]);
+                pr.setValorInicial(message.split("@")[4]);
+                pr.setFechaPublicacion(message.split("@")[5]);
+                pr.setFechaTerminarPublicacion(message.split("@")[6]);
+                pr.setFechaAdquirido(message.split("@")[7]);
+                try {
+
+                        getSubasta().agregarProducto(pr);
+                        guardarResourceXML();
+                        cargarResourceXML();
+
+
+                } catch (ProductoException e) {
+                    throw new RuntimeException(e);
+                }
+            };
+            while (true) {
+                channel.basicConsume(QUEUE, true, deliverCallback, consumerTag -> { });
+            }
+
+        } catch (IOException | TimeoutException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String getNombreAnunciante(){
+        return subastaUq.getNombre(cedulaAnunciante);
+    }
+
+    public String getNombreComprador(){
+        return subastaUq.getNombre(cedulaComprador);
+    }
+
+
+
+
+    private void initRabbitConnection() {
+        rabbitFactory = new RabbitFactory();
+        connectionFactory = rabbitFactory.getConnectionFactory();
+        System.out.println("conexion establecida con rabbitMQ");
+    }
+
+    public void consumirServicioUsuarios(){
+        hiloServicioUsuarios = new Thread(this);
+        hiloServicioUsuarios.start();
+    }
+
+    public void consumirServicioProductos(){
+        this.hiloServicioProductos= new Thread(this);
+        this.hiloServicioProductos.start();
+    }
+
+    public void producirUsuarios(String message){
+        try (Connection connection = connectionFactory.newConnection();
+             Channel channel = connection.createChannel()) {
+            channel.queueDeclare(QUEUE, false, false, false, null);
+            channel.basicPublish("", QUEUE, null, message.getBytes(StandardCharsets.UTF_8));
+            System.out.println(" [x] Sent '" + message + "'");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void producirProductos(String message){
+        try (Connection connection = connectionFactory.newConnection();
+             Channel channel = connection.createChannel()) {
+            channel.queueDeclare(QUEUE, false, false, false, null);
+            channel.basicPublish("", QUEUE, null, message.getBytes(StandardCharsets.UTF_8));
+            System.out.println(" [x] Sent '" + message + "'");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void salvaGuardarDatosPrueba() {
@@ -133,7 +289,11 @@ public class ModelFactoryController implements iModelFactoryController {
             if (!subastaUq.verificarUsuarioExistente(usuarioDto.cedula())) {
                 Usuario usuario = mapper.usuarioDtoToUsuario(usuarioDto);
                 getSubasta().agregarUsuario(usuario);
+                String msj=usuario.getNombre() + "@" + usuario.getCedula() + "@" + usuario.getTelefono() +
+                        "@" + usuario.getDireccion() + "@" + usuario.getEmail() + "@" + usuario.getContrasena() + "\n";
+                //producirUsuarios(msj);
                 guardarResourceXML();
+                cargarResourceXML();
                 registrarAccionesSistema("Sin identificar", 1, "agrego a un usuario","RegistroUsuario");
             }
             return true;
@@ -200,23 +360,22 @@ public class ModelFactoryController implements iModelFactoryController {
     public List<ProductoDto> obtenerProductos(boolean f) {
 
         if(f){
-            return mapper.getProductosDto(subastaUq.getListaproductos(nombreAnunciante));
+            return mapper.getProductosDto(subastaUq.getListaproductos(cedulaAnunciante));
         }else{
             return mapper.getProductosDto(subastaUq.getListaproductos());
         }
     }
-    public List<ProductoDto> obtenerProductosAdquiridos(boolean f) {
-
-        if(f){
-            return mapper.getProductosDto(subastaUq.getListaProductosAdquiridos());
-        }else{
-            return mapper.getProductosDto(subastaUq.getListaProductosAdquiridos());
-        }
+    public List<ProductoDto> obtenerProductosAdquiridos() {
+        return mapper.getProductosDto(subastaUq.getListaProductosAdquiridos(cedulaComprador));
     }
 
     public List<Anuncio> cogerAnuncios ()
     {
         return subastaUq.getListaAnuncios();
+    }
+
+    public void setvalorpuja(String nombreProducto,String cedulaAnunciante,String valorpuja){
+         subastaUq.setValorinicial(nombreProducto,cedulaAnunciante,valorpuja);
     }
 
 
@@ -244,10 +403,14 @@ public class ModelFactoryController implements iModelFactoryController {
         {
             try {
                 subastaUq.agregarProducto(producto);
+                String msg=producto.getNombreProducto()+"@"+producto.getTipoProducto()+"@"+producto.getDescProducto()+"@"+producto.getAnunciante()+"@"+producto.getValorInicial()
+                        +"@"+producto.getFechaPublicacion()+"@"+producto.getFechaTerminarPublicacion()+"@"+producto.getFechaAdquirido();
+                producirProductos(msg);
                 centinela=true;
                 guardarResourceXML();
+                cargarResourceXML();
                 registrarAccionesSistema("Anunciante",1,"agrego un Producto","CrearAnuncio");
-            } catch (UsuarioException e) {
+            } catch (ProductoException e) {
                 throw new RuntimeException(e);
             }
 
@@ -258,9 +421,9 @@ public class ModelFactoryController implements iModelFactoryController {
 
    public List<PujaDto> obtenerProductosPuja(boolean flag){
         if(flag){
-            return mapper.getPujasDto(subastaUq.getListaProductosPuja(nombreProducto,nombreAnunciante));
+            return mapper.getPujasDto(subastaUq.getListaProductosPuja(nombreProducto,cedulaAnunciante));
         }else{
-            return mapper.getPujasDto(subastaUq.getListaProductosPuja(nombreComprador));
+            return mapper.getPujasDto(subastaUq.getListaProductosPuja(cedulaComprador));
         }
    }
 
@@ -277,7 +440,7 @@ public class ModelFactoryController implements iModelFactoryController {
 
     public boolean agregarPuja(PujaDto pujaDto){
         try{
-            if(!subastaUq.verificarCantidadPujas(pujaDto.nombreAnunciante())) {
+            if(!subastaUq.verificarCantidadPujas(pujaDto.cedulaAnunciante())) {
                 Puja puja = mapper.PujaDtoToPuja(pujaDto);
                 subastaUq.agregarPuja(puja);
                 registrarAccionesSistema("Comprador", 1, "realizo una puja","pujas");

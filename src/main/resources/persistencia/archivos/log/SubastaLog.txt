@@ -545,3 +545,13 @@ nov 20, 2023 3:13:32 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardar
 INFO: Anunciante REALIZO: agrego un Producto en CrearAnuncio , FECHA: 2023 - 11 - 20 hora  3:13:32 AM
 nov 20, 2023 3:13:33 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
 INFO: Anunciante REALIZO: agrego un Producto en CrearAnuncio , FECHA: 2023 - 11 - 20 hora  3:13:33 AM
+nov 20, 2023 3:27:29 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Sin identificar Tipo de Usuario  REALIZO: inicio el programa en InicioSesion , FECHA: 2023 - 11 - 20 hora  3:27:29 AM
+nov 20, 2023 3:27:55 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Comprador REALIZO: inicio de sesion como comprador de lalalala@uqvirtual.edu.co en inicioSesion , FECHA: 2023 - 11 - 20 hora  3:27:55 AM
+nov 20, 2023 3:28:00 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Comprador REALIZO: realizo una puja en pujas , FECHA: 2023 - 11 - 20 hora  3:28:0 AM
+nov 20, 2023 3:28:04 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+WARNING: Comprador REALIZO: Elimino una puja en pujas , FECHA: 2023 - 11 - 20 hora  3:28:4 AM
+nov 20, 2023 3:28:06 A. M. com.uniquindio.subastasUQ.utils.ArchivoUtil guardarRegistroLog
+INFO: Comprador REALIZO: cierre de sesion en Pujas , FECHA: 2023 - 11 - 20 hora  3:28:6 AM
