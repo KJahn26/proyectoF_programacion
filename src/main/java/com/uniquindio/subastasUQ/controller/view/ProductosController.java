@@ -123,6 +123,7 @@ public class ProductosController {
             if (newValue != null) {
                 int indiceSeleccionado = tableUsuarios.getSelectionModel().getSelectedIndex();
                 ponerImagen(indiceSeleccionado);
+
             }
         });
     }
