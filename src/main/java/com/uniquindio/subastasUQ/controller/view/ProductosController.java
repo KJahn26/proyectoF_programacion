@@ -80,8 +80,8 @@ public class ProductosController {
         tableUsuarios.getItems().clear();
         tableUsuarios.setItems(listaProductos);
 
-        anuncioControllerService.consumirProductos();
-        actualizarInterfaz();
+        //anuncioControllerService.consumirProductos();
+        //actualizarInterfaz();
 
 
 

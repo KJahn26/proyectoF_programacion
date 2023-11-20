@@ -16,12 +16,12 @@ import com.uniquindio.subastasUQ.utils.subastaUqUtils;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-import javafx.concurrent.Task;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 public class ModelFactoryController implements iModelFactoryController,Runnable {
 
@@ -33,11 +33,11 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
 
     String fecha="";
 
-    String nombreAnunciante="";
+    String cedulaAnunciante ="";
 
     String nombreProducto="";
 
-    String nombreComprador="";
+    String cedulaComprador ="";
 
     RabbitFactory rabbitFactory;
 
@@ -49,12 +49,12 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
 
     Thread hiloprueba;
 
-    public String getNombreAnunciante() {
-        return nombreAnunciante;
+    public String getCedulaAnunciante() {
+        return cedulaAnunciante;
     }
 
-    public void setNombreAnunciante(String nombreAnunciante) {
-        this.nombreAnunciante = nombreAnunciante;
+    public void setCedulaAnunciante(String cedulaAnunciante) {
+        this.cedulaAnunciante = cedulaAnunciante;
     }
 
     public String getNombreProducto() {
@@ -65,12 +65,12 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
         this.nombreProducto = nombreProducto;
     }
 
-    public String getNombreComprador() {
-        return nombreComprador;
+    public String getCedulaComprador() {
+        return cedulaComprador;
     }
 
-    public void setNombreComprador(String nombreComprador) {
-        this.nombreComprador = nombreComprador;
+    public void setCedulaComprador(String cedulaComprador) {
+        this.cedulaComprador = cedulaComprador;
     }
 
     public String getFecha() {
@@ -92,13 +92,13 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
 
     public ModelFactoryController() {
         System.out.println("invocación clase singleton");
-        //cargarDatosBase();
+        cargarDatosBase();
         //agregarDatos();
         cargarResourceXML();
         //cargarDatosArchivos();
         //guardarResourceXML();
         //salvaGuardarDatosPrueba();
-        initRabbitConnection();
+        //initRabbitConnection();
 
 
 
@@ -168,18 +168,18 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
             DeliverCallback deliverCallback = (consumerTag, delivery) -> {
                 String message = new String(delivery.getBody());
                 System.out.println("Mensaje recibido: " + message);
-                Producto us= new Producto();
-                us.setNombreProducto(message.split("@")[0]);
-                us.setTipoProducto(message.split("@")[1]);
-                us.setDescProducto(message.split("@")[2]);
-                us.setAnunciante(message.split("@")[3]);
-                us.setValorInicial(message.split("@")[4]);
-                us.setFechaPublicacion(message.split("@")[5]);
-                us.setFechaTerminarPublicacion(message.split("@")[6]);
-                us.setFechaAdquirido(message.split("@")[7]);
+                Producto pr= new Producto();
+                pr.setNombreProducto(message.split("@")[0]);
+                pr.setTipoProducto(message.split("@")[1]);
+                pr.setDescProducto(message.split("@")[2]);
+                pr.setAnunciante(message.split("@")[3]);
+                pr.setValorInicial(message.split("@")[4]);
+                pr.setFechaPublicacion(message.split("@")[5]);
+                pr.setFechaTerminarPublicacion(message.split("@")[6]);
+                pr.setFechaAdquirido(message.split("@")[7]);
                 try {
 
-                        getSubasta().agregarProducto(us);
+                        getSubasta().agregarProducto(pr);
                         guardarResourceXML();
                         cargarResourceXML();
 
@@ -192,9 +192,17 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
                 channel.basicConsume(QUEUE, true, deliverCallback, consumerTag -> { });
             }
 
-        } catch (Exception e) {
+        } catch (IOException | TimeoutException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getNombreAnunciante(){
+        return subastaUq.getNombre(cedulaAnunciante);
+    }
+
+    public String getNombreComprador(){
+        return subastaUq.getNombre(cedulaComprador);
     }
 
 
@@ -283,7 +291,7 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
                 getSubasta().agregarUsuario(usuario);
                 String msj=usuario.getNombre() + "@" + usuario.getCedula() + "@" + usuario.getTelefono() +
                         "@" + usuario.getDireccion() + "@" + usuario.getEmail() + "@" + usuario.getContrasena() + "\n";
-                producirUsuarios(msj);
+                //producirUsuarios(msj);
                 guardarResourceXML();
                 cargarResourceXML();
                 registrarAccionesSistema("Sin identificar", 1, "agrego a un usuario","RegistroUsuario");
@@ -352,23 +360,22 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
     public List<ProductoDto> obtenerProductos(boolean f) {
 
         if(f){
-            return mapper.getProductosDto(subastaUq.getListaproductos(nombreAnunciante));
+            return mapper.getProductosDto(subastaUq.getListaproductos(cedulaAnunciante));
         }else{
             return mapper.getProductosDto(subastaUq.getListaproductos());
         }
     }
-    public List<ProductoDto> obtenerProductosAdquiridos(boolean f) {
-
-        if(f){
-            return mapper.getProductosDto(subastaUq.getListaProductosAdquiridos());
-        }else{
-            return mapper.getProductosDto(subastaUq.getListaProductosAdquiridos());
-        }
+    public List<ProductoDto> obtenerProductosAdquiridos() {
+        return mapper.getProductosDto(subastaUq.getListaProductosAdquiridos(cedulaComprador));
     }
 
     public List<Anuncio> cogerAnuncios ()
     {
         return subastaUq.getListaAnuncios();
+    }
+
+    public void setvalorpuja(String nombreProducto,String cedulaAnunciante,String valorpuja){
+         subastaUq.setValorinicial(nombreProducto,cedulaAnunciante,valorpuja);
     }
 
 
@@ -414,9 +421,9 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
 
    public List<PujaDto> obtenerProductosPuja(boolean flag){
         if(flag){
-            return mapper.getPujasDto(subastaUq.getListaProductosPuja(nombreProducto,nombreAnunciante));
+            return mapper.getPujasDto(subastaUq.getListaProductosPuja(nombreProducto,cedulaAnunciante));
         }else{
-            return mapper.getPujasDto(subastaUq.getListaProductosPuja(nombreComprador));
+            return mapper.getPujasDto(subastaUq.getListaProductosPuja(cedulaComprador));
         }
    }
 
@@ -433,7 +440,7 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
 
     public boolean agregarPuja(PujaDto pujaDto){
         try{
-            if(!subastaUq.verificarCantidadPujas(pujaDto.nombreAnunciante())) {
+            if(!subastaUq.verificarCantidadPujas(pujaDto.cedulaAnunciante())) {
                 Puja puja = mapper.PujaDtoToPuja(pujaDto);
                 subastaUq.agregarPuja(puja);
                 registrarAccionesSistema("Comprador", 1, "realizo una puja","pujas");

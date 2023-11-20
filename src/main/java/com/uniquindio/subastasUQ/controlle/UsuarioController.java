@@ -46,19 +46,19 @@ public class UsuarioController {
     }
 
     public String getNombreComprador(){
-        return modelFactoryController.getNombreComprador();
+        return modelFactoryController.getCedulaComprador();
     }
 
-    public void setNombreComprador(String n){
-        modelFactoryController.setNombreComprador(n);
+    public void setCedulaComprador(String n){
+        modelFactoryController.setCedulaComprador(n);
     }
 
     public String getNombreAnunciante(){
-        return modelFactoryController.getNombreAnunciante();
+        return modelFactoryController.getCedulaAnunciante();
     }
 
-    public void setNombreAnunciante(String n){
-        modelFactoryController.setNombreAnunciante(n);
+    public void setCedulaAnunciante(String n){
+        modelFactoryController.setCedulaAnunciante(n);
     }
 
     public String getNombreProducto(){

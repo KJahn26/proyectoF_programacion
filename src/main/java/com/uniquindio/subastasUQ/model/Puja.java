@@ -6,9 +6,12 @@ public class Puja  implements Serializable {
     private static final long serialVersionUID = 1L;
     String nombreComprador;
 
+    String cedulaComprador;
+
     String nombreProducto;
 
     String nombreAnunciante;
+    String cedulaAnunciante;
 
     String valorPuja;
 
@@ -52,6 +55,22 @@ public class Puja  implements Serializable {
 
     public void setFechaFinal(String fechaFinal) {
         this.fechaFinal = fechaFinal;
+    }
+
+    public String getCedulaComprador() {
+        return cedulaComprador;
+    }
+
+    public void setCedulaComprador(String cedulaComprador) {
+        this.cedulaComprador = cedulaComprador;
+    }
+
+    public String getCedulaAnunciante() {
+        return cedulaAnunciante;
+    }
+
+    public void setCedulaAnunciante(String cedulaAnunciante) {
+        this.cedulaAnunciante = cedulaAnunciante;
     }
 
 }

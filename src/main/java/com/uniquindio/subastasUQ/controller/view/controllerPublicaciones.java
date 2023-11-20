@@ -148,9 +148,8 @@ public class controllerPublicaciones {
     @FXML
     void actionMostrarPujas(ActionEvent event)
     {
-        mostrarVentana(event,"controlDePujas.fxml","Pujas Realizadas");
         anuncioController.setNombreProducto(productoSeleccionado.nombreProducto());
-
+        mostrarVentana(event,"controlDePujas.fxml","Pujas Realizadas");
     }
 
     private void listenerSelection() {

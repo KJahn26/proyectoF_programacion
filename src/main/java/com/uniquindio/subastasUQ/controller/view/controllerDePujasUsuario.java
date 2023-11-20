@@ -3,6 +3,7 @@ package com.uniquindio.subastasUQ.controller.view;
 import com.uniquindio.subastasUQ.HelloApplication;
 import com.uniquindio.subastasUQ.controlle.AnuncioController;
 import com.uniquindio.subastasUQ.mapping.dto.PujaDto;
+import com.uniquindio.subastasUQ.model.Producto;
 import com.uniquindio.subastasUQ.model.Puja;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -23,6 +24,8 @@ import javafx.stage.Stage;
 public class controllerDePujasUsuario {
 
     ObservableList<PujaDto> listaPujas = FXCollections.observableArrayList();
+
+    ObservableList<Producto> listaProductosAdquiridos = FXCollections.observableArrayList();
     AnuncioController anuncioController;
 
     @FXML
@@ -79,6 +82,10 @@ public class controllerDePujasUsuario {
         mostrarVentana(event,"Anunciante.fxml","publicaciones");
 
     }
+    @FXML
+    void aceptarPujaAction(ActionEvent event){
+        aceptarPuja();
+    }
 
     void initDataBinding(){
         columnComprador.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreComprador()));
@@ -114,6 +121,10 @@ public class controllerDePujasUsuario {
             e.printStackTrace();
 
         }
+    }
+
+    public void aceptarPuja(){
+
     }
 
 }

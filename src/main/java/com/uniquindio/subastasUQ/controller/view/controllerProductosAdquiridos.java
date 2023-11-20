@@ -88,7 +88,7 @@ public class controllerProductosAdquiridos {
     }
     public void cogerDatos ()
     {
-        listaProductosAdquiridos.addAll(anuncioController.obtenerProductoAdquirido(false));
+        listaProductosAdquiridos.addAll(anuncioController.obtenerProductoAdquirido());
     }
 
     private void exportarCSV(File archivo) {

@@ -45,6 +45,16 @@ public class SubastaUq implements Serializable,ISubastaUQService {
         return listaProductosPuja;
     }
 
+    public ArrayList<Producto> getListaProductosAdquiridos(String cedulaadquisicion) {
+        ArrayList<Producto> pr= new ArrayList<>();
+        for(Producto p:listaProductosAdquiridos){
+            if(p.getCedulaAdquisicion().equals(cedulaadquisicion)){
+                pr.add(p);
+            }
+        }
+        return  pr;
+    }
+
     public ArrayList<Producto> getListaProductosAdquiridos() {
         return listaProductosAdquiridos;
     }
@@ -70,6 +80,17 @@ public class SubastaUq implements Serializable,ISubastaUQService {
         for (Usuario usuario : getListaUsuarios()) {
             if(usuario.getCedula().equalsIgnoreCase(cedula)){
                 UsuarioEncontrado = true;
+                break;
+            }
+        }
+        return UsuarioEncontrado;
+    }
+
+    public String getNombre(String cedula) {
+        String UsuarioEncontrado = "";
+        for (Usuario usuario : getListaUsuarios()) {
+            if(usuario.getCedula().equalsIgnoreCase(cedula)){
+                UsuarioEncontrado = usuario.getNombre();
                 break;
             }
         }
@@ -128,11 +149,11 @@ public class SubastaUq implements Serializable,ISubastaUQService {
         return listaproductos;
     }
 
-    public ArrayList<Producto> getListaproductos(String nombreAnunciante) {
+    public ArrayList<Producto> getListaproductos(String cedulaAnunciante) {
         ArrayList<Producto> p= new ArrayList<>();
 
         for(Producto pr:listaproductos){
-            if(pr.getAnunciante().equals(nombreAnunciante)){
+            if(pr.getCedulaAnunciante().equals(cedulaAnunciante)){
                 p.add(pr);
             }
         }
@@ -176,10 +197,10 @@ public class SubastaUq implements Serializable,ISubastaUQService {
         getListaproductos().add(nuevoProducto);
     }
 
-    public ArrayList<Puja> getListaProductosPuja(String nombreComprador) {
+    public ArrayList<Puja> getListaProductosPuja(String cedulaComprador) {
         ArrayList<Puja> p= new ArrayList<>();
         for(Puja pr: listaProductosPuja){
-            if(pr.getNombreComprador().equals(nombreComprador)){
+            if(pr.getCedulaComprador().equals(cedulaComprador)){
                 p.add(pr);
             }
         }
@@ -187,10 +208,10 @@ public class SubastaUq implements Serializable,ISubastaUQService {
         return p;
     }
 
-    public ArrayList<Puja> getListaProductosPuja(String nombreProducto,String nombreAnunciante) {
+    public ArrayList<Puja> getListaProductosPuja(String nombreProducto,String cedulaAnunciante) {
         ArrayList<Puja> p= new ArrayList<>();
         for(Puja pr: listaProductosPuja){
-            if(pr.getNombreProducto().equals(nombreProducto)&&pr.getNombreAnunciante().equals(nombreAnunciante)){
+            if(pr.getNombreProducto().equals(nombreProducto)&&pr.getCedulaAnunciante().equals(cedulaAnunciante)){
                 p.add(pr);
             }
         }
@@ -232,7 +253,7 @@ public class SubastaUq implements Serializable,ISubastaUQService {
         boolean f=false;
         int c=0;
         for(Puja p:listaProductosPuja){
-            if(p.getNombreAnunciante().equalsIgnoreCase(n)){
+            if(p.getCedulaAnunciante().equalsIgnoreCase(n)){
                 c++;
             }
         }
@@ -241,15 +262,23 @@ public class SubastaUq implements Serializable,ISubastaUQService {
         }
 
     return f;}
-public void agregarAnuncio(Anuncio anuncio)
-{
+public void agregarAnuncio(Anuncio anuncio) {
 
+    listaAnuncios.add(anuncio);
+    System.out.println("Se agrego con exito");
+}
 
-        listaAnuncios.add(anuncio);
-        System.out.println("Se agrego con exito" );
+    public void setValorinicial(String nombrep,String cedulaAnunciante,String valorpuja){
 
+        for(Producto p:listaproductos){
+            if(p.getCedulaAnunciante().equals(cedulaAnunciante)&&p.getNombreProducto().equals(nombrep)){
+                p.setValorInicial(valorpuja);
+            }
+        }
+
+    }
 
 }
 
 
-}
+
