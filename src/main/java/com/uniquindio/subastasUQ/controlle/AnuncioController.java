@@ -79,11 +79,11 @@ public class AnuncioController implements IAnuncioService {
     public void setvalorInicial(String nombreP,String cedulaAnunciante,String valorPuja){
         modelFactoryController.setvalorpuja(nombreP,cedulaAnunciante,valorPuja);
     }
-
-    public boolean setDatos (AnuncioDto anuncioDto)
+        public List<AnuncioDto> obtenerAnuncioDto ()
         {
-            return modelFactoryController.agregarAnuncio(anuncioDto);
+            return modelFactoryController.obtenerAnuncios();
         }
+
 
 }
 

@@ -36,6 +36,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
 import java.util.Optional;
+import java.util.Random;
 
 
 public class controllerAgregarProducto {
@@ -311,9 +312,16 @@ public class controllerAgregarProducto {
             }
         }
     }
+    public static String generarNumeroDeCuatroCifras() {
+        int numero=0;
+        Random random = new Random();
+        numero =1000 + random.nextInt(9000);  // Genera un número entre 1000 y 9999
+         return numero+"";
+    }
 
     public AnuncioDto crearAnuncioDto () throws MalformedURLException {
         AnuncioDto anuncioDto = new AnuncioDto(
+                generarNumeroDeCuatroCifras(),
                 cogerRuta(),
                 txtFechaPublicación.getText(),
                 cogerFecha(),

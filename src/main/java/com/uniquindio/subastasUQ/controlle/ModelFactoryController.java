@@ -279,6 +279,10 @@ public class ModelFactoryController implements iModelFactoryController,Runnable 
 
         return mapper.getUsuariosDto(subastaUq.getListaUsuarios());
     }
+    public List<AnuncioDto> obtenerAnuncios ( )
+    {
+        return mapper.getANuncioDTo(subastaUq.getListaAnuncios());
+    }
     public ArrayList<Usuario> coger() {
         return subastaUq.getListaUsuarios();
     }

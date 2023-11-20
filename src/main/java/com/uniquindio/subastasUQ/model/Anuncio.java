@@ -8,6 +8,7 @@ public class Anuncio extends SubastaUq implements Serializable
    private static final long serialVersionUID = 1L;
    public Anuncio ()
    {}
+   String codigo="";
    String rutaImagen="";
    String fechaInicio="";
    String fechaFIn="";
@@ -54,4 +55,11 @@ public class Anuncio extends SubastaUq implements Serializable
       this.cedulaAnunciante = cedulaAnunciante;
    }
 
+   public String getCodigo() {
+      return codigo;
+   }
+
+   public void setCodigo(String codigo) {
+      this.codigo = codigo;
+   }
 }
