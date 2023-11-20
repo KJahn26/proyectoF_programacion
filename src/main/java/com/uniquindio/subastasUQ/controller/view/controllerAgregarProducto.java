@@ -144,8 +144,6 @@ public class controllerAgregarProducto {
             Image    imgload = new Image(archivo.toURI().toURL().toString());
 
             miImageview.setImage(imgload);
-
-
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -159,8 +157,8 @@ public class controllerAgregarProducto {
             crearproductoDto();
             guardarAnuncio();
             guardarImagen(archivo);
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
+        } catch(Exception e) {
+            e.printStackTrace();
         }
 
 
@@ -316,14 +314,27 @@ public class controllerAgregarProducto {
 
     public AnuncioDto crearAnuncioDto () throws MalformedURLException {
         AnuncioDto anuncioDto = new AnuncioDto(
-                "codigo",
-                txtDescripcionProducto.getText(),
-                fechaPublicación(),
+                cogerRuta(),
+                txtFechaPublicación.getText(),
                 cogerFecha(),
-                archivo.toURI().toURL().toString()
-
+                txtDescripcionProducto.getText(),
+                "1096006075"
 
         );
         return anuncioDto;
+    }
+
+    private String cogerRuta ()
+    {
+        String centinela="";
+         String rutaDirectorioImagenes = "src/main/resources/Imagenes"; // Ajusta la ruta según tu estructura de proyecto
+
+        // Crear un objeto File que representa el directorio
+        File directorio = new File(rutaDirectorioImagenes);
+
+        // Obtener la lista de archivos en el directorio
+         File [] archivos= directorio.listFiles();
+          centinela=(archivos[archivos.length-1].toString());
+         return centinela;
     }
 }
