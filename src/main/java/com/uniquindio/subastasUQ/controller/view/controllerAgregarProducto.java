@@ -144,8 +144,6 @@ public class controllerAgregarProducto {
             Image    imgload = new Image(archivo.toURI().toURL().toString());
 
             miImageview.setImage(imgload);
-
-
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -190,7 +188,7 @@ public class controllerAgregarProducto {
                 txtNombreProducto.getText(),
                 cogerDatosComboBox(),
                 txtDescripcionProducto.getText(),
-                "",
+                txtNombreAnunciante.getText(),
                 txtValorInicial.getText(),
                 txtFechaPublicación.getText(),
                 cogerFecha(),
